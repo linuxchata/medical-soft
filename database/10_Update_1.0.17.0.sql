@@ -45,15 +45,15 @@ BEGIN TRY
 		IF NOT EXISTS (SELECT NULL FROM [SystemUpdates] WHERE [UpdateVersion] = @update_version)
 			BEGIN
 				INSERT INTO [SystemUpdates]
-								   ([UpdateInformation],
-								   [UpdateVersion],
-								   [UpdateVersionInt],
-								   [UpdateDate])
+									([UpdateInformation],
+									[UpdateVersion],
+									[UpdateVersionInt],
+									[UpdateDate])
 							 VALUES
-								   ('Update smtp e-mail configuration.',
-								   @update_version,
-								   @update_version_int,
-								   @update_date);
+									('Update smtp e-mail configuration.',
+									@update_version,
+									@update_version_int,
+									@update_date);
 
 				PRINT 'SystemUpdates table was updated.'
 			END

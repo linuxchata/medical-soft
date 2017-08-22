@@ -1,4 +1,4 @@
--- =========================================================
+п»ї-- =========================================================
 -- Author:			LinuxChata
 -- Created date:	24.06.2013
 -- Modified date:	14.09.2013
@@ -75,35 +75,35 @@ BEGIN TRANSACTION [Update10121Transaction]
 					BEGIN
 						DROP TABLE [Sexs];
 
-						PRINT 'Sexs table has been dropped.';		
+						PRINT 'Sexs table has been dropped.';
 					END
 
 				IF EXISTS (SELECT * FROM sysobjects where name = 'ReminderAlert' AND xtype = 'U')
 					BEGIN
 						DROP TABLE [ReminderAlert];
 
-						PRINT 'ReminderAlert table has been dropped.';		
+						PRINT 'ReminderAlert table has been dropped.';
 					END
 
 				IF EXISTS (SELECT * FROM sysobjects where name = 'ReminderFilter' AND xtype = 'U')
 					BEGIN
 						DROP TABLE [ReminderFilter];
 
-						PRINT 'ReminderFilter table has been dropped.';		
+						PRINT 'ReminderFilter table has been dropped.';
 					END
 
 				IF EXISTS (SELECT * FROM sysobjects where name = 'LanguageData' AND xtype = 'U')
 					BEGIN
 						DROP TABLE [LanguageData];
 
-						PRINT 'LanguageData table has been dropped.';		
+						PRINT 'LanguageData table has been dropped.';
 					END
 
 				IF EXISTS (SELECT * FROM sysobjects where name = 'LanguageKeys' AND xtype = 'U')
 					BEGIN
 						DROP TABLE [LanguageKeys];
 
-						PRINT 'LanguageKeys table has been dropped.';		
+						PRINT 'LanguageKeys table has been dropped.';
 					END
 
 				IF NOT EXISTS (SELECT * FROM sysobjects where name = 'LanguageKeys' AND xtype = 'U')
@@ -216,15 +216,15 @@ BEGIN TRANSACTION [Update10121Transaction]
 				SET @update_date = GETDATE();
 
 				INSERT INTO [SystemUpdates]
-						   ([UpdateInformation],
-						   [UpdateVersion],
-						   [UpdateVersionInt],
-						   [UpdateDate])
+							([UpdateInformation],
+							[UpdateVersion],
+							[UpdateVersionInt],
+							[UpdateDate])
 					 VALUES
-						   ('Create Reminder tables.',
-						   @update_version,
-						   @update_version_int,
-						   @update_date);
+							('Create Reminder tables.',
+							@update_version,
+							@update_version_int,
+							@update_date);
 
 				PRINT 'SystemUpdates table was updated.'
 			END
@@ -295,7 +295,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_backup_types = N'Ручной';
+						SET @name_of_backup_types = N'Р СѓС‡РЅРѕР№';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -309,7 +309,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_backup_types = N'Ручний';
+						SET @name_of_backup_types = N'Р СѓС‡РЅРёР№';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -351,7 +351,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_backup_types = N'По расписанию';
+						SET @name_of_backup_types = N'РџРѕ СЂР°СЃРїРёСЃР°РЅРёСЋ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -365,7 +365,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_backup_types = N'По розкладу';
+						SET @name_of_backup_types = N'РџРѕ СЂРѕР·РєР»Р°РґСѓ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -409,7 +409,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_sex = N'Мужской';
+						SET @name_of_sex = N'РњСѓР¶СЃРєРѕР№';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -423,7 +423,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_sex = N'Чоловіча';
+						SET @name_of_sex = N'Р§РѕР»РѕРІС–С‡Р°';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -465,7 +465,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_sex = N'Женский';
+						SET @name_of_sex = N'Р–РµРЅСЃРєРёР№';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -479,7 +479,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_sex = N'Жіноча';
+						SET @name_of_sex = N'Р–С–РЅРѕС‡Р°';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -523,7 +523,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'Выберите фильтр';
+						SET @name_of_filter = N'Р’С‹Р±РµСЂРёС‚Рµ С„РёР»СЊС‚СЂ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -537,7 +537,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'Оберіть фільтр';
+						SET @name_of_filter = N'РћР±РµСЂС–С‚СЊ С„С–Р»СЊС‚СЂ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -579,7 +579,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За текущий год';
+						SET @name_of_filter = N'Р—Р° С‚РµРєСѓС‰РёР№ РіРѕРґ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -593,7 +593,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За поточний рік';
+						SET @name_of_filter = N'Р—Р° РїРѕС‚РѕС‡РЅРёР№ СЂС–Рє';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -635,7 +635,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За текущий месяц';
+						SET @name_of_filter = N'Р—Р° С‚РµРєСѓС‰РёР№ РјРµСЃСЏС†';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -649,7 +649,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За поточний місяць';
+						SET @name_of_filter = N'Р—Р° РїРѕС‚РѕС‡РЅРёР№ РјС–СЃСЏС†СЊ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -691,7 +691,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За текущую неделю';
+						SET @name_of_filter = N'Р—Р° С‚РµРєСѓС‰СѓСЋ РЅРµРґРµР»СЋ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -705,7 +705,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За поточний тиждень';
+						SET @name_of_filter = N'Р—Р° РїРѕС‚РѕС‡РЅРёР№ С‚РёР¶РґРµРЅСЊ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -747,7 +747,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За выбранную дату';
+						SET @name_of_filter = N'Р—Р° РІС‹Р±СЂР°РЅРЅСѓСЋ РґР°С‚Сѓ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -761,7 +761,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_filter = N'За обрану дату';
+						SET @name_of_filter = N'Р—Р° РѕР±СЂР°РЅСѓ РґР°С‚Сѓ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -804,7 +804,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'В день напоминания';
+						SET @name_of_alert = N'Р’ РґРµРЅСЊ РЅР°РїРѕРјРёРЅР°РЅРёСЏ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -818,7 +818,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'У день нагадування';
+						SET @name_of_alert = N'РЈ РґРµРЅСЊ РЅР°РіР°РґСѓРІР°РЅРЅСЏ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -861,7 +861,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'За 1 день до напоминания';
+						SET @name_of_alert = N'Р—Р° 1 РґРµРЅСЊ РґРѕ РЅР°РїРѕРјРёРЅР°РЅРёСЏ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -875,7 +875,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'За 1 день до нагадування';
+						SET @name_of_alert = N'Р—Р° 1 РґРµРЅСЊ РґРѕ РЅР°РіР°РґСѓРІР°РЅРЅСЏ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -918,7 +918,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'За 1 неделю до напоминания';
+						SET @name_of_alert = N'Р—Р° 1 РЅРµРґРµР»СЋ РґРѕ РЅР°РїРѕРјРёРЅР°РЅРёСЏ';
 						SET @culture_id = 2;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
@@ -932,7 +932,7 @@ BEGIN TRANSACTION [Update10121Transaction]
 											@culture_id);
 							END
 
-						SET @name_of_alert = N'За 1 тиждень до нагадування';
+						SET @name_of_alert = N'Р—Р° 1 С‚РёР¶РґРµРЅСЊ РґРѕ РЅР°РіР°РґСѓРІР°РЅРЅСЏ';
 						SET @culture_id = 3;
 
 						IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_sex AND [CultureId] = @culture_id)
