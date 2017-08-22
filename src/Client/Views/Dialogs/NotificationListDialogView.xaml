@@ -1,0 +1,143 @@
+﻿<Window x:Class="Client.Views.Dialogs.NotificationListDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:v="clr-namespace:Client.Views.UserControls"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:NotificationListDialogViewModel}"
+        Title="{x:Static p:Resources.NotificationListDialogMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+        
+        <Style x:Key="HighlightRow" TargetType="DataGridRow" BasedOn="{StaticResource DataGridRow}">
+            <Setter Property="ToolTip">
+                <Setter.Value>
+                    <StackPanel>
+                        <TextBlock FontWeight="Bold" Text="{Binding PatientName}" />
+                        <TextBlock Text="{Binding PatientEmail}" />
+                        <TextBlock Text="{Binding ErrorDescription}">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding ErrorDescription}" Value="{x:Null}">
+                                            <Setter Property="Visibility" Value="Collapsed" />
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                    </StackPanel>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Status}" Value="3">
+                    <Setter Property="Foreground" Value="Red" />
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="R" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                Style="{StaticResource BorderDialog}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0"
+                            Margin="0,0,0,10"
+                            Orientation="Horizontal">
+                    <TextBlock Text="{x:Static p:Resources.NotificationListDialogFilter}"
+                               Style="{StaticResource TextBlockDefault}"
+                               Width="60"
+                               Margin="0,0,10,0" />
+                    <ComboBox SelectedValue="{Binding SelectedStatus, Mode=TwoWay}"
+                              ItemsSource="{Binding StatusItems, Mode=OneWay}"
+                              DisplayMemberPath="Name"
+                              VerticalContentAlignment="Center"
+                              Width="200" />
+                    <Button Command="{Binding SelectedStatusCancelCommand}"
+                            Content="X"
+                            ToolTip="{x:Static p:Resources.NotificationListDialogCancelFilter}"
+                            Style="{StaticResource ButtonDefault}"
+                            Width="22"
+                            Margin="10,0,0,0" />
+                </StackPanel>
+
+                <DataGrid Grid.Row="1"
+                          ItemsSource="{Binding Path=FilteredModel, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                          Style="{StaticResource DataGridDefaultStyle}"
+                          RowStyle="{StaticResource HighlightRow}"
+                          Width="980"
+                          Height="348">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="{x:Static p:Resources.NotificationListDialogPatient}"
+                                            Binding="{Binding Path=PatientName}"
+                                            Width="0.22*"/>
+                        <DataGridTextColumn Header="{x:Static p:Resources.NotificationListDialogEmail}"
+                                            Binding="{Binding Path=PatientEmail}"
+                                            Width="0.23*"/>
+                        <DataGridTextColumn Header="{x:Static p:Resources.NotificationListDialogSendDate}"
+                                            Binding="{Binding Path=SendDate, StringFormat=dd.MM.yyyy HH:mm:ss}"
+                                            Width="0.13*"/>
+                        <DataGridTextColumn Header="{x:Static p:Resources.NotificationListDialogStatus}" 
+                                            Binding="{Binding Path=StatusName}"
+                                            Width="0.12*"/>
+                        <DataGridTextColumn Header="{x:Static p:Resources.NotificationListDialogError}"
+                                            Binding="{Binding Path=ErrorDescription}"
+                                            Width="0.30*"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.NotificationListDialogButtonRefresh}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.NotificationListDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    Margin="10,0,0,0" />
+        </StackPanel>
+        <v:AmountSummary Grid.Row="2"
+                         Amount="{Binding Path=Count}"
+                         HorizontalAlignment="Left" />
+    </Grid>
+</Window>

@@ -1,0 +1,149 @@
+﻿<Window x:Class="Client.Views.Dialogs.ReminderDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:autocomplete="clr-namespace:Autocomplete;assembly=Autocomplete"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:tc="clr-namespace:TimeControl;assembly=TimeControl"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:ReminderDialogViewModel}"
+        Title="{x:Static p:Resources.ReminderDialogMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                Style="{StaticResource BorderDialog}">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderMainInfo}">
+                    <TextBlock Text="{x:Static p:Resources.ReminderDialogMainInfo}"
+                               Style="{StaticResource TextBlockMainInfo}" />
+                </Border>
+
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.ReminderDate}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <Calendar SelectedDate="{Binding Model.Date, Mode=TwoWay}"
+                              DisplayDate="{Binding Model.Date, Mode=OneWay}"
+                              Height="170" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.ReminderTime}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <tc:TimeControl Hours="{Binding Hours}"
+                                    Minutes="{Binding Minutes}"
+                                    SelectedHour="{Binding SelectedHour, Mode=TwoWay}"
+                                    SelectedMinute="{Binding SelectedMinute, Mode=TwoWay}" />
+
+                    <TextBlock Text="{x:Static p:Resources.ReminderMessage}"
+                               Style="{StaticResource TextBlockDefault}"
+                               Margin="0,5,0,0" />
+                    <TextBox Text="{Binding Model.Message, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Name="FocusableControl"
+                             Style="{StaticResource TextArea}"
+                             Height="36"
+                             MaxLength="1024" />
+
+                    <TextBlock Text="{x:Static p:Resources.ReminderDoctor}"
+                               Style="{StaticResource TextBlockDefault}"
+                               Margin="0,5,0,0" />
+                    <ComboBox ItemsSource="{Binding Doctors}"
+                              SelectedValue="{Binding SelectedDoctor, Mode=TwoWay}"
+                              DisplayMemberPath="Name" />
+
+                    <TextBlock Text="{x:Static p:Resources.RemindertPatient}"
+                               Margin="0,5,0,0" />
+                    <autocomplete:Autocomplete ItemsSource="{Binding Patients}"
+                                               SelectedItem="{Binding SelectedPatient, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                               SelectedValuePath="Id"
+                                               DisplayMemberPath="Name"
+                                               Height="23" />
+
+                    <CheckBox IsChecked="{Binding Model.IsCompleted}"
+                              Content="{x:Static p:Resources.ReminderIsCompleted}"
+                              Margin="0,5,0,0" />
+
+                    <TextBlock Text="{x:Static p:Resources.RemindertAlert}"
+                               Style="{StaticResource TextBlockDefault}"
+                               Margin="0,5,0,0" />
+                    <ComboBox ItemsSource="{Binding ReminderAlerts}"
+                              SelectedValue="{Binding SelectedReminderAlert, Mode=TwoWay}"
+                              DisplayMemberPath="Name" />
+
+                    <TextBlock Text="{x:Static p:Resources.RemindertComment}"
+                               Style="{StaticResource TextBlockDefault}"
+                               Margin="0,5,0,0" />
+                    <TextBox Text="{Binding Model.Comment, Mode=TwoWay}"
+                             Style="{StaticResource TextArea}"
+                             Height="50"
+                             MaxLength="1024" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.ReminderDialogButtonSave}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    FontWeight="Bold" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.ReminderDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Margin="10,0,0,0"
+                    Width="90" />
+        </StackPanel>
+    </Grid>
+</Window>

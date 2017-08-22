@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="Client.Views.UserControls.NavigationsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+             xmlns:m="clr-namespace:Models;assembly=Models">
+
+    <UserControl.Resources>
+        <c:StyleConverter x:Key="StyleConverter"/>
+
+        <DataTemplate x:Key="ListBoxItemTemplate" DataType="m:NavigationModel">
+            <StackPanel>
+                <Path>
+                    <Path.Style>
+                        <MultiBinding Converter="{StaticResource StyleConverter}">
+                            <MultiBinding.Bindings>
+                                <Binding RelativeSource="{RelativeSource Self}"/>
+                                <Binding Path="Style"/>
+                            </MultiBinding.Bindings>
+                        </MultiBinding>
+                    </Path.Style>
+                    <Path.ToolTip>
+                        <ToolTip Content="{Binding Name}" />
+                    </Path.ToolTip>
+                </Path>
+                <TextBlock HorizontalAlignment="Center" Foreground="White" Text="{Binding Name}">
+                    <TextBlock.ToolTip>
+                        <ToolTip Content="{Binding Name}" />
+                    </TextBlock.ToolTip>
+                </TextBlock>
+            </StackPanel>
+        </DataTemplate>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="SkyBlue" Offset="0.0" />
+                <GradientStop Color="CadetBlue" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" MinWidth="490" />
+            <ColumnDefinition Width="*" MinWidth="166" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListBox Grid.Column="0"
+                 ItemsSource="{Binding LeftPanelItems}"
+                 SelectedItem="{Binding SelectedLeftPanelItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 ItemContainerStyle="{StaticResource SelectableListBoxItem}"
+                 ItemTemplate="{StaticResource ListBoxItemTemplate}"
+                 Style="{StaticResource NavigationListBox}"
+                 Width="Auto">
+        </ListBox>
+
+        <ListBox Grid.Row="0"
+                 Grid.Column="1"
+                 HorizontalAlignment="Right"
+                 ItemsSource="{Binding RightPanelItems}"
+                 SelectedItem="{Binding SelectedRightPanelItem, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 ItemContainerStyle="{StaticResource NonSelectableListBoxItem}"
+                 ItemTemplate="{StaticResource ListBoxItemTemplate}"
+                 Style="{StaticResource NavigationListBox}"
+                 Width="Auto">
+        </ListBox>
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Grid.ColumnSpan="2"
+                BorderBrush="Orange"
+                BorderThickness="0,0,0,0.5" />
+    </Grid>
+</UserControl>

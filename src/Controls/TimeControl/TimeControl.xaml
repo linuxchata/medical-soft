@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="TimeControl.TimeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="22"
+             d:DesignWidth="133">
+
+    <Grid DataContext="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type UserControl}}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="10" />
+            <ColumnDefinition Width="50" />
+            <ColumnDefinition Width="15" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10" />
+            <RowDefinition Height="2" />
+            <RowDefinition Height="10" />
+        </Grid.RowDefinitions>
+        <ComboBox Grid.Row="0"
+                  Grid.RowSpan="3"
+                  Grid.Column="0"
+                  ItemsSource="{Binding Hours}"
+                  SelectedItem="{Binding SelectedHour}" />
+        <TextBlock Grid.Row="0"
+                   Grid.RowSpan="3"
+                   Grid.Column="1"
+                   Text=" : "
+                   Width="10" />
+        <ComboBox Grid.Row="0"
+                  Grid.RowSpan="3"
+                  Grid.Column="2"
+                  ItemsSource="{Binding Minutes}"
+                  SelectedItem="{Binding SelectedMinute}" />
+        <Button Grid.Row="0"
+                Grid.Column="3"
+                Command="{Binding IncreaseCommand}"
+                Style="{StaticResource UpButton}"
+                Height="10"
+                Margin="0" />
+        <Button Grid.Row="2"
+                Grid.Column="3"
+                Command="{Binding DecreaseCommand}"
+                Style="{StaticResource DownButton}"
+                Height="10"
+                Margin="0" />
+    </Grid>
+</UserControl>

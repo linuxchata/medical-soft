@@ -1,0 +1,1846 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="dentistModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="StartTime" Type="datetime" Nullable="false" />
+          <Property Name="EndTime" Type="datetime" Nullable="false" />
+          <Property Name="Doctor" Type="nvarchar" MaxLength="200" />
+          <Property Name="DoctorId" Type="int" Nullable="false" />
+          <Property Name="Patient" Type="nvarchar" MaxLength="200" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="200" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BackupLogs">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BackupTypesId" Type="int" Nullable="false" />
+          <Property Name="StartDateTime" Type="datetime" Nullable="false" />
+          <Property Name="EndDateTime" Type="datetime" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="Status" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="StartedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="BackupTypes">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="200" />
+          <Property Name="ShortName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LanguageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" Nullable="false" />
+          <Property Name="Value" Type="nvarchar" MaxLength="512" Nullable="false" />
+          <Property Name="CultureId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="LanguageKeys">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Key" Type="varchar" MaxLength="512" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LoginName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="IsCanLogin" Type="bit" Nullable="false" />
+          <Property Name="IsHaveToChangePass" Type="bit" Nullable="false" />
+          <Property Name="RoleInSystem" Type="int" Nullable="false" />
+          <Property Name="StaffID" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="IsSA" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UniqueId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" Nullable="false" />
+          <Property Name="TemplateId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" Nullable="false" />
+          <Property Name="CompletedDate" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationGroupStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="SendDate" Type="datetime" />
+          <Property Name="Status" Type="int" Nullable="false" />
+          <Property Name="ErrorDescription" Type="nvarchar" MaxLength="2048" />
+        </EntityType>
+        <EntityType Name="NotificationListStatus">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NotificationTemplate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Title" Type="nvarchar" MaxLength="1024" />
+          <Property Name="Body" Type="nvarchar(max)" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CardNumber" Type="int" Nullable="false" />
+          <Property Name="RegistrationDate" Type="datetime" Nullable="false" />
+          <Property Name="Job" Type="nvarchar" MaxLength="200" />
+          <Property Name="Profession" Type="nvarchar" MaxLength="100" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumberHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumberWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumberCell" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+          <Property Name="IsEmailNotificationAllowed" Type="bit" Nullable="false" />
+          <Property Name="IsEmailChecked" Type="bit" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="PatientId" Type="int" Nullable="false" />
+          <Property Name="DoctorId" Type="int" />
+          <Property Name="Message" Type="nvarchar" MaxLength="1024" />
+          <Property Name="AlertId" Type="int" Nullable="false" />
+          <Property Name="IsCompleted" Type="bit" Nullable="false" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="1024" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReminderAlert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Days" Type="int" Nullable="false" />
+          <Property Name="KeyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ReminderFilter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="nvKey" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="nvValue" Type="nvarchar" MaxLength="100" />
+          <Property Name="intValue" Type="int" />
+          <Property Name="bitValue" Type="bit" />
+          <Property Name="Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sexs">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KeyId" Type="int" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EducationID" Type="int" Nullable="false" />
+          <Property Name="PositionID" Type="int" Nullable="false" />
+          <Property Name="SurName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sex" Type="int" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="PhoneNumberHome" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumberWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="PhoneNumberCell" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Birthday" Type="datetime" />
+          <Property Name="IsTaking" Type="bit" Nullable="false" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="300" />
+          <Property Name="IsDeleted" Type="bit" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Changed" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" Nullable="false" />
+          <Property Name="ChangedBy" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SystemUpdates">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UpdateInformation" Type="nvarchar" MaxLength="1024" />
+          <Property Name="UpdateVersion" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="UpdateVersionInt" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__BackupTyp__KeyId__34C8D9D1">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="0..1" />
+          <End Role="BackupTypes" Type="Self.BackupTypes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BackupTypes">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LanguageD__Cultu__412EB0B6">
+          <End Role="Culture" Type="Self.Culture" Multiplicity="1" />
+          <End Role="LanguageData" Type="Self.LanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LanguageData">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LanguageD__KeyId__403A8C7D">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="1" />
+          <End Role="LanguageData" Type="Self.LanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LanguageData">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__KeyId__4BAC3F29">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="1" />
+          <End Role="NotificationGroupStatus" Type="Self.NotificationGroupStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroupStatus">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__KeyId__52593CB8">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="1" />
+          <End Role="NotificationListStatus" Type="Self.NotificationListStatus" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationListStatus">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Reminder__AlertI__440B1D61">
+          <End Role="ReminderAlert" Type="Self.ReminderAlert" Multiplicity="1" />
+          <End Role="Reminder" Type="Self.Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReminderAlert">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="AlertId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReminderA__KeyId__3D5E1FD2">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="1" />
+          <End Role="ReminderAlert" Type="Self.ReminderAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReminderAlert">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReminderF__KeyId__3A81B327">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="1" />
+          <End Role="ReminderFilter" Type="Self.ReminderFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReminderFilter">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sexs__KeyId__37A5467C">
+          <End Role="LanguageKeys" Type="Self.LanguageKeys" Multiplicity="0..1" />
+          <End Role="Sexs" Type="Self.Sexs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKeys">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sexs">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Patient">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Appointment_Staff">
+          <End Role="Staff" Type="Self.Staff" Multiplicity="1" />
+          <End Role="Appointment" Type="Self.Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BackupLogs_BackupTypes">
+          <End Role="BackupTypes" Type="Self.BackupTypes" Multiplicity="1" />
+          <End Role="BackupLogs" Type="Self.BackupLogs" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BackupTypes">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BackupLogs">
+              <PropertyRef Name="BackupTypesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Status">
+          <End Role="NotificationGroupStatus" Type="Self.NotificationGroupStatus" Multiplicity="1" />
+          <End Role="NotificationGroup" Type="Self.NotificationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationGroupStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroup">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_TemplateId">
+          <End Role="NotificationTemplate" Type="Self.NotificationTemplate" Multiplicity="1" />
+          <End Role="NotificationGroup" Type="Self.NotificationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationTemplate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroup">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_GroupId">
+          <End Role="NotificationGroup" Type="Self.NotificationGroup" Multiplicity="1" />
+          <End Role="NotificationList" Type="Self.NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_PatientId">
+          <End Role="Patient" Type="Self.Patient" Multiplicity="1" />
+          <End Role="NotificationList" Type="Self.NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_Status">
+          <End Role="NotificationListStatus" Type="Self.NotificationListStatus" Multiplicity="1" />
+          <End Role="NotificationList" Type="Self.NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationListStatus">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Login_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="Login" Type="Self.Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="RoleInSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Sex">
+          <End Role="Sexs" Type="Self.Sexs" Multiplicity="1" />
+          <End Role="Patient" Type="Self.Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sexs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Education">
+          <End Role="Education" Type="Self.Education" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Education">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="EducationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Role="Position" Type="Self.Position" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Sex">
+          <End Role="Sexs" Type="Self.Sexs" Multiplicity="1" />
+          <End Role="Staff" Type="Self.Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sexs">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="sp_BackUpOfTheDataBase" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="databasename" Type="nvarchar" Mode="In" />
+          <Parameter Name="pathtothedatabase" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="dentistModelStoreContainer">
+          <EntitySet Name="Appointment" EntityType="Self.Appointment" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BackupLogs" EntityType="Self.BackupLogs" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="BackupTypes" EntityType="Self.BackupTypes" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Culture" EntityType="Self.Culture" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Education" EntityType="Self.Education" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="LanguageData" EntityType="Self.LanguageData" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="LanguageKeys" EntityType="Self.LanguageKeys" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Login" EntityType="Self.Login" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NotificationGroup" EntityType="Self.NotificationGroup" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NotificationGroupStatus" EntityType="Self.NotificationGroupStatus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NotificationList" EntityType="Self.NotificationList" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NotificationListStatus" EntityType="Self.NotificationListStatus" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="NotificationTemplate" EntityType="Self.NotificationTemplate" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Patient" EntityType="Self.Patient" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Position" EntityType="Self.Position" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Reminder" EntityType="Self.Reminder" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ReminderAlert" EntityType="Self.ReminderAlert" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="ReminderFilter" EntityType="Self.ReminderFilter" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Setting" EntityType="Self.Setting" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Sexs" EntityType="Self.Sexs" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="Staff" EntityType="Self.Staff" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <EntitySet Name="SystemUpdates" EntityType="Self.SystemUpdates" Schema="dbo" store:Type="Tables" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" />
+          <AssociationSet Name="FK__BackupTyp__KeyId__34C8D9D1" Association="Self.FK__BackupTyp__KeyId__34C8D9D1">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="BackupTypes" EntitySet="BackupTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LanguageD__Cultu__412EB0B6" Association="Self.FK__LanguageD__Cultu__412EB0B6">
+            <End Role="Culture" EntitySet="Culture" />
+            <End Role="LanguageData" EntitySet="LanguageData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LanguageD__KeyId__403A8C7D" Association="Self.FK__LanguageD__KeyId__403A8C7D">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="LanguageData" EntitySet="LanguageData" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__KeyId__4BAC3F29" Association="Self.FK__Notificat__KeyId__4BAC3F29">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="NotificationGroupStatus" EntitySet="NotificationGroupStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__KeyId__52593CB8" Association="Self.FK__Notificat__KeyId__52593CB8">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="NotificationListStatus" EntitySet="NotificationListStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Reminder__AlertI__440B1D61" Association="Self.FK__Reminder__AlertI__440B1D61">
+            <End Role="ReminderAlert" EntitySet="ReminderAlert" />
+            <End Role="Reminder" EntitySet="Reminder" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReminderA__KeyId__3D5E1FD2" Association="Self.FK__ReminderA__KeyId__3D5E1FD2">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="ReminderAlert" EntitySet="ReminderAlert" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReminderF__KeyId__3A81B327" Association="Self.FK__ReminderF__KeyId__3A81B327">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="ReminderFilter" EntitySet="ReminderFilter" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sexs__KeyId__37A5467C" Association="Self.FK__Sexs__KeyId__37A5467C">
+            <End Role="LanguageKeys" EntitySet="LanguageKeys" />
+            <End Role="Sexs" EntitySet="Sexs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Patient" Association="Self.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Appointment_Staff" Association="Self.FK_Appointment_Staff">
+            <End Role="Staff" EntitySet="Staff" />
+            <End Role="Appointment" EntitySet="Appointment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BackupLogs_BackupTypes" Association="Self.FK_BackupLogs_BackupTypes">
+            <End Role="BackupTypes" EntitySet="BackupTypes" />
+            <End Role="BackupLogs" EntitySet="BackupLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Status" Association="Self.FK_Group_Status">
+            <End Role="NotificationGroupStatus" EntitySet="NotificationGroupStatus" />
+            <End Role="NotificationGroup" EntitySet="NotificationGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_TemplateId" Association="Self.FK_Group_TemplateId">
+            <End Role="NotificationTemplate" EntitySet="NotificationTemplate" />
+            <End Role="NotificationGroup" EntitySet="NotificationGroup" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_GroupId" Association="Self.FK_List_GroupId">
+            <End Role="NotificationGroup" EntitySet="NotificationGroup" />
+            <End Role="NotificationList" EntitySet="NotificationList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_PatientId" Association="Self.FK_List_PatientId">
+            <End Role="Patient" EntitySet="Patient" />
+            <End Role="NotificationList" EntitySet="NotificationList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_Status" Association="Self.FK_List_Status">
+            <End Role="NotificationListStatus" EntitySet="NotificationListStatus" />
+            <End Role="NotificationList" EntitySet="NotificationList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Role" Association="Self.FK_Login_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="Login" EntitySet="Login" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Sex" Association="Self.FK_Patient_Sex">
+            <End Role="Sexs" EntitySet="Sexs" />
+            <End Role="Patient" EntitySet="Patient" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Education" Association="Self.FK_Staff_Education">
+            <End Role="Education" EntitySet="Education" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="Self.FK_Staff_Position">
+            <End Role="Position" EntitySet="Position" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Sex" Association="Self.FK_Staff_Sex">
+            <End Role="Sexs" EntitySet="Sexs" />
+            <End Role="Staff" EntitySet="Staff" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dentistModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2009/11/edm" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntityContainer Name="dentistEntities" annotation:LazyLoadingEnabled="true" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+          <FunctionImport Name="sp_BackUpOfTheDataBase" ReturnType="Collection(String)">
+            <Parameter Name="databasename" Mode="In" Type="String" />
+            <Parameter Name="pathtothedatabase" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Appointments" EntityType="dentistModel.Appointment" />
+          <EntitySet Name="BackupLogs" EntityType="dentistModel.BackupLog" />
+          <EntitySet Name="BackupTypes" EntityType="dentistModel.BackupType" />
+          <EntitySet Name="Cultures" EntityType="dentistModel.Culture" />
+          <EntitySet Name="Educations" EntityType="dentistModel.Education" />
+          <EntitySet Name="LanguageDatas" EntityType="dentistModel.LanguageData" />
+          <EntitySet Name="LanguageKeys" EntityType="dentistModel.LanguageKey" />
+          <EntitySet Name="Logins" EntityType="dentistModel.Login" />
+          <EntitySet Name="Positions" EntityType="dentistModel.Position" />
+          <EntitySet Name="ReminderAlerts" EntityType="dentistModel.ReminderAlert" />
+          <EntitySet Name="ReminderFilters" EntityType="dentistModel.ReminderFilter" />
+          <EntitySet Name="Roles" EntityType="dentistModel.Role" />
+          <EntitySet Name="Sexs" EntityType="dentistModel.Sex" />
+          <EntitySet Name="Staffs" EntityType="dentistModel.Staff" />
+          <AssociationSet Name="FK_Appointment_Staff" Association="dentistModel.FK_Appointment_Staff">
+            <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BackupLogs_BackupTypes" Association="dentistModel.FK_BackupLogs_BackupTypes">
+            <End Role="BackupType" EntitySet="BackupTypes" />
+            <End Role="BackupLog" EntitySet="BackupLogs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__BackupTyp__KeyId__30F848ED" Association="dentistModel.FK__BackupTyp__KeyId__30F848ED">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="BackupType" EntitySet="BackupTypes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LanguageD__Cultu__44FF419A" Association="dentistModel.FK__LanguageD__Cultu__44FF419A">
+            <End Role="Culture" EntitySet="Cultures" />
+            <End Role="LanguageData" EntitySet="LanguageDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Education" Association="dentistModel.FK_Staff_Education">
+            <End Role="Education" EntitySet="Educations" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK__LanguageD__KeyId__440B1D61" Association="dentistModel.FK__LanguageD__KeyId__440B1D61">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="LanguageData" EntitySet="LanguageDatas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReminderA__KeyId__3F466844" Association="dentistModel.FK__ReminderA__KeyId__3F466844">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="ReminderAlert" EntitySet="ReminderAlerts" />
+          </AssociationSet>
+          <AssociationSet Name="FK__ReminderF__KeyId__3A81B327" Association="dentistModel.FK__ReminderF__KeyId__3A81B327">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="ReminderFilter" EntitySet="ReminderFilters" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Sexs__KeyId__35BCFE0A" Association="dentistModel.FK__Sexs__KeyId__35BCFE0A">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="Sex" EntitySet="Sexs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Login_Role" Association="dentistModel.FK_Login_Role">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="Login" EntitySet="Logins" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Position" Association="dentistModel.FK_Staff_Position">
+            <End Role="Position" EntitySet="Positions" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Staff_Sex" Association="dentistModel.FK_Staff_Sex">
+            <End Role="Sex" EntitySet="Sexs" />
+            <End Role="Staff" EntitySet="Staffs" />
+          </AssociationSet>
+          <EntitySet Name="Reminders" EntityType="dentistModel.Reminder" />
+          <AssociationSet Name="FK__Reminder__AlertI__49C3F6B7" Association="dentistModel.FK__Reminder__AlertI__49C3F6B7">
+            <End Role="ReminderAlert" EntitySet="ReminderAlerts" />
+            <End Role="Reminder" EntitySet="Reminders" />
+          </AssociationSet>
+          <EntitySet Name="SystemUpdates" EntityType="dentistModel.SystemUpdate" />
+          <EntitySet Name="NotificationTemplates" EntityType="dentistModel.NotificationTemplate" />
+          <EntitySet Name="NotificationGroups" EntityType="dentistModel.NotificationGroup" />
+          <EntitySet Name="NotificationGroupStatus" EntityType="dentistModel.NotificationGroupStatu" />
+          <EntitySet Name="NotificationLists" EntityType="dentistModel.NotificationList" />
+          <EntitySet Name="NotificationListStatus" EntityType="dentistModel.NotificationListStatu" />
+          <AssociationSet Name="FK__Notificat__KeyId__6A30C649" Association="dentistModel.FK__Notificat__KeyId__6A30C649">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="NotificationGroupStatu" EntitySet="NotificationGroupStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Notificat__KeyId__72C60C4A" Association="dentistModel.FK__Notificat__KeyId__72C60C4A">
+            <End Role="LanguageKey" EntitySet="LanguageKeys" />
+            <End Role="NotificationListStatu" EntitySet="NotificationListStatus" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Status" Association="dentistModel.FK_Group_Status">
+            <End Role="NotificationGroupStatu" EntitySet="NotificationGroupStatus" />
+            <End Role="NotificationGroup" EntitySet="NotificationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_TemplateId" Association="dentistModel.FK_Group_TemplateId">
+            <End Role="NotificationTemplate" EntitySet="NotificationTemplates" />
+            <End Role="NotificationGroup" EntitySet="NotificationGroups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_GroupId" Association="dentistModel.FK_List_GroupId">
+            <End Role="NotificationGroup" EntitySet="NotificationGroups" />
+            <End Role="NotificationList" EntitySet="NotificationLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_Status" Association="dentistModel.FK_List_Status">
+            <End Role="NotificationListStatu" EntitySet="NotificationListStatus" />
+            <End Role="NotificationList" EntitySet="NotificationLists" />
+          </AssociationSet>
+          <EntitySet Name="Patients" EntityType="dentistModel.Patient" />
+          <AssociationSet Name="FK_Appointment_Patient" Association="dentistModel.FK_Appointment_Patient">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="Appointment" EntitySet="Appointments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_List_PatientId" Association="dentistModel.FK_List_PatientId">
+            <End Role="Patient" EntitySet="Patients" />
+            <End Role="NotificationList" EntitySet="NotificationLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Patient_Sex" Association="dentistModel.FK_Patient_Sex">
+            <End Role="Sex" EntitySet="Sexs" />
+            <End Role="Patient" EntitySet="Patients" />
+          </AssociationSet>
+          <EntitySet Name="Settings" EntityType="dentistModel.Setting" />
+          </EntityContainer>
+        <EntityType Name="Appointment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Guid" Name="ID" Nullable="false" />
+          <Property Type="DateTime" Name="StartTime" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Doctor" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="DoctorId" Nullable="false" />
+          <Property Type="String" Name="Patient" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="Staff" Relationship="dentistModel.FK_Appointment_Staff" FromRole="Appointment" ToRole="Staff" />
+          <NavigationProperty Name="Patient1" Relationship="dentistModel.FK_Appointment_Patient" FromRole="Appointment" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="BackupLog">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="BackupTypesId" Nullable="false" />
+          <Property Type="DateTime" Name="StartDateTime" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="EndDateTime" Nullable="false" Precision="3" />
+          <Property Type="String" Name="FileName" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Status" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="StartedBy" Nullable="false" />
+          <NavigationProperty Name="BackupType" Relationship="dentistModel.FK_BackupLogs_BackupTypes" FromRole="BackupLog" ToRole="BackupType" />
+        </EntityType>
+        <EntityType Name="BackupType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" />
+          <NavigationProperty Name="BackupLogs" Relationship="dentistModel.FK_BackupLogs_BackupTypes" FromRole="BackupType" ToRole="BackupLog" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__BackupTyp__KeyId__30F848ED" FromRole="BackupType" ToRole="LanguageKey" />
+        </EntityType>
+        <EntityType Name="Culture">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="LanguageDatas" Relationship="dentistModel.FK__LanguageD__Cultu__44FF419A" FromRole="Culture" ToRole="LanguageData" />
+        </EntityType>
+        <EntityType Name="Education">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="ShortName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="Staffs" Relationship="dentistModel.FK_Staff_Education" FromRole="Education" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="LanguageData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" Nullable="false" />
+          <Property Type="String" Name="Value" Nullable="false" MaxLength="512" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="CultureId" Nullable="false" />
+          <NavigationProperty Name="Culture" Relationship="dentistModel.FK__LanguageD__Cultu__44FF419A" FromRole="LanguageData" ToRole="Culture" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__LanguageD__KeyId__440B1D61" FromRole="LanguageData" ToRole="LanguageKey" />
+        </EntityType>
+        <EntityType Name="LanguageKey">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Key" Nullable="false" MaxLength="512" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="BackupTypes" Relationship="dentistModel.FK__BackupTyp__KeyId__30F848ED" FromRole="LanguageKey" ToRole="BackupType" />
+          <NavigationProperty Name="LanguageDatas" Relationship="dentistModel.FK__LanguageD__KeyId__440B1D61" FromRole="LanguageKey" ToRole="LanguageData" />
+          <NavigationProperty Name="ReminderAlerts" Relationship="dentistModel.FK__ReminderA__KeyId__3F466844" FromRole="LanguageKey" ToRole="ReminderAlert" />
+          <NavigationProperty Name="ReminderFilters" Relationship="dentistModel.FK__ReminderF__KeyId__3A81B327" FromRole="LanguageKey" ToRole="ReminderFilter" />
+          <NavigationProperty Name="Sexs" Relationship="dentistModel.FK__Sexs__KeyId__35BCFE0A" FromRole="LanguageKey" ToRole="Sex" />
+          <NavigationProperty Name="NotificationGroupStatus" Relationship="dentistModel.FK__Notificat__KeyId__6A30C649" FromRole="LanguageKey" ToRole="NotificationGroupStatu" />
+          <NavigationProperty Name="NotificationListStatus" Relationship="dentistModel.FK__Notificat__KeyId__72C60C4A" FromRole="LanguageKey" ToRole="NotificationListStatu" />
+        </EntityType>
+        <EntityType Name="Login">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="LoginName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Password" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsCanLogin" Nullable="false" />
+          <Property Type="Boolean" Name="IsHaveToChangePass" Nullable="false" />
+          <Property Type="Int32" Name="RoleInSystem" Nullable="false" />
+          <Property Type="Int32" Name="StaffID" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="Boolean" Name="IsSA" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="Role" Relationship="dentistModel.FK_Login_Role" FromRole="Login" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Position">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <NavigationProperty Name="Staffs" Relationship="dentistModel.FK_Staff_Position" FromRole="Position" ToRole="Staff" />
+        </EntityType>
+        <EntityType Name="ReminderAlert">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="Days" Nullable="false" />
+          <Property Type="Int32" Name="KeyId" Nullable="false" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__ReminderA__KeyId__3F466844" FromRole="ReminderAlert" ToRole="LanguageKey" />
+          <NavigationProperty Name="Reminders" Relationship="dentistModel.FK__Reminder__AlertI__49C3F6B7" FromRole="ReminderAlert" ToRole="Reminder" />
+        </EntityType>
+        <EntityType Name="ReminderFilter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" Nullable="false" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__ReminderF__KeyId__3A81B327" FromRole="ReminderFilter" ToRole="LanguageKey" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Logins" Relationship="dentistModel.FK_Login_Role" FromRole="Role" ToRole="Login" />
+        </EntityType>
+        <EntityType Name="Sex">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__Sexs__KeyId__35BCFE0A" FromRole="Sex" ToRole="LanguageKey" />
+          <NavigationProperty Name="Staffs" Relationship="dentistModel.FK_Staff_Sex" FromRole="Sex" ToRole="Staff" />
+          <NavigationProperty Name="Patients" Relationship="dentistModel.FK_Patient_Sex" FromRole="Sex" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="Staff">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="EducationID" Nullable="false" />
+          <Property Type="Int32" Name="PositionID" Nullable="false" />
+          <Property Type="String" Name="SurName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberHome" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberWork" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberCell" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthday" Precision="3" />
+          <Property Type="Boolean" Name="IsTaking" Nullable="false" />
+          <Property Type="String" Name="Comments" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="dentistModel.FK_Appointment_Staff" FromRole="Staff" ToRole="Appointment" />
+          <NavigationProperty Name="Education" Relationship="dentistModel.FK_Staff_Education" FromRole="Staff" ToRole="Education" />
+          <NavigationProperty Name="Position" Relationship="dentistModel.FK_Staff_Position" FromRole="Staff" ToRole="Position" />
+          <NavigationProperty Name="Sex1" Relationship="dentistModel.FK_Staff_Sex" FromRole="Staff" ToRole="Sex" />
+        </EntityType>
+        <Association Name="FK_Appointment_Staff">
+          <End Type="dentistModel.Staff" Role="Staff" Multiplicity="1" />
+          <End Type="dentistModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Staff">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="DoctorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BackupLogs_BackupTypes">
+          <End Type="dentistModel.BackupType" Role="BackupType" Multiplicity="1" />
+          <End Type="dentistModel.BackupLog" Role="BackupLog" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BackupType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BackupLog">
+              <PropertyRef Name="BackupTypesId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__BackupTyp__KeyId__30F848ED">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="0..1" />
+          <End Type="dentistModel.BackupType" Role="BackupType" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="BackupType">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LanguageD__Cultu__44FF419A">
+          <End Type="dentistModel.Culture" Role="Culture" Multiplicity="1" />
+          <End Type="dentistModel.LanguageData" Role="LanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Culture">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LanguageData">
+              <PropertyRef Name="CultureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Education">
+          <End Type="dentistModel.Education" Role="Education" Multiplicity="1" />
+          <End Type="dentistModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Education">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="EducationID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__LanguageD__KeyId__440B1D61">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="1" />
+          <End Type="dentistModel.LanguageData" Role="LanguageData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="LanguageData">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReminderA__KeyId__3F466844">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="1" />
+          <End Type="dentistModel.ReminderAlert" Role="ReminderAlert" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReminderAlert">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__ReminderF__KeyId__3A81B327">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="1" />
+          <End Type="dentistModel.ReminderFilter" Role="ReminderFilter" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="ReminderFilter">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Sexs__KeyId__35BCFE0A">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="0..1" />
+          <End Type="dentistModel.Sex" Role="Sex" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Sex">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Login_Role">
+          <End Type="dentistModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="dentistModel.Login" Role="Login" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Login">
+              <PropertyRef Name="RoleInSystem" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Position">
+          <End Type="dentistModel.Position" Role="Position" Multiplicity="1" />
+          <End Type="dentistModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Position">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="PositionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Staff_Sex">
+          <End Type="dentistModel.Sex" Role="Sex" Multiplicity="1" />
+          <End Type="dentistModel.Staff" Role="Staff" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Staff">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Reminder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="DateTime" Name="Date" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
+          <Property Type="Int32" Name="DoctorId" />
+          <Property Type="String" Name="Message" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="AlertId" Nullable="false" />
+          <Property Type="Boolean" Name="IsCompleted" Nullable="false" />
+          <Property Type="String" Name="Comment" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="ReminderAlert" Relationship="dentistModel.FK__Reminder__AlertI__49C3F6B7" FromRole="Reminder" ToRole="ReminderAlert" />
+        </EntityType>
+        <Association Name="FK__Reminder__AlertI__49C3F6B7">
+          <End Type="dentistModel.ReminderAlert" Role="ReminderAlert" Multiplicity="1" />
+          <End Type="dentistModel.Reminder" Role="Reminder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ReminderAlert">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Reminder">
+              <PropertyRef Name="AlertId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="SystemUpdate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="UpdateInformation" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="UpdateVersion" Nullable="false" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="UpdateVersionInt" Nullable="false" />
+          <Property Type="DateTime" Name="UpdateDate" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="NotificationTemplate">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="String" Name="Description" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Title" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Body" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="NotificationGroups" Relationship="dentistModel.FK_Group_TemplateId" FromRole="NotificationTemplate" ToRole="NotificationGroup" />
+        </EntityType>
+        <EntityType Name="NotificationGroup">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Guid" Name="UniqueId" Nullable="false" />
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="1024" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="TemplateId" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="CompletedDate" Precision="3" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <NavigationProperty Name="NotificationGroupStatu" Relationship="dentistModel.FK_Group_Status" FromRole="NotificationGroup" ToRole="NotificationGroupStatu" />
+          <NavigationProperty Name="NotificationTemplate" Relationship="dentistModel.FK_Group_TemplateId" FromRole="NotificationGroup" ToRole="NotificationTemplate" />
+          <NavigationProperty Name="NotificationLists" Relationship="dentistModel.FK_List_GroupId" FromRole="NotificationGroup" ToRole="NotificationList" />
+        </EntityType>
+        <EntityType Name="NotificationGroupStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" Nullable="false" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__Notificat__KeyId__6A30C649" FromRole="NotificationGroupStatu" ToRole="LanguageKey" />
+          <NavigationProperty Name="NotificationGroups" Relationship="dentistModel.FK_Group_Status" FromRole="NotificationGroupStatu" ToRole="NotificationGroup" />
+        </EntityType>
+        <EntityType Name="NotificationList">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="PatientId" Nullable="false" />
+          <Property Type="Int32" Name="GroupId" Nullable="false" />
+          <Property Type="DateTime" Name="StartDate" Precision="3" />
+          <Property Type="DateTime" Name="SendDate" Precision="3" />
+          <Property Type="Int32" Name="Status" Nullable="false" />
+          <Property Type="String" Name="ErrorDescription" MaxLength="2048" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="NotificationGroup" Relationship="dentistModel.FK_List_GroupId" FromRole="NotificationList" ToRole="NotificationGroup" />
+          <NavigationProperty Name="NotificationListStatu" Relationship="dentistModel.FK_List_Status" FromRole="NotificationList" ToRole="NotificationListStatu" />
+          <NavigationProperty Name="Patient" Relationship="dentistModel.FK_List_PatientId" FromRole="NotificationList" ToRole="Patient" />
+        </EntityType>
+        <EntityType Name="NotificationListStatu">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="KeyId" Nullable="false" />
+          <NavigationProperty Name="LanguageKey" Relationship="dentistModel.FK__Notificat__KeyId__72C60C4A" FromRole="NotificationListStatu" ToRole="LanguageKey" />
+          <NavigationProperty Name="NotificationLists" Relationship="dentistModel.FK_List_Status" FromRole="NotificationListStatu" ToRole="NotificationList" />
+        </EntityType>
+        <Association Name="FK__Notificat__KeyId__6A30C649">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="1" />
+          <End Type="dentistModel.NotificationGroupStatu" Role="NotificationGroupStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroupStatu">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Notificat__KeyId__72C60C4A">
+          <End Type="dentistModel.LanguageKey" Role="LanguageKey" Multiplicity="1" />
+          <End Type="dentistModel.NotificationListStatu" Role="NotificationListStatu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="LanguageKey">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationListStatu">
+              <PropertyRef Name="KeyId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Status">
+          <End Type="dentistModel.NotificationGroupStatu" Role="NotificationGroupStatu" Multiplicity="1" />
+          <End Type="dentistModel.NotificationGroup" Role="NotificationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationGroupStatu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroup">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_TemplateId">
+          <End Type="dentistModel.NotificationTemplate" Role="NotificationTemplate" Multiplicity="1" />
+          <End Type="dentistModel.NotificationGroup" Role="NotificationGroup" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationTemplate">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationGroup">
+              <PropertyRef Name="TemplateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_GroupId">
+          <End Type="dentistModel.NotificationGroup" Role="NotificationGroup" Multiplicity="1" />
+          <End Type="dentistModel.NotificationList" Role="NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationGroup">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_Status">
+          <End Type="dentistModel.NotificationListStatu" Role="NotificationListStatu" Multiplicity="1" />
+          <End Type="dentistModel.NotificationList" Role="NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="NotificationListStatu">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="Status" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Patient">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Type="Int32" Name="CardNumber" Nullable="false" />
+          <Property Type="DateTime" Name="RegistrationDate" Nullable="false" Precision="3" />
+          <Property Type="String" Name="Job" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Profession" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="SurName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="MiddleName" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="Int32" Name="Sex" Nullable="false" />
+          <Property Type="String" Name="Address" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberHome" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberWork" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="PhoneNumberCell" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="Email" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="DateTime" Name="Birthday" Precision="3" />
+          <Property Type="String" Name="Comments" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+          <Property Type="DateTime" Name="Created" Nullable="false" Precision="3" />
+          <Property Type="DateTime" Name="Changed" Nullable="false" Precision="3" />
+          <Property Type="Int32" Name="CreatedBy" Nullable="false" />
+          <Property Type="Int32" Name="ChangedBy" Nullable="false" />
+          <Property Type="Boolean" Name="IsEmailNotificationAllowed" Nullable="false" />
+          <Property Type="Boolean" Name="IsEmailChecked" Nullable="false" />
+          <NavigationProperty Name="Appointments" Relationship="dentistModel.FK_Appointment_Patient" FromRole="Patient" ToRole="Appointment" />
+          <NavigationProperty Name="NotificationLists" Relationship="dentistModel.FK_List_PatientId" FromRole="Patient" ToRole="NotificationList" />
+          <NavigationProperty Name="Sex1" Relationship="dentistModel.FK_Patient_Sex" FromRole="Patient" ToRole="Sex" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Appointment_Patient">
+          <End Type="dentistModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="dentistModel.Appointment" Role="Appointment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Appointment">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_List_PatientId">
+          <End Type="dentistModel.Patient" Role="Patient" Multiplicity="1" />
+          <End Type="dentistModel.NotificationList" Role="NotificationList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Patient">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NotificationList">
+              <PropertyRef Name="PatientId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Patient_Sex">
+          <End Type="dentistModel.Sex" Role="Sex" Multiplicity="1" />
+          <End Type="dentistModel.Patient" Role="Patient" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Sex">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Patient">
+              <PropertyRef Name="Sex" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Setting">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="nvKey" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="nvValue" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="intValue" Type="Int32" />
+          <Property Name="bitValue" Type="Boolean" />
+          <Property Name="Id" Type="Int32" Nullable="false" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dentistModelStoreContainer" CdmEntityContainer="dentistEntities">
+          <FunctionImportMapping FunctionImportName="sp_BackUpOfTheDataBase" FunctionName="dentistModel.Store.sp_BackUpOfTheDataBase" />
+          <EntitySetMapping Name="Appointments">
+            <EntityTypeMapping TypeName="dentistModel.Appointment">
+              <MappingFragment StoreEntitySet="Appointment">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Patient" ColumnName="Patient" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="Doctor" ColumnName="Doctor" />
+                <ScalarProperty Name="EndTime" ColumnName="EndTime" />
+                <ScalarProperty Name="StartTime" ColumnName="StartTime" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BackupLogs">
+            <EntityTypeMapping TypeName="dentistModel.BackupLog">
+              <MappingFragment StoreEntitySet="BackupLogs">
+                <ScalarProperty Name="StartedBy" ColumnName="StartedBy" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="EndDateTime" ColumnName="EndDateTime" />
+                <ScalarProperty Name="StartDateTime" ColumnName="StartDateTime" />
+                <ScalarProperty Name="BackupTypesId" ColumnName="BackupTypesId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="BackupTypes">
+            <EntityTypeMapping TypeName="dentistModel.BackupType">
+              <MappingFragment StoreEntitySet="BackupTypes">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cultures">
+            <EntityTypeMapping TypeName="dentistModel.Culture">
+              <MappingFragment StoreEntitySet="Culture">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Educations">
+            <EntityTypeMapping TypeName="dentistModel.Education">
+              <MappingFragment StoreEntitySet="Education">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="ShortName" ColumnName="ShortName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LanguageDatas">
+            <EntityTypeMapping TypeName="dentistModel.LanguageData">
+              <MappingFragment StoreEntitySet="LanguageData">
+                <ScalarProperty Name="CultureId" ColumnName="CultureId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LanguageKeys">
+            <EntityTypeMapping TypeName="dentistModel.LanguageKey">
+              <MappingFragment StoreEntitySet="LanguageKeys">
+                <ScalarProperty Name="Key" ColumnName="Key" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Logins">
+            <EntityTypeMapping TypeName="dentistModel.Login">
+              <MappingFragment StoreEntitySet="Login">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsSA" ColumnName="IsSA" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="StaffID" ColumnName="StaffID" />
+                <ScalarProperty Name="RoleInSystem" ColumnName="RoleInSystem" />
+                <ScalarProperty Name="IsHaveToChangePass" ColumnName="IsHaveToChangePass" />
+                <ScalarProperty Name="IsCanLogin" ColumnName="IsCanLogin" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Positions">
+            <EntityTypeMapping TypeName="dentistModel.Position">
+              <MappingFragment StoreEntitySet="Position">
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReminderAlerts">
+            <EntityTypeMapping TypeName="dentistModel.ReminderAlert">
+              <MappingFragment StoreEntitySet="ReminderAlert">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="Days" ColumnName="Days" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ReminderFilters">
+            <EntityTypeMapping TypeName="dentistModel.ReminderFilter">
+              <MappingFragment StoreEntitySet="ReminderFilter">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="dentistModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Sexs">
+            <EntityTypeMapping TypeName="dentistModel.Sex">
+              <MappingFragment StoreEntitySet="Sexs">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Staffs">
+            <EntityTypeMapping TypeName="dentistModel.Staff">
+              <MappingFragment StoreEntitySet="Staff">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="IsTaking" ColumnName="IsTaking" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumberCell" ColumnName="PhoneNumberCell" />
+                <ScalarProperty Name="PhoneNumberWork" ColumnName="PhoneNumberWork" />
+                <ScalarProperty Name="PhoneNumberHome" ColumnName="PhoneNumberHome" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="PositionID" ColumnName="PositionID" />
+                <ScalarProperty Name="EducationID" ColumnName="EducationID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reminders">
+            <EntityTypeMapping TypeName="dentistModel.Reminder">
+              <MappingFragment StoreEntitySet="Reminder">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="IsCompleted" ColumnName="IsCompleted" />
+                <ScalarProperty Name="AlertId" ColumnName="AlertId" />
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="DoctorId" ColumnName="DoctorId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemUpdates">
+            <EntityTypeMapping TypeName="dentistModel.SystemUpdate">
+              <MappingFragment StoreEntitySet="SystemUpdates">
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateVersionInt" ColumnName="UpdateVersionInt" />
+                <ScalarProperty Name="UpdateVersion" ColumnName="UpdateVersion" />
+                <ScalarProperty Name="UpdateInformation" ColumnName="UpdateInformation" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationTemplates">
+            <EntityTypeMapping TypeName="dentistModel.NotificationTemplate">
+              <MappingFragment StoreEntitySet="NotificationTemplate">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationGroups">
+            <EntityTypeMapping TypeName="dentistModel.NotificationGroup">
+              <MappingFragment StoreEntitySet="NotificationGroup">
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="CompletedDate" ColumnName="CompletedDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="TemplateId" ColumnName="TemplateId" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="UniqueId" ColumnName="UniqueId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationGroupStatus">
+            <EntityTypeMapping TypeName="dentistModel.NotificationGroupStatu">
+              <MappingFragment StoreEntitySet="NotificationGroupStatus">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationLists">
+            <EntityTypeMapping TypeName="dentistModel.NotificationList">
+              <MappingFragment StoreEntitySet="NotificationList">
+                <ScalarProperty Name="ErrorDescription" ColumnName="ErrorDescription" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="SendDate" ColumnName="SendDate" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="PatientId" ColumnName="PatientId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NotificationListStatus">
+            <EntityTypeMapping TypeName="dentistModel.NotificationListStatu">
+              <MappingFragment StoreEntitySet="NotificationListStatus">
+                <ScalarProperty Name="KeyId" ColumnName="KeyId" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="dentistModel.Patient">
+              <MappingFragment StoreEntitySet="Patient">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="IsEmailChecked" ColumnName="IsEmailChecked" />
+                <ScalarProperty Name="IsEmailNotificationAllowed" ColumnName="IsEmailNotificationAllowed" />
+                <ScalarProperty Name="ChangedBy" ColumnName="ChangedBy" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Changed" ColumnName="Changed" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="PhoneNumberCell" ColumnName="PhoneNumberCell" />
+                <ScalarProperty Name="PhoneNumberWork" ColumnName="PhoneNumberWork" />
+                <ScalarProperty Name="PhoneNumberHome" ColumnName="PhoneNumberHome" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Sex" ColumnName="Sex" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="SurName" ColumnName="SurName" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="Job" ColumnName="Job" />
+                <ScalarProperty Name="RegistrationDate" ColumnName="RegistrationDate" />
+                <ScalarProperty Name="CardNumber" ColumnName="CardNumber" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="dentistModel.Setting">
+              <MappingFragment StoreEntitySet="Setting">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="bitValue" ColumnName="bitValue" />
+                <ScalarProperty Name="intValue" ColumnName="intValue" />
+                <ScalarProperty Name="nvValue" ColumnName="nvValue" />
+                <ScalarProperty Name="nvKey" ColumnName="nvKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams>
+      <Diagram Name="Model" ZoomLevel="75">
+        <EntityTypeShape EntityType="dentistModel.Appointment" Width="1.5" PointX="7.5" PointY="20.625" Height="3.7109993489583388" />
+        <EntityTypeShape EntityType="dentistModel.BackupLog" Width="1.5" PointX="5.25" PointY="6.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="dentistModel.BackupType" Width="1.5" PointX="3" PointY="7.125" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dentistModel.Culture" Width="1.5" PointX="0.75" PointY="10.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dentistModel.Education" Width="1.5" PointX="8" PointY="17.25" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="dentistModel.LanguageData" Width="1.5" PointX="3" PointY="10.375" Height="2.1725878906250102" />
+        <EntityTypeShape EntityType="dentistModel.LanguageKey" Width="1.5" PointX="0.75" PointY="13.375" Height="2.3648893229166674" />
+        <EntityTypeShape EntityType="dentistModel.Login" Width="1.5" PointX="3" PointY="1" Height="3.7109993489583246" />
+        <EntityTypeShape EntityType="dentistModel.Position" Width="1.5" PointX="8" PointY="26" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dentistModel.ReminderAlert" Width="1.5" PointX="3" PointY="13.875" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="dentistModel.ReminderFilter" Width="1.5" PointX="3" PointY="17.375" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="dentistModel.Role" Width="1.5" PointX="0.75" PointY="2.125" Height="1.595683593749996" />
+        <EntityTypeShape EntityType="dentistModel.Sex" Width="1.5" PointX="3" PointY="21.5" Height="1.9802864583333246" />
+        <EntityTypeShape EntityType="dentistModel.Staff" Width="1.5" PointX="10.25" PointY="19.625" Height="5.634013671874996" />
+        <AssociationConnector Association="dentistModel.FK_Appointment_Staff">
+          <ConnectorPoint PointX="10.25" PointY="22.480499674479169" />
+          <ConnectorPoint PointX="9.4739583333333339" PointY="22.480499674479169" />
+          <ConnectorPoint PointX="9.1979166666666661" PointY="22.480499674479169" />
+          <ConnectorPoint PointX="9" PointY="22.480499674479169" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_BackupLogs_BackupTypes">
+          <ConnectorPoint PointX="4.5" PointY="8.0189925130208337" />
+          <ConnectorPoint PointX="5.25" PointY="8.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__BackupTyp__KeyId__30F848ED">
+          <ConnectorPoint PointX="2.2257692307692305" PointY="13.375" />
+          <ConnectorPoint PointX="2.625" PointY="12.975769230769231" />
+          <ConnectorPoint PointX="2.625" PointY="8.0189925130208337" />
+          <ConnectorPoint PointX="3" PointY="8.0189925130208337" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__LanguageD__Cultu__44FF419A">
+          <ConnectorPoint PointX="2.25" PointY="11.518992513020834" />
+          <ConnectorPoint PointX="2.5416666666666665" PointY="11.518992513020834" />
+          <ConnectorPoint PointX="2.7083333333333335" PointY="11.518992513020834" />
+          <ConnectorPoint PointX="3" PointY="11.518992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Staff_Education">
+          <ConnectorPoint PointX="9.28125" PointY="19.230286458333325" />
+          <ConnectorPoint PointX="9.28125" PointY="24.732605794270832" />
+          <ConnectorPoint PointX="9.3072916666666661" PointY="24.732605794270832" />
+          <ConnectorPoint PointX="9.4739583333333339" PointY="24.732605794270832" />
+          <ConnectorPoint PointX="10.25" PointY="24.732605794270832" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__LanguageD__KeyId__440B1D61">
+          <ConnectorPoint PointX="2.25" PointY="13.432691307692309" />
+          <ConnectorPoint PointX="2.71875" PointY="12.963941307692309" />
+          <ConnectorPoint PointX="2.71875" PointY="11.461293945312505" />
+          <ConnectorPoint PointX="3" PointY="11.461293945312505" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__ReminderA__KeyId__3F466844">
+          <ConnectorPoint PointX="2.25" PointY="14.865143229166669" />
+          <ConnectorPoint PointX="3" PointY="14.865143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__ReminderF__KeyId__3A81B327">
+          <ConnectorPoint PointX="1.3864893724822998" PointY="16.124492187500003" />
+          <ConnectorPoint PointX="1.3864893724822998" PointY="18.172841796874998" />
+          <ConnectorPoint PointX="1.6179267039982477" PointY="18.172841796874998" />
+          <ConnectorPoint PointX="1.7845933706649142" PointY="18.172841796874998" />
+          <ConnectorPoint PointX="1.9326973688475293" PointY="18.172841796874998" />
+          <ConnectorPoint PointX="2.099364035514196" PointY="18.172841796874998" />
+          <ConnectorPoint PointX="3" PointY="18.172841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__Sexs__KeyId__35BCFE0A">
+          <ConnectorPoint PointX="1.7012600373315809" PointY="16.124492187500003" />
+          <ConnectorPoint PointX="1.7012600373315809" PointY="22.490143229166669" />
+          <ConnectorPoint PointX="1.9326973688475293" PointY="22.490143229166669" />
+          <ConnectorPoint PointX="2.099364035514196" PointY="22.490143229166669" />
+          <ConnectorPoint PointX="3" PointY="22.490143229166669" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Login_Role">
+          <ConnectorPoint PointX="2.25" PointY="2.922841796874998" />
+          <ConnectorPoint PointX="3" PointY="2.922841796874998" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Staff_Position">
+          <ConnectorPoint PointX="9.390625" PointY="26" />
+          <ConnectorPoint PointX="9.390625" PointY="20.09375" />
+          <ConnectorPoint PointX="10.25" PointY="20.09375" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Staff_Sex">
+          <ConnectorPoint PointX="4.5" PointY="22.490143229166669" />
+          <ConnectorPoint PointX="5" PointY="22.490143229166669" />
+          <ConnectorPoint PointX="5" PointY="19.25" />
+          <ConnectorPoint PointX="7.75" PointY="19.25" />
+          <ConnectorPoint PointX="7.75" PointY="19.375" />
+          <ConnectorPoint PointX="9.1979166666666661" PointY="19.375" />
+          <ConnectorPoint PointX="9.3645833333333339" PointY="19.375" />
+          <ConnectorPoint PointX="11" PointY="19.375" />
+          <ConnectorPoint PointX="11" PointY="19.625" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dentistModel.Reminder" Width="1.5" PointX="5.25" PointY="13" Height="3.7109993489583388" />
+        <AssociationConnector Association="dentistModel.FK__Reminder__AlertI__49C3F6B7">
+          <ConnectorPoint PointX="4.5" PointY="14.865143229166666" />
+          <ConnectorPoint PointX="5.25" PointY="14.865143229166666" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dentistModel.SystemUpdate" Width="1.5" PointX="5.375" PointY="3.75" Height="1.9802864583333388" />
+        <EntityTypeShape EntityType="dentistModel.NotificationTemplate" Width="1.5" PointX="8" PointY="13.125" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="dentistModel.NotificationGroup" Width="2" PointX="10.25" PointY="14.75" Height="3.9033007812500102" />
+        <EntityTypeShape EntityType="dentistModel.NotificationGroupStatu" Width="1.5" PointX="3" PointY="24.625" Height="1.7879850260416674" />
+        <EntityTypeShape EntityType="dentistModel.NotificationList" Width="1.875" PointX="10.5" PointY="26.75" Height="2.9417936197916674" />
+        <EntityTypeShape EntityType="dentistModel.NotificationListStatu" Width="1.5" PointX="3" PointY="27.125" Height="1.7879850260416674" />
+        <AssociationConnector Association="dentistModel.FK__Notificat__KeyId__6A30C649">
+          <ConnectorPoint PointX="0.98023687248229985" PointY="16.124492187500003" />
+          <ConnectorPoint PointX="0.98023687248229985" PointY="25.518992513020834" />
+          <ConnectorPoint PointX="1.9692901029078167" PointY="25.518992513020834" />
+          <ConnectorPoint PointX="2.1359567695744834" PointY="25.518992513020834" />
+          <ConnectorPoint PointX="3" PointY="25.518992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK__Notificat__KeyId__72C60C4A">
+          <ConnectorPoint PointX="2.0160307021808626" PointY="16.124492187500003" />
+          <ConnectorPoint PointX="2.0160307021808626" PointY="28.018992513020834" />
+          <ConnectorPoint PointX="3" PointY="28.018992513020834" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Group_Status">
+          <ConnectorPoint PointX="4.5" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="9.3072916666666661" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="9.4739583333333339" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="11.811687760416666" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="11.978354427083334" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="12.1025421875" PointY="25.759308268229162" />
+          <ConnectorPoint PointX="12.1025421875" PointY="18.65330078125001" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Group_TemplateId">
+          <ConnectorPoint PointX="9.5" PointY="15.408396809895834" />
+          <ConnectorPoint PointX="10.25" PointY="15.408396809895834" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_List_GroupId">
+          <ConnectorPoint PointX="11.89502109375" PointY="18.65330078125001" />
+          <ConnectorPoint PointX="11.89502109375" PointY="26.75" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_List_Status">
+          <ConnectorPoint PointX="4.5" PointY="28.381735026041667" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="28.381735026041667" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="28.381735026041667" />
+          <ConnectorPoint PointX="10.5" PointY="28.381735026041667" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dentistModel.Patient" Width="1.5" PointX="5.25" PointY="19.5" Height="6.0186165364583246" />
+        <AssociationConnector Association="dentistModel.FK_Appointment_Patient">
+          <ConnectorPoint PointX="6.75" PointY="22.480499674479169" />
+          <ConnectorPoint PointX="7.5" PointY="22.480499674479169" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_List_PatientId">
+          <ConnectorPoint PointX="6" PointY="25.518616536458325" />
+          <ConnectorPoint PointX="6" PointY="29.068016822916661" />
+          <ConnectorPoint PointX="10.5" PointY="29.068016822916661" />
+        </AssociationConnector>
+        <AssociationConnector Association="dentistModel.FK_Patient_Sex">
+          <ConnectorPoint PointX="4.5" PointY="21.932571614583335" />
+          <ConnectorPoint PointX="4.916666666666667" PointY="21.932571614583335" />
+          <ConnectorPoint PointX="5.083333333333333" PointY="21.932571614583335" />
+          <ConnectorPoint PointX="5.25" PointY="21.932571614583335" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="dentistModel.Setting" Width="1.5" PointX="5.375" PointY="0.75" />
+        </Diagram>
+    </Diagrams>
+  </Designer>
+</edmx:Edmx>

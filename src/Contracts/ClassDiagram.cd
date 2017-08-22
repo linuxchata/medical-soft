@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Interface Name="Contracts.IBackupRepository&lt;TCommon, TKey&gt;">
+    <Position X="5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IBackupRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.ILoginRepository&lt;TCommon, TKey&gt;">
+    <Position X="5" Y="2.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAIAIAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <FileName>ILoginRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.INotificationGroupRepository&lt;TCommon, TKey&gt;">
+    <Position X="0.5" Y="4.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAgAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INotificationGroupRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.INotificationListRepository&lt;TCommon, TKey&gt;">
+    <Position X="5" Y="4.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INotificationListRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.INotificationTemplateRepository&lt;TCommon, TCommon2, TKey&gt;">
+    <Position X="5" Y="6.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INotificationTemplateRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IPatientRepository&lt;TCommon, TCommon2, TKey&gt;">
+    <Position X="0.5" Y="7.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPatientRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IReminderRepository&lt;TCommon, TKey&gt;">
+    <Position X="0.5" Y="11" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IReminderRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IStaffRepository&lt;TCommon, TCommon2, TKey&gt;">
+    <Position X="0.5" Y="14.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IStaffRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.ISystemUpdatesRepository&lt;TCommon&gt;">
+    <Position X="5" Y="14.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISystemUpdatesRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IAppointmentRepository&lt;TCommon, TKey&gt;">
+    <Position X="0.5" Y="0.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IAppointmentRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IEducationRepository&lt;TCommon, TKey&gt;">
+    <Position X="0.5" Y="2.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IEducationRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.INotificationListStatusRepository&lt;TCommon&gt;">
+    <Position X="0.5" Y="6.25" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>INotificationListStatusRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IPositionRepository&lt;TCommon, TKey&gt;">
+    <Position X="5" Y="7.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IPositionRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IUiCultureRepository&lt;TCommon&gt;">
+    <Position X="0.5" Y="15.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IUiCultureRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.ISettingRepository&lt;TCommon, TKey&gt;">
+    <Position X="0.5" Y="12.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISettingRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.ISexRepository&lt;TCommon&gt;">
+    <Position X="5" Y="12.75" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISexRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IRoleRepository&lt;TCommon, TKey&gt;">
+    <Position X="5" Y="11" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IRoleRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IReminderFilterRepository&lt;TCommon&gt;">
+    <Position X="5" Y="9.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IReminderFilterRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.IReminderAlertRepository&lt;TCommon&gt;">
+    <Position X="0.5" Y="9.5" Width="4.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IReminderAlertRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

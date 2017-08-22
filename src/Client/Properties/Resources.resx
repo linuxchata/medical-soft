@@ -1,0 +1,873 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!--     Microsoft ResX Schema         Version 2.0        The primary goals of this format is to allow a simple XML format     that is mostly human readable. The generation and parsing of the     various data types are done through the TypeConverter classes     associated with the data types.        Example:        ... ado.net/XML headers & schema ...    <resheader name="resmimetype">text/microsoft-resx</resheader>    <resheader name="version">2.0</resheader>    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">        <value>[base64 mime encoded serialized .NET Framework object]</value>    </data>    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>        <comment>This is a comment</comment>    </data>                    There are any number of "resheader" rows that contain simple     name/value pairs.        Each data row contains a name, and value. The row also contains a     type or mimetype. Type corresponds to a .NET class that support     text/value conversion through the TypeConverter architecture.     Classes that don't support this are serialized and stored with the     mimetype set.        The mimetype is used for serialized objects, and tells the     ResXResourceReader how to depersist the object. This is currently not     extensible. For a given mimetype the value must be set accordingly:        Note - application/x-microsoft.net.object.binary.base64 is the format     that the ResXResourceWriter will generate, however the reader can     read any of the formats listed below.        mimetype: application/x-microsoft.net.object.binary.base64    value   : The object must be serialized with             : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter            : and then encoded with base64 encoding.        mimetype: application/x-microsoft.net.object.soap.base64    value   : The object must be serialized with             : System.Runtime.Serialization.Formatters.Soap.SoapFormatter            : and then encoded with base64 encoding.    mimetype: application/x-microsoft.net.object.bytearray.base64    value   : The object must be serialized into a byte array             : using a System.ComponentModel.TypeConverter            : and then encoded with base64 encoding.    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutDialogButtonCancel" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AboutDialogCompanyName" xml:space="preserve">
+    <value>© 2012-2017 Pylyp Lebediev</value>
+  </data>
+  <data name="AboutDialogLicense" xml:space="preserve">
+    <value>Licensed to Dent Life</value>
+  </data>
+  <data name="AboutDialogMainLabel" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutDialogSoftName" xml:space="preserve">
+    <value>Dental Soft</value>
+  </data>
+  <data name="AboutDialogVersion" xml:space="preserve">
+    <value>Version</value>
+  </data>
+  <data name="AppointmentAddItemTitle" xml:space="preserve">
+    <value>Add appointment</value>
+  </data>
+  <data name="AppointmentChangeTime" xml:space="preserve">
+    <value>Please consider to change time of the current appointment.</value>
+  </data>
+  <data name="AppointmentStartEndTimeMustBeDifferent" xml:space="preserve">
+    <value>Start and end time of an appointment has to be different!</value>
+  </data>
+  <data name="AppointmentStartTimeMustBeLessEndTime" xml:space="preserve">
+    <value>Start time of an appointment has to be less than end time!</value>
+  </data>
+  <data name="AppointmentWithSameTimeExists" xml:space="preserve">
+    <value>An appointment in the same range of time already exists!</value>
+  </data>
+  <data name="BackupLogsDialogBackupTypesName" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="BackupLogsDialogEndDateTime" xml:space="preserve">
+    <value>End time</value>
+  </data>
+  <data name="BackupLogsDialogFileName" xml:space="preserve">
+    <value>File name</value>
+  </data>
+  <data name="BackupLogsDialogNameStartedBy" xml:space="preserve">
+    <value>Started by</value>
+  </data>
+  <data name="BackupLogsDialogStartDateTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="BackupLogsDialogStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="ButtonAddAppointment" xml:space="preserve">
+    <value>Add an appointment</value>
+  </data>
+  <data name="ButtonAddEducation" xml:space="preserve">
+    <value>Add institution</value>
+  </data>
+  <data name="ButtonAddLogin" xml:space="preserve">
+    <value>Add user</value>
+  </data>
+  <data name="ButtonAddNotificationGroup" xml:space="preserve">
+    <value>Add notification</value>
+  </data>
+  <data name="ButtonAddNotificationTemplate" xml:space="preserve">
+    <value>Add template</value>
+  </data>
+  <data name="ButtonAddPatient" xml:space="preserve">
+    <value>Add patient</value>
+  </data>
+  <data name="ButtonAddPosition" xml:space="preserve">
+    <value>Add position</value>
+  </data>
+  <data name="ButtonAddReminder" xml:space="preserve">
+    <value>Add reminder</value>
+  </data>
+  <data name="ButtonAddStaff" xml:space="preserve">
+    <value>Add staff</value>
+  </data>
+  <data name="ButtonDeleteEducation" xml:space="preserve">
+    <value>Delete institution</value>
+  </data>
+  <data name="ButtonDeleteLogin" xml:space="preserve">
+    <value>Delete user</value>
+  </data>
+  <data name="ButtonDeleteNotificationGroup" xml:space="preserve">
+    <value>Delete notification</value>
+  </data>
+  <data name="ButtonDeleteNotificationTemplate" xml:space="preserve">
+    <value>Delete template</value>
+  </data>
+  <data name="ButtonDeletePatient" xml:space="preserve">
+    <value>Delete patient</value>
+  </data>
+  <data name="ButtonDeletePosition" xml:space="preserve">
+    <value>Delete position</value>
+  </data>
+  <data name="ButtonDeleteReminder" xml:space="preserve">
+    <value>Delete reminder</value>
+  </data>
+  <data name="ButtonDeleteStaff" xml:space="preserve">
+    <value>Delete staff</value>
+  </data>
+  <data name="ButtonEditEducation" xml:space="preserve">
+    <value>Edit institution</value>
+  </data>
+  <data name="ButtonEditLogin" xml:space="preserve">
+    <value>Edit user</value>
+  </data>
+  <data name="ButtonEditNotificationGroup" xml:space="preserve">
+    <value>Edit notification</value>
+  </data>
+  <data name="ButtonEditNotificationTemplate" xml:space="preserve">
+    <value>Edit template</value>
+  </data>
+  <data name="ButtonEditPatient" xml:space="preserve">
+    <value>Edit patient</value>
+  </data>
+  <data name="ButtonEditPosition" xml:space="preserve">
+    <value>Edit position</value>
+  </data>
+  <data name="ButtonEditReminder" xml:space="preserve">
+    <value>Edit reminder</value>
+  </data>
+  <data name="ButtonEditStaff" xml:space="preserve">
+    <value>Edit staff</value>
+  </data>
+  <data name="ButtonRefreshBackup" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="ButtonRunBackup" xml:space="preserve">
+    <value>Register backup</value>
+  </data>
+  <data name="ButtonSelectAppointmentDoctor" xml:space="preserve">
+    <value>Select doctor</value>
+  </data>
+  <data name="CapsLockOn" xml:space="preserve">
+    <value>Caps Lock is on</value>
+  </data>
+  <data name="EducationDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="EducationDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="EducationDialogMainInfo" xml:space="preserve">
+    <value>Educational institution</value>
+  </data>
+  <data name="EducationDialogMainLabel" xml:space="preserve">
+    <value>Educational institution</value>
+  </data>
+  <data name="EducationDialogName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="EducationDialogShortName" xml:space="preserve">
+    <value>Short name</value>
+  </data>
+  <data name="FilterReminder" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="LoginDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="LoginDialogButtonLogin" xml:space="preserve">
+    <value>Enter</value>
+  </data>
+  <data name="LoginDialogIsCanLogin" xml:space="preserve">
+    <value>Can login</value>
+  </data>
+  <data name="LoginDialogLogin" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="LoginDialogLoginName" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="LoginDialogLogonFailed" xml:space="preserve">
+    <value>Login failed. Please try again</value>
+  </data>
+  <data name="LoginDialogLogonSucceeded" xml:space="preserve">
+    <value>Please wait, application is loading...</value>
+  </data>
+  <data name="LoginDialogMainInfo" xml:space="preserve">
+    <value>User's information</value>
+  </data>
+  <data name="LoginDialogMainLabel" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="LoginDialogPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LoginDialogPasswordProtection" xml:space="preserve">
+    <value>&lt;Password protected&gt;</value>
+  </data>
+  <data name="LoginDialogPasswordRepeat" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="LoginDialogRoleInSystem" xml:space="preserve">
+    <value>Role in system</value>
+  </data>
+  <data name="LoginDialogRoleName" xml:space="preserve">
+    <value>Role name</value>
+  </data>
+  <data name="LoginDialogStaff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="LoginDialogTitle" xml:space="preserve">
+    <value>Entrance to the program</value>
+  </data>
+  <data name="LoginDialogWelcome" xml:space="preserve">
+    <value>Welcome to Dental Soft</value>
+  </data>
+  <data name="MainFormHeader" xml:space="preserve">
+    <value>Dental Soft</value>
+  </data>
+  <data name="MessageBoxDeleteConfirmation" xml:space="preserve">
+    <value>Are you sure you want to delete the selected record?</value>
+  </data>
+  <data name="MessageBoxDeleteHeader" xml:space="preserve">
+    <value>Delete record</value>
+  </data>
+  <data name="MessageBoxSettingsCannotBeSaved" xml:space="preserve">
+    <value>Location of the backup file isn't valid. Settings cannot be saved.</value>
+  </data>
+  <data name="MessageBoxSettingsCannotBeSavedHeader" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="MessageBoxTheEntryCannotBeDeleted" xml:space="preserve">
+    <value>Selected record cannot be deleted. Maybe this record in use in another tables.</value>
+  </data>
+  <data name="NotificationClose" xml:space="preserve">
+    <value>Close </value>
+  </data>
+  <data name="NotificationDoctor" xml:space="preserve">
+    <value>Doctor: </value>
+  </data>
+  <data name="NotificationGroupDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="NotificationGroupDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationGroupDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NotificationGroupDialogDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="NotificationGroupDialogMainInfo" xml:space="preserve">
+    <value>Email notification information</value>
+  </data>
+  <data name="NotificationGroupDialogMainLabel" xml:space="preserve">
+    <value>Email notification</value>
+  </data>
+  <data name="NotificationGroupDialogStartDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="NotificationGroupDialogTemplate" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="NotificationGroupStartDate" xml:space="preserve">
+    <value>Start date</value>
+  </data>
+  <data name="NotificationGroupStartTime" xml:space="preserve">
+    <value>Start time</value>
+  </data>
+  <data name="NotificationGroupTemplate" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="NotificationNext" xml:space="preserve">
+    <value>Next</value>
+  </data>
+  <data name="NotificationPatient" xml:space="preserve">
+    <value>Patient: </value>
+  </data>
+  <data name="NotificationPrevious" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="NotificationTemplateDialogBody" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="NotificationTemplateDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationTemplateDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NotificationTemplateDialogDescription" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="NotificationTemplateDialogMainInfo" xml:space="preserve">
+    <value>Template's information</value>
+  </data>
+  <data name="NotificationTemplateDialogTitle" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="NotificationTemplateMainLabel" xml:space="preserve">
+    <value>Template</value>
+  </data>
+  <data name="PatientDialogAdditionalInfo" xml:space="preserve">
+    <value>Additional information about the patient</value>
+  </data>
+  <data name="PatientDialogAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="PatientDialogBirthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="PatientDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PatientDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="PatientDialogComments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="PatientDialogEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="PatientDialogFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="PatientDialogJob" xml:space="preserve">
+    <value>Job</value>
+  </data>
+  <data name="PatientDialogMainInfo" xml:space="preserve">
+    <value>Main information about the patient</value>
+  </data>
+  <data name="PatientDialogMainLabel" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="PatientDialogMainLabelEdit" xml:space="preserve">
+    <value>Edit patient</value>
+  </data>
+  <data name="PatientDialogMainLabelView" xml:space="preserve">
+    <value>View information</value>
+  </data>
+  <data name="PatientDialogMiddleName" xml:space="preserve">
+    <value>Middle name</value>
+  </data>
+  <data name="PatientDialogPhoneNumberCell" xml:space="preserve">
+    <value>Cell phone</value>
+  </data>
+  <data name="PatientDialogPhoneNumberHome" xml:space="preserve">
+    <value>Home phone</value>
+  </data>
+  <data name="PatientDialogPhoneNumberWork" xml:space="preserve">
+    <value>Work phone</value>
+  </data>
+  <data name="PatientDialogProfession" xml:space="preserve">
+    <value>Profession</value>
+  </data>
+  <data name="PatientDialogSex" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="PatientDialogSurname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="PositionDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="PositionDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="PositionDialogIsAttending" xml:space="preserve">
+    <value>Attending</value>
+  </data>
+  <data name="PositionDialogMainInfo" xml:space="preserve">
+    <value>Position information</value>
+  </data>
+  <data name="PositionDialogMainLabel" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="PositionDialogName" xml:space="preserve">
+    <value>Position name</value>
+  </data>
+  <data name="ReminderDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ReminderDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ReminderDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="ReminderDialogDate" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="ReminderDialogDoctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="ReminderDialogMainInfo" xml:space="preserve">
+    <value>Reminder information</value>
+  </data>
+  <data name="ReminderDialogMainLabel" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="ReminderDialogMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ReminderDialogPatient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="ReminderDoctor" xml:space="preserve">
+    <value>Doctor</value>
+  </data>
+  <data name="ReminderDoctorWasNotSelected" xml:space="preserve">
+    <value>was not set</value>
+  </data>
+  <data name="ReminderIsCompleted" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="ReminderMessage" xml:space="preserve">
+    <value>Message</value>
+  </data>
+  <data name="ReminderSelectDoctor" xml:space="preserve">
+    <value>Select the doctor</value>
+  </data>
+  <data name="RemindertAlert" xml:space="preserve">
+    <value>Alert</value>
+  </data>
+  <data name="RemindertComment" xml:space="preserve">
+    <value>Comment</value>
+  </data>
+  <data name="ReminderTime" xml:space="preserve">
+    <value>Time</value>
+  </data>
+  <data name="RemindertPatient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="NavigationAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="NavigationSetting" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SearchCancel" xml:space="preserve">
+    <value>Cancel search</value>
+  </data>
+  <data name="SearchExpression" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SearchPatientByFirstCharts" xml:space="preserve">
+    <value>By first letters</value>
+  </data>
+  <data name="SettingDialogBackupInfo" xml:space="preserve">
+    <value>Backup</value>
+  </data>
+  <data name="SettingDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="SettingDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="SettingDialogLanguage" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingDialogLanguageInfo" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="SettingDialogBackupLocation" xml:space="preserve">
+    <value>Location of the backup file (on database server)</value>
+  </data>
+  <data name="SettingDialogMainLabel" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="SettingDialogBackupDatabaseName" xml:space="preserve">
+    <value>Name of the backuped database</value>
+  </data>
+  <data name="SettingDialogBackupFileName" xml:space="preserve">
+    <value>Name of the backup file</value>
+  </data>
+  <data name="SettingDialogNotification" xml:space="preserve">
+    <value>Notify every (minutes)</value>
+  </data>
+  <data name="SettingDialogNotificationInfo" xml:space="preserve">
+    <value>Notifications</value>
+  </data>
+  <data name="SettingDialogNotificationToRestart" xml:space="preserve">
+    <value>You have to reload the program after changing the language of the user interface</value>
+  </data>
+  <data name="StaffDialogAdditionalInfo" xml:space="preserve">
+    <value>Additional information about the staff</value>
+  </data>
+  <data name="StaffDialogAddress" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="StaffDialogBirthday" xml:space="preserve">
+    <value>Birthday</value>
+  </data>
+  <data name="StaffDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="StaffDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="StaffDialogComments" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="StaffDialogEducation" xml:space="preserve">
+    <value>Education</value>
+  </data>
+  <data name="StaffDialogEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="StaffDialogFirstName" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="StaffDialogIsTaking" xml:space="preserve">
+    <value>Conducts the admission of patients</value>
+  </data>
+  <data name="StaffDialogMainInfo" xml:space="preserve">
+    <value>Main information about the staff</value>
+  </data>
+  <data name="StaffDialogMainLabel" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="StaffDialogMiddleName" xml:space="preserve">
+    <value>Middle name</value>
+  </data>
+  <data name="StaffDialogPhoneNumberCell" xml:space="preserve">
+    <value>Cell phone</value>
+  </data>
+  <data name="StaffDialogPhoneNumberHome" xml:space="preserve">
+    <value>Home phone</value>
+  </data>
+  <data name="StaffDialogPhoneNumberWork" xml:space="preserve">
+    <value>Work phone</value>
+  </data>
+  <data name="StaffDialogPosition" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="StaffDialogSex" xml:space="preserve">
+    <value>Gender</value>
+  </data>
+  <data name="StaffDialogSurname" xml:space="preserve">
+    <value>Surname</value>
+  </data>
+  <data name="StyledMessageBoxButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="StyledMessageBoxButtonNo" xml:space="preserve">
+    <value>No</value>
+  </data>
+  <data name="StyledMessageBoxButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="StyledMessageBoxButtonYes" xml:space="preserve">
+    <value>Yes</value>
+  </data>
+  <data name="NavigationAppointment" xml:space="preserve">
+    <value>Appointment</value>
+  </data>
+  <data name="NavigationBackup" xml:space="preserve">
+    <value>Database backup</value>
+  </data>
+  <data name="NavigationEducation" xml:space="preserve">
+    <value>Educational institution</value>
+  </data>
+  <data name="NavigationLogin" xml:space="preserve">
+    <value>Users</value>
+  </data>
+  <data name="NavigationNotificationGroup" xml:space="preserve">
+    <value>Email notifications</value>
+  </data>
+  <data name="NavigationNotificationTemplate" xml:space="preserve">
+    <value>Templates</value>
+  </data>
+  <data name="NavigationPatient" xml:space="preserve">
+    <value>Patients</value>
+  </data>
+  <data name="NavigationPosition" xml:space="preserve">
+    <value>Positions</value>
+  </data>
+  <data name="NavigationReminder" xml:space="preserve">
+    <value>Reminder</value>
+  </data>
+  <data name="NavigationStaff" xml:space="preserve">
+    <value>Staff</value>
+  </data>
+  <data name="NotificationListManageDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationListManageDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NotificationListManageDialogEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NotificationListManageDialogMainLabel" xml:space="preserve">
+    <value>Delivery list</value>
+  </data>
+  <data name="NotificationListManageDialogReceiver" xml:space="preserve">
+    <value>Receiver</value>
+  </data>
+  <data name="NotificationGroupDialogButtonSelect" xml:space="preserve">
+    <value>Select receivers...</value>
+  </data>
+  <data name="NotificationGroupDialogButtonStart" xml:space="preserve">
+    <value>View email statuses...</value>
+  </data>
+  <data name="NotificationListDialogButtonCancel" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="NotificationListDialogButtonSave" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="NotificationListDialogMainLabel" xml:space="preserve">
+    <value>Delivery list</value>
+  </data>
+  <data name="NotificationListDialogPatient" xml:space="preserve">
+    <value>Patient</value>
+  </data>
+  <data name="NotificationListDialogError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="NotificationListDialogSendDate" xml:space="preserve">
+    <value>Send date</value>
+  </data>
+  <data name="PatientDialogIsEmailNotificationAllowed" xml:space="preserve">
+    <value>Email notification is allowed</value>
+  </data>
+  <data name="MessageBoxSaveGroupConfirmation" xml:space="preserve">
+    <value>Group has to be saved before you start working with notification list. Are you sure you want to save this group?</value>
+  </data>
+  <data name="MessageBoxSaveGroupHeader" xml:space="preserve">
+    <value>Save record</value>
+  </data>
+  <data name="NotificationListDialogStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NotificationGroupNotProcessed" xml:space="preserve">
+    <value>The group hasn't been processed.</value>
+  </data>
+  <data name="NotificationGroupProcessed" xml:space="preserve">
+    <value>The group was processed {0}.</value>
+  </data>
+  <data name="NotificationGroupCannotBeDeleted" xml:space="preserve">
+    <value>Current group cannot be deleted since email delivery has been started.</value>
+  </data>
+  <data name="NotificationGroupProcessing" xml:space="preserve">
+    <value>The group is processing.</value>
+  </data>
+  <data name="NotificationListDialogButtonRefresh" xml:space="preserve">
+    <value>Refresh</value>
+  </data>
+  <data name="NotificationGroupCancelDeliveryConfirmation" xml:space="preserve">
+    <value>Are you sure you want to cancel current delivery?</value>
+  </data>
+  <data name="NotificationGroupCancelDeliveryHeader" xml:space="preserve">
+    <value>Cancel delivery</value>
+  </data>
+  <data name="NotificationGroupDialogButtonCancelDelivery" xml:space="preserve">
+    <value>Cancel delivery</value>
+  </data>
+  <data name="NotificationGroupDialogButtonRestartDelivery" xml:space="preserve">
+    <value>Restart delivery</value>
+  </data>
+  <data name="NotificationGroupCancelled" xml:space="preserve">
+    <value>The group processing has been canceled.</value>
+  </data>
+  <data name="NotificationGroupDialogStatus" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="NotificationTemplateCannotBeDeleted" xml:space="preserve">
+    <value>Current template cannot be deleted since it in use in group for which email delivery has been started.</value>
+  </data>
+  <data name="NotificationListDialogEmail" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="NotificationGroupDialogEndDate" xml:space="preserve">
+    <value>End date</value>
+  </data>
+  <data name="NotificationEmailSuccessfulResult" xml:space="preserve">
+    <value>Success. Message to {0} ({1}) has been sent successfully at {2}.</value>
+  </data>
+  <data name="PatientDialogIsEmailChecked" xml:space="preserve">
+    <value>Email address is checked</value>
+  </data>
+  <data name="ButtonDeleteInValidateEmails" xml:space="preserve">
+    <value>Import invalid email addresses</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogAddresses" xml:space="preserve">
+    <value>List of the email addresses separated by Enter</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogButtonCancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogButtonImport" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogMainInfo" xml:space="preserve">
+    <value>Email addresses</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogMainLabel" xml:space="preserve">
+    <value>Import invalid email addresses</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidated" xml:space="preserve">
+    <value>Amount of email addresses that has/ve been invalidated is/are {0}.</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidatedHeader" xml:space="preserve">
+    <value>Import invalid email addresses</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidatedIsNull" xml:space="preserve">
+    <value>None of the email addresses has been invalidated.</value>
+  </data>
+  <data name="NotificationListDialogCancelFilter" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationListDialogFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="FilterPatientWithInvalidEmails" xml:space="preserve">
+    <value>Invalid email addresses</value>
+  </data>
+  <data name="NotificationListManageDialogCancelFilter" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="NotificationListManageDialogFilter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="SettingDialogBackupTime" xml:space="preserve">
+    <value>Time of the backup</value>
+  </data>
+  <data name="SettingDialoEmailDeliveryTab" xml:space="preserve">
+    <value>Email Delivery</value>
+  </data>
+  <data name="SettingDialogEmalsInfo" xml:space="preserve">
+    <value>SMTP settings</value>
+  </data>
+  <data name="SettingDialoGeneralTab" xml:space="preserve">
+    <value>General Settings</value>
+  </data>
+  <data name="SettingDialogSmtpHost" xml:space="preserve">
+    <value>Host</value>
+  </data>
+  <data name="SettingDialogSmtpPassword" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="SettingDialogSmtpPort" xml:space="preserve">
+    <value>Port</value>
+  </data>
+  <data name="SettingDialogSmtpUserName" xml:space="preserve">
+    <value>User name</value>
+  </data>
+  <data name="SettingSmtpEnableSsl" xml:space="preserve">
+    <value>Enable SSL</value>
+  </data>
+  <data name="SettingDialogSmtpFromAddress" xml:space="preserve">
+    <value>Email address</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Rows: {0}</value>
+  </data>
+  <data name="AmountNotFormatted" xml:space="preserve">
+    <value>Rows:</value>
+  </data>
+  <data name="MessageBoxNotificationListCannotBeSaved" xml:space="preserve">
+    <value>Changes will not be saved, since group was processed or is being processed.</value>
+  </data>
+  <data name="MessageBoxNotificationListCannotBeSavedHeader" xml:space="preserve">
+    <value>Save record</value>
+  </data>
+  <data name="MessageBoxSavingFailed" xml:space="preserve">
+    <value>Error occurred during the saving changes.</value>
+  </data>
+  <data name="MessageBoxSavingFailedHeader" xml:space="preserve">
+    <value>Save record</value>
+  </data>
+  <data name="AboutDialogDataBaseVersion" xml:space="preserve">
+    <value>Database version</value>
+  </data>
+  <data name="PatientDialogPhoto" xml:space="preserve">
+    <value>Photo</value>
+  </data>
+  <data name="PatientDialogSelectImage" xml:space="preserve">
+    <value>Select photo...</value>
+  </data>
+  <data name="PatientDialogPhotoUploadErrorText" xml:space="preserve">
+    <value>An error occurred while uploading photo.</value>
+  </data>
+  <data name="PatientDialogPhotoUploadErrorTitle" xml:space="preserve">
+    <value>Photo upload</value>
+  </data>
+  <data name="PatientDialogDeletePhoto" xml:space="preserve">
+    <value>Delete photo</value>
+  </data>
+  <data name="PatientDialogTakePicture" xml:space="preserve">
+    <value>Take a picture...</value>
+  </data>
+  <data name="PreviewDialogTakePicture" xml:space="preserve">
+    <value>Take a picture</value>
+  </data>
+  <data name="SettingDialogVideoDevicesInfo" xml:space="preserve">
+    <value>Video devices Settings</value>
+  </data>
+  <data name="SettingDialogVideoDevicesList" xml:space="preserve">
+    <value>List of the video devices</value>
+  </data>
+  <data name="SettingDialogVideoDevicesTab" xml:space="preserve">
+    <value>Video Devices</value>
+  </data>
+  <data name="NotificationGroupDialogButtonRestartDeliveryForFailed" xml:space="preserve">
+    <value>Restart delivery for failed</value>
+  </data>
+  <data name="NotificationGroupClientMode" xml:space="preserve">
+    <value>You are run under Client mode. Email notificationswill not be send from this computer</value>
+  </data>
+  <data name="BackupLogsClientMode" xml:space="preserve">
+    <value>You are run under Client mode. Scheduled database
+backup will not be run from this computer</value>
+  </data>
+</root>

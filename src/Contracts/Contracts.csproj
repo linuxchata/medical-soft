@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F8E11C17-9640-4F87-906D-556BFDBB8BAB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Contracts</RootNamespace>
+    <AssemblyName>Contracts</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Operation\IGet.cs" />
+    <Compile Include="Operation\IGetById.cs" />
+    <Compile Include="Operation\IGetAllExceptDeleted.cs" />
+    <Compile Include="Operation\IGetAll.cs" />
+    <Compile Include="Operation\IDelete.cs" />
+    <Compile Include="Operation\IAdd.cs" />
+    <Compile Include="Operation\IHide.cs" />
+    <Compile Include="Operation\IUpdate.cs" />
+    <Compile Include="IAppointmentRepository.cs" />
+    <Compile Include="IBackupRepository.cs" />
+    <Compile Include="IEducationRepository.cs" />
+    <Compile Include="ILoginRepository.cs" />
+    <Compile Include="IModel.cs" />
+    <Compile Include="INotificationGroupRepository.cs" />
+    <Compile Include="INotificationListStatusRepository.cs" />
+    <Compile Include="INotificationListRepository.cs" />
+    <Compile Include="INotificationTemplateRepository.cs" />
+    <Compile Include="IPatientRepository.cs" />
+    <Compile Include="IPositionRepository.cs" />
+    <Compile Include="IReminderAlertRepository.cs" />
+    <Compile Include="IReminderFilterRepository.cs" />
+    <Compile Include="IReminderRepository.cs" />
+    <Compile Include="Operation\IRepository.cs" />
+    <Compile Include="IRoleRepository.cs" />
+    <Compile Include="ISettingRepository.cs" />
+    <Compile Include="IGenderRepository.cs" />
+    <Compile Include="IStaffRepository.cs" />
+    <Compile Include="ISystemUpdatesRepository.cs" />
+    <Compile Include="IUiCultureRepository.cs" />
+    <Compile Include="IWindow.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModel\Base\ISubscribable.cs" />
+    <Compile Include="ViewModel\Base\IViewModelBase.cs" />
+    <Compile Include="ViewModel\Base\IViewModelDialogBase.cs" />
+    <Compile Include="ViewModel\Base\IViewModelDialogBase2.cs" />
+    <Compile Include="ViewModel\Base\IViewModelDialogBase3.cs" />
+    <Compile Include="ViewModel\Dialogs\IAboutDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IAppointmentDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IEducationDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\ILoginDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\ILoginingDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\INotificationGroupDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\INotificationInValidateDialogEmailViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\INotificationListDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\INotificationListManageDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\INotificationTemplateDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\IPatientDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IPositionDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IReminderDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IReminderPopupDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\ISettingDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IStaffDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\Dialogs\IPreviewDialogViewModelBase.cs" />
+    <Compile Include="ViewModel\IAppointmentViewModelBase.cs" />
+    <Compile Include="ViewModel\IRequestCloseViewModel.cs" />
+    <Compile Include="ViewModel\ISettingViewModel.cs" />
+    <Compile Include="ViewModel\IAboutViewModel.cs" />
+    <Compile Include="ViewModel\IBackupViewModel.cs" />
+    <Compile Include="ViewModel\ILoginViewModelBase.cs" />
+    <Compile Include="ViewModel\IEducationViewModelBase.cs" />
+    <Compile Include="ViewModel\INotificationGroupViewModelBase.cs" />
+    <Compile Include="ViewModel\INotificationTemplateViewModelBase.cs" />
+    <Compile Include="ViewModel\IPatientViewModelBase.cs" />
+    <Compile Include="ViewModel\IReminderViewModelBase.cs" />
+    <Compile Include="ViewModel\IPositionViewModelBase.cs" />
+    <Compile Include="ViewModel\IStaffViewModelBase.cs" />
+    <Compile Include="ViewModel\Base\IViewModelMainBase.cs" />
+    <Compile Include="ViewModel\UserControls\INavigationsPanelViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
+    <None Include="Operation\ClassDiagram.cd" />
+    <None Include="ViewModel\Base\ClassDiagram.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{e60dd0e9-28ed-4564-942d-ea0bc832b492}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

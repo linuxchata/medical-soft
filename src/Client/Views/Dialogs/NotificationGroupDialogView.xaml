@@ -1,0 +1,178 @@
+﻿<Window x:Class="Client.Views.Dialogs.NotificationGroupDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:tc="clr-namespace:TimeControl;assembly=TimeControl"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:NotificationGroupDialogViewModel}"
+        Title="{x:Static p:Resources.NotificationGroupDialogMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                Style="{StaticResource BorderDialog}">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="515" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                        Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderMainInfo}">
+                    <TextBlock Text="{x:Static p:Resources.NotificationGroupDialogMainInfo}"
+                               Style="{StaticResource TextBlockMainInfo}" />
+                </Border>
+
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Grid.RowSpan="5"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationGroupStartDate}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <Calendar SelectedDate="{Binding Model.StartDate, Mode=TwoWay}"
+                              DisplayDate="{Binding Model.StartDate, Mode=OneWay}"
+                              IsEnabled="{Binding Model.IsNotProcessed}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationGroupStartTime}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <tc:TimeControl Hours="{Binding Hours}"
+                                    Minutes="{Binding Minutes}"
+                                    SelectedHour="{Binding SelectedHour, Mode=TwoWay}"
+                                    SelectedMinute="{Binding SelectedMinute, Mode=TwoWay}"
+                                    IsEnabled="{Binding Model.IsNotProcessed}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="2"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationGroupDescription}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             IsEnabled="{Binding Model.IsNotProcessing}"
+                             Name="FocusableControl"
+                             Style="{StaticResource TextArea}"
+                             Height="36"
+                             MaxLength="1024" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="3"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationGroupTemplate}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <ComboBox ItemsSource="{Binding Templates}"
+                              SelectedValue="{Binding Model.TemplateId, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              IsEnabled="{Binding Model.IsNotProcessed}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="Name" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="4"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{Binding Model.Result}"
+                               Style="{StaticResource TextBlockDefault}" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="1"
+                            Grid.Row="5"
+                            Margin="5,5,0,0"
+                            Orientation="Horizontal">
+                    <Button Command="{Binding SelectManageListCommand}"
+                            Content="{x:Static p:Resources.NotificationGroupDialogButtonSelect}"
+                            Style="{StaticResource ButtonDefault}"
+                            Width="135"
+                            Margin="0,0,5,0" />
+                    <Button Command="{Binding SelectListCommand}"
+                            Content="{x:Static p:Resources.NotificationGroupDialogButtonStart}"
+                            Style="{StaticResource ButtonDefault}"
+                            Width="160" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal">
+            <Button Command="{Binding CancelDeliveryCommand}"
+                    Content="{x:Static p:Resources.NotificationGroupDialogButtonCancelDelivery}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="130" />
+            <Button Command="{Binding RestartDeliveryCommand}"
+                    Content="{x:Static p:Resources.NotificationGroupDialogButtonRestartDelivery}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="140"
+                    Margin="10,0,0,0" />
+            <Button Command="{Binding RestartDeliveryForFailedCommand}"
+                    Content="{x:Static p:Resources.NotificationGroupDialogButtonRestartDeliveryForFailed}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="190"
+                    Margin="10,0,0,0" />
+        </StackPanel>
+        
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.NotificationGroupDialogButtonSave}"
+                    IsEnabled="{Binding Model.IsNotProcessing}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    FontWeight="Bold" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.NotificationGroupDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    Margin="10,0,0,0" />
+        </StackPanel>
+    </Grid>
+</Window>

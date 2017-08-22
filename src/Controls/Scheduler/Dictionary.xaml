@@ -1,0 +1,464 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:time="clr-namespace:Scheduler.Logic"
+                    xmlns:properties="clr-namespace:Scheduler.Properties">
+
+    <Style TargetType="{x:Type time:Calendar}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:Calendar}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="60" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="3" />
+                            <RowDefinition Height="0" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Border BorderBrush="Gainsboro"
+                                BorderThickness="0"
+                                Background="White"
+                                Grid.Column="0"
+                                Grid.Row="0"
+                                SnapsToDevicePixels="True">
+                            <StackPanel Orientation="Horizontal"
+                                        Margin="1,0,0,0">
+                                <Button Style="{StaticResource ButtonText}"
+                                        Command="{x:Static time:Calendar.PreviousDay}"
+                                        Height="26"
+                                        Width="26"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}">
+                                    <Path Data="M520,0L520,657.20001 0,328.60001z"
+                                          Stretch="Uniform"
+                                          Fill="Gray"
+                                          Width="13"
+                                          Height="13" />
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold"
+                                                           Text="{x:Static properties:Resources.CalendarPreviousDayTitle}" />
+                                                <TextBlock Text="{x:Static properties:Resources.CalendarPreviousDayDescription}" />
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                </Button>
+                                <Button Style="{StaticResource ButtonText}"
+                                        Command="{x:Static time:Calendar.NextDay}"
+                                        Height="26"
+                                        Width="26"
+                                        Background="{x:Null}"
+                                        BorderBrush="{x:Null}">
+                                    <Path Data="M0,0L496.000005990267,315 0,630z"
+                                          Stretch="Uniform"
+                                          Fill="Gray"
+                                          Width="13"
+                                          Height="13" />
+                                    <Button.ToolTip>
+                                        <ToolTip>
+                                            <StackPanel>
+                                                <TextBlock FontWeight="Bold"
+                                                           Text="{x:Static properties:Resources.CalendarNextDayTitle}" />
+                                                <TextBlock Text="{x:Static properties:Resources.CalendarNextDayDescription}" />
+                                            </StackPanel>
+                                        </ToolTip>
+                                    </Button.ToolTip>
+                                </Button>
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="Gainsboro"
+                                BorderThickness="0"
+                                Background="White"
+                                Grid.Column="1"
+                                Grid.Row="0"
+                                Padding="10,0,0,0"
+                                SnapsToDevicePixels="True">
+                            <TextBlock x:Name="DayHeader"
+                                       HorizontalAlignment="Left"
+                                       VerticalAlignment="Center">
+                                <TextBlock.ToolTip>
+                                    <ToolTip>
+                                        <StackPanel>
+                                            <TextBlock FontWeight="Bold"
+                                                       Text="{x:Static properties:Resources.CalendarSelectedDayTitle}" />
+                                            <TextBlock Text="{x:Static properties:Resources.CalendarSelectedDayDescription}" />
+                                        </StackPanel>
+                                    </ToolTip>
+                                </TextBlock.ToolTip>
+                                </TextBlock>
+                        </Border>
+                        <Border Grid.ColumnSpan="2"
+                                Grid.Column="0"
+                                Grid.Row="1" />
+                        <!--<Border BorderBrush="Gainsboro"
+                                BorderThickness="0,0,0,1"
+                                Grid.ColumnSpan="2"
+                                Grid.Row="2"
+                                Background="White">
+                            <Border BorderBrush="Gainsboro"
+                                    CornerRadius="3,3,0,0"
+                                    BorderThickness="1,1,1,0"
+                                    Padding="10,0,10,0"
+                                    Width="Auto"
+                                    HorizontalAlignment="Left">
+                                <Border.Background>
+                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                        <GradientStop Color="#DFE9F5" Offset="0" />
+                                        <GradientStop Color="#DFE9F5" Offset="1" />
+                                    </LinearGradientBrush>
+                                </Border.Background>
+                                <TextBlock x:Name="Header"
+                                           HorizontalAlignment="Left"
+                                           VerticalAlignment="Center" />
+                            </Border>
+                        </Border>-->
+                        <Border Grid.Row="3"
+                                Grid.Column="0"
+                                Grid.ColumnSpan="2"
+                                SnapsToDevicePixels="True"
+                                BorderBrush="Gainsboro"
+                                BorderThickness="0.5">
+                            <time:Scroll x:Name="scrollViewer"
+                                         CustomVerticalOffset="608.0">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="60" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <time:TimeRibbon Grid.Column="0" />
+                                    <time:SchedulerDay Grid.Column="1"
+                                                       Name="Day" />
+                                </Grid>
+                            </time:Scroll>
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type time:AppointmentItem}">
+        <Setter Property="StartTime" Value="{Binding StartTime}" />
+        <Setter Property="EndTime" Value="{Binding EndTime}" />
+        <Setter Property="AppointmentGuid" Value="{Binding Id}" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:AppointmentItem}">
+                    <Border Name="hoverItem"
+                            CornerRadius="1"
+                            BorderThickness="1"
+                            BorderBrush="LightGray"
+                            Margin="0,-1,1,0"
+                            Padding="0"
+                            SnapsToDevicePixels="True">
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Cornsilk" Offset="0" />
+                                <GradientStop Color="Moccasin" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Border.ToolTip>
+                            <ToolTip>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold"
+                                               Text="{x:Static properties:Resources.CalendarEditItemTitle}" />
+                                    <TextBlock Text="{x:Static properties:Resources.CalendarEditItemDescription}" />
+                                </StackPanel>
+                            </ToolTip>
+                        </Border.ToolTip>
+                        <Grid>
+                            <ContentPresenter Margin="2,0,0,0" />
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Top"
+                                        HorizontalAlignment="Right">
+                                <time:DeleteButton AppointmentDeleteGuid="{Binding Id}"
+                                                   Margin="0,1,1,0" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="BorderBrush" Value="#FFB700" TargetName="hoverItem" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="time:DeleteButton">
+        <Setter Property="Height" Value="15" />
+        <Setter Property="Width" Value="15" />
+        <Setter Property="Cursor" Value="Arrow" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="time:DeleteButton">
+                    <Canvas Background="Transparent"
+                            Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                        <Path Name="CheckMark"
+                              Canvas.Left="3.5"
+                              Canvas.Top="3.5"
+                              Data="M 0 0 L 7 7 M 0 7 L 7 0"
+                              Width="7"
+                              Height="7"
+                              SnapsToDevicePixels="True"
+                              Stroke="LightSlateGray"
+                              StrokeThickness="1" />
+                        <Canvas.ToolTip>
+                            <ToolTip>
+                                <StackPanel>
+                                    <TextBlock FontWeight="Bold"
+                                               Text="{x:Static properties:Resources.CalendarDeleteItemTitle}" />
+                                    <TextBlock Text="{x:Static properties:Resources.CalendarDeleteItemDescription}" />
+                                </StackPanel>
+                            </ToolTip>
+                        </Canvas.ToolTip>
+                    </Canvas>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Stroke" Value="#000000" TargetName="CheckMark" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type time:SchedulerDay}">
+        <Setter Property="ItemsPanel">
+            <Setter.Value>
+                <ItemsPanelTemplate>
+                    <time:TimeSlotPanel />
+                </ItemsPanelTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:SchedulerDay}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <Grid>
+                            <StackPanel>
+                                <time:TimeSlot Hours="00" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="00" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="00" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="00" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="01" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="01" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="01" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="01" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="02" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="02" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="02" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="02" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="03" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="03" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="03" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="03" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="04" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="04" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="04" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="04" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="05" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="05" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="05" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="05" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="06" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="06" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="06" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="06" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="07" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="07" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="07" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="07" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="08" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="08" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="08" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="08" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="09" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="09" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="09" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="09" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="10" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="10" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="10" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="10" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="11" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="11" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="11" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="11" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="12" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="12" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="12" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="12" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="13" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="13" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="13" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="13" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="14" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="14" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="14" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="14" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="15" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="15" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="15" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="15" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="16" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="16" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="16" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="16" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="17" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="17" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="17" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="17" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="18" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="18" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="18" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="18" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="19" Minutes="00" Background="White" />
+                                <time:TimeSlot Hours="19" Minutes="15" Background="White" />
+                                <time:TimeSlot Hours="19" Minutes="30" Background="White" />
+                                <time:TimeSlot Hours="19" Minutes="45" Background="White" />
+                                <time:TimeSlot Hours="20" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="20" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="20" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="20" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="21" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="21" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="21" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="21" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="22" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="22" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="22" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="22" Minutes="45" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="23" Minutes="00" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="23" Minutes="15" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="23" Minutes="30" Background="#FFF2F2F2" />
+                                <time:TimeSlot Hours="23" Minutes="45" Background="#FFF2F2F2" />
+                            </StackPanel>
+                            <ItemsPresenter />
+                        </Grid>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type time:TimeSlot}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:TimeSlot}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="#A5BFE1"
+                            BorderThickness="0,0,0,0.5"
+                            Name="bd"
+                            Height="19"
+                            SnapsToDevicePixels="True">
+                        <Border BorderThickness="0,0,0,0"
+                                BorderBrush="#5D8CC9"
+                                Name="hover"
+                                Opacity="0"
+                                Background="#E8E8E8"
+                                SnapsToDevicePixels="True">
+                            <TextBlock Text="{x:Static properties:Resources.CalendarAddItemTitle}"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Foreground="Gray" />
+                            <Border.ToolTip>
+                                <ToolTip>
+                                    <StackPanel>
+                                        <TextBlock FontWeight="Bold" Text="{x:Static properties:Resources.CalendarAddItemTitle}" />
+                                        <TextBlock Text="{x:Static properties:Resources.CalendarAddItemDescription}" />
+                                    </StackPanel>
+                                </ToolTip>
+                            </Border.ToolTip>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="1" TargetName="hover" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type time:TimeRibbon}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:TimeRibbon}">
+                    <Border Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            SnapsToDevicePixels="True">
+                        <StackPanel>
+                            <time:Time Hours="00" Minutes="00" />
+                            <time:Time Hours="01" Minutes="00" />
+                            <time:Time Hours="02" Minutes="00" />
+                            <time:Time Hours="03" Minutes="00" />
+                            <time:Time Hours="04" Minutes="00" />
+                            <time:Time Hours="05" Minutes="00" />
+                            <time:Time Hours="06" Minutes="00" />
+                            <time:Time Hours="07" Minutes="00" />
+                            <time:Time Hours="08" Minutes="00" />
+                            <time:Time Hours="09" Minutes="00" />
+                            <time:Time Hours="10" Minutes="00" />
+                            <time:Time Hours="11" Minutes="00" />
+                            <time:Time Hours="12" Minutes="00" />
+                            <time:Time Hours="13" Minutes="00" />
+                            <time:Time Hours="14" Minutes="00" />
+                            <time:Time Hours="15" Minutes="00" />
+                            <time:Time Hours="16" Minutes="00" />
+                            <time:Time Hours="17" Minutes="00" />
+                            <time:Time Hours="18" Minutes="00" />
+                            <time:Time Hours="19" Minutes="00" />
+                            <time:Time Hours="20" Minutes="00" />
+                            <time:Time Hours="21" Minutes="00" />
+                            <time:Time Hours="22" Minutes="00" />
+                            <time:Time Hours="23" Minutes="00" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="{x:Type time:Time}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type time:Time}">
+                    <Border Background="White"
+                            BorderBrush="Gainsboro"
+                            BorderThickness="0,0,1,1"
+                            Height="76"
+                            Width="60"
+                            HorizontalAlignment="Left"
+                            SnapsToDevicePixels="True">
+                        <StackPanel Orientation="Horizontal"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Left">
+                            <TextBlock Text="{TemplateBinding Hours}"
+                                       Foreground="Gray"
+                                       FontSize="16"
+                                       Margin="12,3,0,0" />
+                            <TextBlock Text="{TemplateBinding Minutes}"
+                                       Foreground="Gray"
+                                       Margin="1.5,0,0,0" />
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

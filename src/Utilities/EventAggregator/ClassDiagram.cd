@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Utilities.EventAggregator.EventAggregator">
+    <Position X="3.25" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAhAAAAAAIAAAAAAAEAAAAAAAAACAAABQAAAAEAAAAA=</HashCode>
+      <FileName>EventAggregator\EventAggregator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Utilities.EventAggregator.SubscriberBase">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAA=</HashCode>
+      <FileName>EventAggregator\SubscriberBase.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Utilities.EventAggregator.Subscriber&lt;T, TP&gt;">
+    <Position X="0.5" Y="2.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAA=</HashCode>
+      <FileName>EventAggregator\Subscriber.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Utilities.EventAggregator.IAggregationEvent">
+    <Position X="6" Y="0.5" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>EventAggregator\IAggregationEvent.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Utilities.EventAggregator.IEventAggregator">
+    <Position X="3.25" Y="0.5" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAEAAAAAAAAACAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>EventAggregator\IEventAggregator.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

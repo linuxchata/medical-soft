@@ -1,0 +1,105 @@
+﻿<Window x:Class="Client.Views.Dialogs.NotificationTemplateDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:h="clr-namespace:WpfEditor;assembly=WpfEditor"
+        Title="{x:Static p:Resources.NotificationTemplateMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        ResizeMode="NoResize"
+        Icon="/Client;component/Images/odontology_32.png"
+        DataContextChanged="Window_DataContextChanged">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                Style="{StaticResource BorderDialog}">
+            <Grid Margin="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Row="0"
+                        Style="{StaticResource BorderMainInfo}">
+                    <TextBlock Text="{x:Static p:Resources.NotificationTemplateDialogMainInfo}"
+                               Style="{StaticResource TextBlockMainInfo}" />
+                </Border>
+
+                <StackPanel Grid.Row="1"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationTemplateDialogDescription}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Name="FocusableControl"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="100" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="2"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationTemplateDialogTitle}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Title, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="100" />
+                </StackPanel>
+
+                <StackPanel Grid.Row="3"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.NotificationTemplateDialogBody}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <h:WebEditor Name="WebEditor"
+                                 Html="{Binding Path=Model.Body, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                 Width="800"
+                                 Height="450" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.NotificationTemplateDialogButtonSave}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    FontWeight="Bold" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.NotificationTemplateDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Margin="10,0,0,0"
+                    Width="90"/>
+        </StackPanel>
+    </Grid>
+</Window>

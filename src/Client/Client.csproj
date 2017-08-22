@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{8DD73DF7-31DC-452F-8EE9-BED9185DE25E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Client</RootNamespace>
+    <AssemblyName>Client</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Output\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;RELEASE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>dental.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.3.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonServiceLocator.1.3\lib\portable-net4+sl5+netcore45+wpa81+wp8\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ApplicationSettings.cs" />
+    <Compile Include="ApplicationSettingsManager.cs" />
+    <Compile Include="BindingErrorTraceListener.cs" />
+    <Compile Include="Bootstrap.cs" />
+    <Compile Include="Cache\CultureCache.cs" />
+    <Compile Include="Cache\EducationCache.cs" />
+    <Compile Include="Cache\Interface\ICultureCache.cs" />
+    <Compile Include="Cache\Interface\IEducationCache.cs" />
+    <Compile Include="Cache\Interface\IGenderCache.cs" />
+    <Compile Include="Cache\Interface\IPositionCache.cs" />
+    <Compile Include="Cache\Interface\IReminderAlertCache.cs" />
+    <Compile Include="Cache\Interface\IRoleCache.cs" />
+    <Compile Include="Cache\PositionCache.cs" />
+    <Compile Include="Cache\ReminderAlertCache.cs" />
+    <Compile Include="Cache\RoleCache.cs" />
+    <Compile Include="Cache\GenderCache.cs" />
+    <Compile Include="Contracts\Dialogs\IAboutDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IEducationDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\ILoginDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\ILoginingDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\INotificationGroupDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\INotificationInValidateDialogEmailViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\INotificationListDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\INotificationListManageDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IPatientDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IPositionDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IPreviewDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IReminderDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IReminderPopupDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\ISettingDialogViewModel.cs" />
+    <Compile Include="Contracts\Dialogs\IStaffDialogViewModel.cs" />
+    <Compile Include="Contracts\IAppointmentViewModel.cs" />
+    <Compile Include="Contracts\IEducationViewModel.cs" />
+    <Compile Include="Contracts\ILoginViewModel.cs" />
+    <Compile Include="Contracts\INotificationGroupViewModel.cs" />
+    <Compile Include="Contracts\INotificationTemplateViewModel.cs" />
+    <Compile Include="Contracts\IPatientViewModel.cs" />
+    <Compile Include="Contracts\IPositionViewModel.cs" />
+    <Compile Include="Contracts\IReminderViewModel.cs" />
+    <Compile Include="Contracts\IStaffViewModel.cs" />
+    <Compile Include="DatabindingDebugConverter.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\DefaultMessageViewModelBuilder.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\ErrorMessageViewModelBuilder.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\IConcreteMessageViewModelBuilder.cs" />
+    <Compile Include="Builders\MessageBuilder\IMessageViewModelDirector.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\InformationMessageViewModelBuilder.cs" />
+    <Compile Include="Builders\MessageBuilder\MessageViewModelDirector.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\QuestionMessageViewModelBuilder.cs" />
+    <Compile Include="Builders\MessageBuilder\ConcreteBuilders\WarningMessageViewModelBuilder.cs" />
+    <Compile Include="IApplicationSettings.cs" />
+    <Compile Include="Providers\IMessageBoxProvider.cs" />
+    <Compile Include="Providers\IStartupServicesProvider.cs" />
+    <Compile Include="Providers\StartupServicesProvider.cs" />
+    <Compile Include="Contracts\Dialogs\IAppointmentDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\PreviewDialogViewModel.cs" />
+    <Compile Include="ViewModel\UserControls\NavigationsPanelViewModel.cs" />
+    <Compile Include="Views\AppointmentView.xaml.cs">
+      <DependentUpon>AppointmentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BackupView.xaml.cs">
+      <DependentUpon>BackupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\PreviewDialogView.xaml.cs">
+      <DependentUpon>PreviewDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\EducationView.xaml.cs">
+      <DependentUpon>EducationView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotificationGroupView.xaml.cs">
+      <DependentUpon>NotificationGroupView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\NotificationTemplateView.xaml.cs">
+      <DependentUpon>NotificationTemplateView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PatientView.xaml.cs">
+      <DependentUpon>PatientView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PositionView.xaml.cs">
+      <DependentUpon>PositionView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ReminderView.xaml.cs">
+      <DependentUpon>ReminderView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StaffView.xaml.cs">
+      <DependentUpon>StaffView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\AmountSummary.xaml.cs">
+      <DependentUpon>AmountSummary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\AppointmentViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\AboutDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\NotificationListManageDialogViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
+    <Compile Include="ViewModel\BackupViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\AppointmentDialogViewModel.cs" />
+    <Compile Include="ViewModel\AboutViewModel.cs" />
+    <Compile Include="ViewModel\PatientViewModel.cs" />
+    <Compile Include="ViewModel\StaffViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\EducationDialogViewModel.cs" />
+    <Compile Include="ViewModel\NotificationGroupViewModel.cs" />
+    <Compile Include="ViewModel\NotificationTemplateViewModel.cs" />
+    <Compile Include="ViewModel\ReminderViewModel.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\PositionViewModel.cs" />
+    <Compile Include="Providers\MessageBoxProvider.cs" />
+    <Compile Include="ViewModel\Dialogs\NotificationInValidateDialogEmailViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\NotificationListDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\NotificationGroupDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\NotificationTemplateDialogViewModel.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="ViewModel\EducationViewModel.cs" />
+    <Compile Include="ViewModel\MessageViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\ReminderPopupDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\PositionDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\ReminderDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\SettingDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\StaffDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\LoginDialogViewModel.cs" />
+    <Compile Include="ViewModel\Dialogs\LoginingDialogViewModel.cs" />
+    <Compile Include="Views\Dialogs\AboutDialogView.xaml.cs">
+      <DependentUpon>AboutDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\UserControls\NavigationsPanel.xaml.cs">
+      <DependentUpon>NavigationsPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationInValidateEmailDialogView.xaml.cs">
+      <DependentUpon>NotificationInValidateEmailDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationListDialogView.xaml.cs">
+      <DependentUpon>NotificationListDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationListManageDialogView.xaml.cs">
+      <DependentUpon>NotificationListManageDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationGroupDialogView.xaml.cs">
+      <DependentUpon>NotificationGroupDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\NotificationTemplateDialogView.xaml.cs">
+      <DependentUpon>NotificationTemplateDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ReminderPopupDialogView.xaml.cs">
+      <DependentUpon>ReminderPopupDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\ReminderDialogView.xaml.cs">
+      <DependentUpon>ReminderDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\EducationDialogView.xaml.cs">
+      <DependentUpon>EducationDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\LoginDialog.xaml.cs">
+      <DependentUpon>LoginDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <DependentUpon>Resources.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Views\Dialogs\PositionDialogView.xaml.cs">
+      <DependentUpon>PositionDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\SettingDialogView.xaml.cs">
+      <DependentUpon>SettingDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\StaffDialogView.xaml.cs">
+      <DependentUpon>StaffDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\StyledMessageDialog.xaml.cs">
+      <DependentUpon>StyledMessageDialog.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\AppointmentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BackupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\PreviewDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\EducationView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotificationGroupView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NotificationTemplateView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PatientView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PositionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ReminderView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StaffView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\AmountSummary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\AboutDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\UserControls\NavigationsPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationInValidateEmailDialogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationListDialogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationListManageDialogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationGroupDialogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\NotificationTemplateDialogView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\Dialogs\ReminderPopupDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\ReminderDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\EducationDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\LoginDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Views\Dialogs\LoginDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\PatientDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\PositionDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\SettingDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\StaffDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Dialogs\StyledMessageDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ViewModel\MainViewModel.cs">
+      <ExcludeFromStyleCop>False</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="ViewModel\Dialogs\PatientDialogViewModel.cs" />
+    <Compile Include="Views\Dialogs\LoginDialogView.xaml.cs">
+      <DependentUpon>LoginDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Dialogs\PatientDialogView.xaml.cs">
+      <DependentUpon>PatientDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.uk-UA.resx">
+      <LastGenOutput>Resources.uk-UA.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ru-RU.resx">
+      <LastGenOutput>Resources.ru-RU.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <AppDesigner Include="Properties\" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="dental.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Controls\Autocomplete\Autocomplete.csproj">
+      <Project>{ac0d4df7-93b2-48b8-9f35-f2f85013dbb7}</Project>
+      <Name>Autocomplete</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\CameraPreview\CameraPreview.csproj">
+      <Project>{b25d968d-36ec-4ed5-9f65-2ede7b91d252}</Project>
+      <Name>CameraPreview</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{98a8f1f0-8942-44af-9b84-187b1762ffce}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contracts\Contracts.csproj">
+      <Project>{f8e11c17-9640-4f87-906d-556bfdbb8bab}</Project>
+      <Name>Contracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{330B495E-6F34-4D73-801F-46FAD194413A}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Spinner\Spinner.csproj">
+      <Project>{fa181bcc-8895-4d98-abb9-c579386b259a}</Project>
+      <Name>Spinner</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\TimeControl\TimeControl.csproj">
+      <Project>{6657b627-d91b-4cf5-92b6-a4577eb9246d}</Project>
+      <Name>TimeControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{250dad02-fb74-4624-aa7e-9b4f2b58a651}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{2b023cde-2737-46ae-9c96-b491e99700c8}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{E60DD0E9-28ED-4564-942D-EA0BC832B492}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Logger\Logger.csproj">
+      <Project>{1D857C44-F01D-4CED-A2AC-01994B002DE5}</Project>
+      <Name>Logger</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\Scheduler\Scheduler.csproj">
+      <Project>{64FD0D13-CBCA-4A84-BDE7-B779D72AA489}</Project>
+      <Name>Scheduler</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Styles\Styles.csproj">
+      <Project>{D4056D6C-4FF3-4D67-AD8F-393EEA8D5A4F}</Project>
+      <Name>Styles</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Controls\WpfEditor\WpfEditor.csproj">
+      <Project>{13a55ae8-28ab-4ddb-9bc3-babfd7d64fea}</Project>
+      <Name>WpfEditor</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\odontology_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\odontology_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Styled_Help_48.png" />
+    <Resource Include="Images\Styled_Info_48.png" />
+    <Resource Include="Images\Styled_Warning_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Styled_Error_48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <SplashScreen Include="SplashScreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\default_photo.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Import Project="$(XamlSpyInstallPath)MSBuild\FirstFloor.XamlSpy.WPF.targets" Condition="'$(XamlSpyInstallPath)' != '' and '$(Configuration)' == 'DEBUG'" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

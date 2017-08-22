@@ -1,0 +1,73 @@
+﻿<Window x:Class="Client.Views.Dialogs.PreviewDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:preview="clr-namespace:CameraPreview;assembly=CameraPreview"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:PreviewDialogViewModel}"
+        Title="{x:Static p:Resources.PatientDialogMainLabel}"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        DataContextChanged="OnDataContextChanged"
+        Closing="OnClosing"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <preview:PreviewPanel Name="PreviewPanel"
+                              HorizontalAlignment="Stretch"
+                              VerticalAlignment="Stretch" />
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    Margin="0,0,0,10"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <Button x:Name="TakePictureButton"
+                    Content="{x:Static p:Resources.PreviewDialogTakePicture}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="150"
+                    Click="OnTakePicture">
+            </Button>
+        </StackPanel>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="0,0,10,10"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.PatientDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Margin="10,0,0,0"
+                    Width="90" />
+        </StackPanel>
+    </Grid>
+</Window>

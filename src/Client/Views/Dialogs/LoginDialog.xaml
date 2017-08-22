@@ -1,0 +1,106 @@
+﻿<Window x:Class="Client.Views.Dialogs.LoginDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:LoginingDialogViewModel}"
+        Title="{x:Static p:Resources.LoginDialogTitle}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        FocusManager.FocusedElement="{Binding ElementName=TbLogin}"
+        WindowStyle="None"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.InputBindings>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}" />
+    </Window.InputBindings>
+
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"
+                Background="SkyBlue"
+                BorderThickness="0"
+                Height="50">
+            <TextBlock Text="{x:Static p:Resources.LoginDialogWelcome}"
+                       FontSize="22"
+                       Foreground="White"
+                       Margin="10 3 10 0"
+                       Height="36" />
+        </Border>
+
+        <Grid Grid.Row="1"
+              Margin="20 10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="{x:Static p:Resources.LoginDialogLogin}"
+                           Style="{StaticResource TextBlockDefault}"
+                           Margin="0 10 0 0" />
+                <TextBox Name="TbLogin"
+                         Text="{Binding Model.LoginName, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                         IsEnabled="{Binding IsLoginEnabled}"
+                         Style="{StaticResource TextBoxDefault}"
+                         Width="320"
+                         MaxLength="20" />
+
+                <TextBlock Text="{x:Static p:Resources.LoginDialogPassword}"
+                           Style="{StaticResource TextBlockDefault}"
+                           Margin="0 10 0 0" />
+                <PasswordBox Name="TbPassword"
+                             IsEnabled="{Binding IsLoginEnabled}"
+                             KeyDown="OnKeyDown"
+                             Password=""
+                             Width="320"
+                             MaxLength="20">
+                    <PasswordBox.ToolTip>
+                        <ToolTip Name="LoginToolTip"
+                                 Content="{x:Static p:Resources.CapsLockOn}"
+                                 Visibility="Hidden"
+                                 Placement="Relative"
+                                 VerticalOffset="45" />
+                    </PasswordBox.ToolTip>
+                </PasswordBox>
+
+                <TextBlock Text="{Binding LoginMessage}"
+                           Style="{StaticResource TextBlockDefault}"
+                           Foreground="Red"
+                           Margin="0 10 0 0" />
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <Grid Margin="0 20 0 0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Button Grid.Column="0"
+                            Command="{Binding HandleCommand}"
+                            CommandParameter="{Binding ElementName=TbPassword}"
+                            IsEnabled="{Binding IsLoginEnabled}"
+                            Content="{x:Static p:Resources.LoginDialogButtonLogin}"
+                            Style="{StaticResource ButtonDefault}"
+                            FontWeight="Bold"
+                            HorizontalAlignment="Left"
+                            Width="90" />
+                    <Button Grid.Column="1"
+                            Command="{Binding CancelCommand}"
+                            IsEnabled="{Binding IsLoginEnabled}"
+                            Content="{x:Static p:Resources.LoginDialogButtonCancel}"
+                            Style="{StaticResource ButtonDefault}"
+                            HorizontalAlignment="Right"
+                            Width="90" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

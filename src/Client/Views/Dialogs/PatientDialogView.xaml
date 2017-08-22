@@ -1,0 +1,305 @@
+﻿<Window x:Class="Client.Views.Dialogs.PatientDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:PatientDialogViewModel}"
+        Title="{x:Static p:Resources.PatientDialogMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+        <c:NullToVisibilityConverter x:Key="NullToVisibilityConverter"/>
+        <c:NotNullToVisibilityConverter x:Key="NotNullToVisibilityConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Border Grid.Row="0"
+                IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                Style="{StaticResource BorderDialog}">
+            <Grid Margin="10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="310" />
+                    <ColumnDefinition Width="5" />
+                    <ColumnDefinition Width="250" />
+                    <ColumnDefinition Width="250" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Border Grid.Column="0"
+                        Grid.Row="0"
+                        Grid.ColumnSpan="4"
+                        Style="{StaticResource BorderMainInfo}">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogMainInfo}"
+                               Style="{StaticResource TextBlockMainInfo}" />
+                </Border>
+
+                <StackPanel Grid.Column="0"
+                            Grid.Row="1"
+                            Grid.RowSpan="11"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogPhoto}"
+                               Style="{StaticResource TextBlockDefault}" />
+
+                    <Border Style="{StaticResource BorderImage}"
+                            Visibility="{Binding ImageSource, Converter={StaticResource NotNullToVisibilityConverter}}">
+                        <Grid>
+                            <Image Source="{Binding ImageSource, UpdateSourceTrigger=PropertyChanged}"
+                                   Stretch="Uniform"
+                                   Height="250"
+                                   Width="310" />
+                            <Button Command="{Binding DeleteImageCommand}"
+                                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}"
+                                    Style="{StaticResource PopupCloseButton}"
+                                    HorizontalAlignment="Right"
+                                    VerticalAlignment="Top">
+                                <Button.ToolTip>
+                                    <ToolTip Content="{x:Static p:Resources.PatientDialogDeletePhoto}" />
+                                </Button.ToolTip>
+                            </Button>
+                        </Grid>
+                    </Border>
+                    <Border Style="{StaticResource BorderImage}"
+                            Visibility="{Binding ImageSource, Converter={StaticResource NullToVisibilityConverter}}">
+                        <Image Source="/Client;component/Images/default_photo.png"
+                               Stretch="Fill"
+                               Height="200"
+                               Width="200" />
+                    </Border>
+                    <StackPanel Orientation="Horizontal"
+                                HorizontalAlignment="Center">
+                        <Button Command="{Binding SelectImageCommand}"
+                            Content="{x:Static p:Resources.PatientDialogSelectImage}"
+                            Style="{StaticResource ButtonDefault}"
+                            IsEnabled="{Binding UploadImageEnabled}"
+                            Margin="0,5,10,0"
+                            Width="140">
+                        </Button>
+                        <Button Command="{Binding TakePictureCommand}"
+                            Content="{x:Static p:Resources.PatientDialogTakePicture}"
+                            Style="{StaticResource ButtonDefault}"
+                            IsEnabled="{Binding UploadImageEnabled}"
+                            Margin="0,5,0,0"
+                            Width="140">
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="1"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogSurname}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.SurName, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Name="FocusableControl"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="2"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogFirstName}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.FirstName, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="3"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogMiddleName}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.MiddleName, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="4"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogSex}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <ComboBox ItemsSource="{Binding Genders}"
+                              SelectedValue="{Binding Model.Gender, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                              SelectedValuePath="Id"
+                              DisplayMemberPath="Name"
+                              HorizontalAlignment="Left"
+                              Width="150" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="5"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogBirthday}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <DatePicker SelectedDate="{Binding Model.Birthday, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                Width="150" />
+                </StackPanel>
+
+                <Border Grid.Column="2"
+                        Grid.Row="6"
+                        Grid.ColumnSpan="2"
+                        Style="{StaticResource BorderMainInfo}"
+                        Margin="0,10,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogAdditionalInfo}"
+                               Style="{StaticResource TextBlockMainInfo}" />
+                </Border>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="7"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogPhoneNumberCell}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.PhoneNumberCell, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="8"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogPhoneNumberHome}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.PhoneNumberHome, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="9"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogPhoneNumberWork}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.PhoneNumberWork, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="10"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogEmail}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Email, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="50" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="2"
+                            Grid.Row="11"
+                            Margin="5,5,0,0">
+                    <CheckBox IsChecked="{Binding Model.IsEmailNotificationAllowed}"
+                              Content="{x:Static p:Resources.PatientDialogIsEmailNotificationAllowed}" />
+                    <CheckBox IsChecked="{Binding Model.IsEmailChecked}"
+                              IsEnabled="{Binding Model.IsEmailCheckedEnabled}"
+                              Content="{x:Static p:Resources.PatientDialogIsEmailChecked}"
+                              Margin="0 5 0 0" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3"
+                            Grid.Row="1"
+                            Grid.RowSpan="2"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogAddress}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Address, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextArea}"
+                             Height="70"
+                             MaxLength="200" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3"
+                            Grid.Row="3"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogJob}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Job, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="200" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3"
+                            Grid.Row="4"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogProfession}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Profession, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextBoxDefault}"
+                             MaxLength="100" />
+                </StackPanel>
+
+                <StackPanel Grid.Column="3"
+                            Grid.Row="7"
+                            Grid.RowSpan="4"
+                            Margin="5,5,0,0">
+                    <TextBlock Text="{x:Static p:Resources.PatientDialogComments}"
+                               Style="{StaticResource TextBlockDefault}" />
+                    <TextBox Text="{Binding Model.Comments, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             Style="{StaticResource TextArea}"
+                             Height="163"
+                             MaxLength="300" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.PatientDialogButtonSave}"
+                    Style="{StaticResource ButtonDefault}"
+                    Width="90"
+                    FontWeight="Bold" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.PatientDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Margin="10,0,0,0"
+                    Width="90" />
+        </StackPanel>
+    </Grid>
+</Window>

@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Interface Name="Contracts.Operation.IAdd&lt;T&gt;" Collapsed="true">
+    <Position X="3.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IAdd.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IDelete&lt;TKey&gt;" Collapsed="true">
+    <Position X="7" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IDelete.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IGet&lt;T, TKey&gt;" Collapsed="true">
+    <Position X="0.5" Y="2.25" Width="1.75" />
+    <InheritanceLine Type="Contracts.Operation.IGetAllExceptDeleted&lt;T&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="3.5" Y="4.25" />
+        <Point X="3.5" Y="3.82" />
+        <Point X="1.375" Y="3.82" />
+        <Point X="1.375" Y="3.2" />
+      </Path>
+    </InheritanceLine>
+    <InheritanceLine Type="Contracts.Operation.IGetById&lt;T, TKey&gt;" ManuallyRouted="true">
+      <Path>
+        <Point X="5.625" Y="4.25" />
+        <Point X="5.625" Y="3.431" />
+        <Point X="1.375" Y="3.431" />
+        <Point X="1.375" Y="3.2" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IGet.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IGetAll&lt;T&gt;" Collapsed="true">
+    <Position X="0.5" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>Operation\IGetAll.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IGetAllExceptDeleted&lt;T&gt;" Collapsed="true">
+    <Position X="2.5" Y="4.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IGetAllExceptDeleted.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IGetById&lt;T, TKey&gt;" Collapsed="true">
+    <Position X="4.75" Y="4.25" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>Operation\IGetById.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IHide&lt;TKey&gt;" Collapsed="true">
+    <Position X="5.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IHide.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IRepository&lt;T, TKey&gt;" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IRepository.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Contracts.Operation.IUpdate&lt;T&gt;" Collapsed="true">
+    <Position X="8.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Operation\IUpdate.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

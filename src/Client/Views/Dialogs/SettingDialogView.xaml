@@ -1,0 +1,270 @@
+﻿<Window x:Class="Client.Views.Dialogs.SettingDialogView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:p="clr-namespace:Client.Properties"
+        xmlns:c="clr-namespace:Common.Converter;assembly=Common"
+        xmlns:spinner="clr-namespace:Spinner;assembly=Spinner"
+        xmlns:vm="clr-namespace:Client.ViewModel.Dialogs"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:tc="clr-namespace:TimeControl;assembly=TimeControl"
+        mc:Ignorable="d"
+        d:DataContext="{d:DesignInstance vm:SettingDialogViewModel}"
+        Title="{x:Static p:Resources.SettingDialogMainLabel}"
+        SizeToContent="WidthAndHeight"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize"
+        Background="#DFE9F5"
+        WindowStyle="SingleBorderWindow"
+        ShowInTaskbar="True"
+        Icon="/Client;component/Images/odontology_32.png">
+
+    <Window.Resources>
+        <c:StatusToVisibilityConverter x:Key="StatusVisibilityConverter"/>
+        <c:StatusToBooleanConverter x:Key="StatusBooleanConverter"/>
+    </Window.Resources>
+
+    <Window.InputBindings>
+        <KeyBinding Key="S" Modifiers="Ctrl" Command="{Binding Path=HandleCommand}"></KeyBinding>
+        <KeyBinding Key="Escape" Command="{Binding Path=CancelCommand}"></KeyBinding>
+    </Window.InputBindings>
+
+    <Grid Margin="5,5,10,10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.Row="0"
+                    Margin="5,5,0,0">
+            <TabItem Header="{x:Static p:Resources.SettingDialoGeneralTab}">
+                <Border IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                        Style="{StaticResource BorderDialog}"
+                        Width="400">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                                Style="{StaticResource BorderMainInfo}">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogLanguageInfo}"
+                                       Style="{StaticResource TextBlockMainInfo}" />
+                        </Border>
+
+                        <StackPanel Grid.Row="1"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogLanguage}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <ComboBox ItemsSource="{Binding Cultures}"
+                                      SelectedValue="{Binding SelectedCulture, ValidatesOnDataErrors=True, Mode=TwoWay}"
+                                      DisplayMemberPath="Description"
+                                      Name="FocusableControl" />
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogNotificationToRestart}"
+                                       Style="{StaticResource TextBlockDefault}" 
+                                       Foreground="Red"
+                                       TextWrapping="Wrap"
+                                       Height="35" />
+                        </StackPanel>
+
+                        <Border Grid.Row="2"
+                                Style="{StaticResource BorderMainInfo}"
+                                Margin="0,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogBackupInfo}"
+                                       Style="{StaticResource TextBlockMainInfo}" />
+                        </Border>
+
+                        <StackPanel Grid.Row="3"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogBackupDatabaseName}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.BackupDatabaseName.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogBackupLocation}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.BackupLocation.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogBackupFileName}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.BackupFileName.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogBackupTime}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <tc:TimeControl Hours="{Binding Hours}"
+                                            Minutes="{Binding Minutes}"
+                                            SelectedHour="{Binding SelectedBackupHour, Mode=TwoWay}"
+                                            SelectedMinute="{Binding SelectedBackupMinute, Mode=TwoWay}" />
+                        </StackPanel>
+
+                        <Border Grid.Row="7"
+                                Style="{StaticResource BorderMainInfo}"
+                                Margin="0,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogNotificationInfo}"
+                                       Style="{StaticResource TextBlockMainInfo}" />
+                        </Border>
+
+                        <StackPanel Grid.Row="8"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogNotification}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <ComboBox ItemsSource="{Binding Durations}"
+                                      SelectedValue="{Binding SelectedReminderCheckDelay, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="{x:Static p:Resources.SettingDialoEmailDeliveryTab}">
+                <Border IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                        Style="{StaticResource BorderDialog}"
+                        Width="400">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                                Style="{StaticResource BorderMainInfo}">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogEmalsInfo}"
+                                       Style="{StaticResource TextBlockMainInfo}" />
+                        </Border>
+
+                        <StackPanel Grid.Row="1"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogSmtpHost}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.SmtpHost.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="2"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogSmtpFromAddress}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.SmtpFromAddress.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogSmtpUserName}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.SmtpUserName.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="4"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogSmtpPassword}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.SmtpPassword.NvValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="40" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="5"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogSmtpPort}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <TextBox Text="{Binding Model.SmtpPort.IntValue, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                     Style="{StaticResource TextBoxDefault}"
+                                     MaxLength="10" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="6"
+                                    Margin="5,5,0,0">
+                            <CheckBox IsChecked="{Binding Model.SmtpEnableSsl.BitValue}"
+                                      Content="{x:Static p:Resources.SettingSmtpEnableSsl}"
+                                      Height="16" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </TabItem>
+
+            <TabItem Header="{x:Static p:Resources.SettingDialogVideoDevicesTab}">
+                <Border IsEnabled="{Binding Status,
+                                    Mode=OneWay,
+                                    Converter={StaticResource StatusBooleanConverter}}"
+                        Style="{StaticResource BorderDialog}"
+                        Width="400">
+                    <Grid Margin="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0"
+                                Style="{StaticResource BorderMainInfo}">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogVideoDevicesInfo}"
+                                       Style="{StaticResource TextBlockMainInfo}" />
+                        </Border>
+
+                        <StackPanel Grid.Row="1"
+                                    Margin="5,5,0,0">
+                            <TextBlock Text="{x:Static p:Resources.SettingDialogVideoDevicesList}"
+                                       Style="{StaticResource TextBlockDefault}" />
+                            <ComboBox ItemsSource="{Binding VideoDevices}"
+                                      SelectedValue="{Binding SelectedVideoDevice, ValidatesOnDataErrors=True, Mode=TwoWay}" />
+                        </StackPanel>
+                    </Grid>
+                </Border>
+            </TabItem>
+        </TabControl>
+
+        <StackPanel Grid.Row="2"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    IsEnabled="{Binding Status, Mode=OneWay, Converter={StaticResource StatusBooleanConverter}}">
+            <spinner:Spinner Visibility="{Binding Status,
+                                                  Mode=OneWay,
+                                                  Converter={StaticResource StatusVisibilityConverter}}"
+                             SpinnerBackground="#DFE9F5"
+                             Margin="0 0 5 0" />
+            <Button Command="{Binding HandleCommand}"
+                    Content="{x:Static p:Resources.SettingDialogButtonSave}"
+                    Style="{StaticResource ButtonDefault}"
+                    FontWeight="Bold"
+                    Width="90" />
+            <Button Command="{Binding CancelCommand}"
+                    Content="{x:Static p:Resources.SettingDialogButtonCancel}"
+                    Style="{StaticResource ButtonDefault}"
+                    Margin="10,0,0,0"
+                    Width="90" />
+        </StackPanel>
+    </Grid>
+</Window>

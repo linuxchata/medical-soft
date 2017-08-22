@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AboutDialogButtonCancel" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="AboutDialogCompanyName" xml:space="preserve">
+    <value>© 2012-2017 Pylyp Lebediev</value>
+  </data>
+  <data name="AboutDialogLicense" xml:space="preserve">
+    <value>Предоставлено для Dent Life</value>
+  </data>
+  <data name="AboutDialogMainLabel" xml:space="preserve">
+    <value>Про программу</value>
+  </data>
+  <data name="AboutDialogSoftName" xml:space="preserve">
+    <value>Dental Soft</value>
+  </data>
+  <data name="AboutDialogVersion" xml:space="preserve">
+    <value>Версия</value>
+  </data>
+  <data name="AppointmentAddItemTitle" xml:space="preserve">
+    <value>Добавить приём</value>
+  </data>
+  <data name="AppointmentChangeTime" xml:space="preserve">
+    <value>Пожалуйста выберите другое время приёма пациента.</value>
+  </data>
+  <data name="AppointmentStartEndTimeMustBeDifferent" xml:space="preserve">
+    <value>Время начала и время окончания приёма должны отличаться!</value>
+  </data>
+  <data name="AppointmentStartTimeMustBeLessEndTime" xml:space="preserve">
+    <value>Время начала должно предшествовать времени окончания приёма!</value>
+  </data>
+  <data name="AppointmentWithSameTimeExists" xml:space="preserve">
+    <value>Выбранное время приёма уже было занято!</value>
+  </data>
+  <data name="BackupLogsDialogBackupTypesName" xml:space="preserve">
+    <value>Тип</value>
+  </data>
+  <data name="BackupLogsDialogEndDateTime" xml:space="preserve">
+    <value>Время завершения</value>
+  </data>
+  <data name="BackupLogsDialogFileName" xml:space="preserve">
+    <value>Название файла</value>
+  </data>
+  <data name="BackupLogsDialogNameStartedBy" xml:space="preserve">
+    <value>Запущено</value>
+  </data>
+  <data name="BackupLogsDialogStartDateTime" xml:space="preserve">
+    <value>Время запуска</value>
+  </data>
+  <data name="BackupLogsDialogStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="ButtonAddAppointment" xml:space="preserve">
+    <value>Добавить приём</value>
+  </data>
+  <data name="ButtonAddEducation" xml:space="preserve">
+    <value>Добавить учебное заведение</value>
+  </data>
+  <data name="ButtonAddLogin" xml:space="preserve">
+    <value>Добавить пользователя</value>
+  </data>
+  <data name="ButtonAddNotificationGroup" xml:space="preserve">
+    <value>Добавить рассылку</value>
+  </data>
+  <data name="ButtonAddNotificationTemplate" xml:space="preserve">
+    <value>Добавить шаблон</value>
+  </data>
+  <data name="ButtonAddPatient" xml:space="preserve">
+    <value>Добавить пациента</value>
+  </data>
+  <data name="ButtonAddPosition" xml:space="preserve">
+    <value>Добавить должность</value>
+  </data>
+  <data name="ButtonAddReminder" xml:space="preserve">
+    <value>Добавить напоминание</value>
+  </data>
+  <data name="ButtonAddStaff" xml:space="preserve">
+    <value>Добавить работника</value>
+  </data>
+  <data name="ButtonDeleteEducation" xml:space="preserve">
+    <value>Удалить учебное заведение</value>
+  </data>
+  <data name="ButtonDeleteLogin" xml:space="preserve">
+    <value>Удалить пользователя</value>
+  </data>
+  <data name="ButtonDeleteNotificationGroup" xml:space="preserve">
+    <value>Удалить рассылку</value>
+  </data>
+  <data name="ButtonDeleteNotificationTemplate" xml:space="preserve">
+    <value>Удалить шаблон</value>
+  </data>
+  <data name="ButtonDeletePatient" xml:space="preserve">
+    <value>Удалить пациента</value>
+  </data>
+  <data name="ButtonDeletePosition" xml:space="preserve">
+    <value>Удалить должность</value>
+  </data>
+  <data name="ButtonDeleteReminder" xml:space="preserve">
+    <value>Удалить напоминание</value>
+  </data>
+  <data name="ButtonDeleteStaff" xml:space="preserve">
+    <value>Удалить работника</value>
+  </data>
+  <data name="ButtonEditEducation" xml:space="preserve">
+    <value>Редактировать учебное заведение</value>
+  </data>
+  <data name="ButtonEditLogin" xml:space="preserve">
+    <value>Редактировать пользователя</value>
+  </data>
+  <data name="ButtonEditNotificationGroup" xml:space="preserve">
+    <value>Редактировать рассылку</value>
+  </data>
+  <data name="ButtonEditNotificationTemplate" xml:space="preserve">
+    <value>Редактировать шаблон</value>
+  </data>
+  <data name="ButtonEditPatient" xml:space="preserve">
+    <value>Редактировать пациента</value>
+  </data>
+  <data name="ButtonEditPosition" xml:space="preserve">
+    <value>Редактировать должность</value>
+  </data>
+  <data name="ButtonEditReminder" xml:space="preserve">
+    <value>Редактировать напоминание</value>
+  </data>
+  <data name="ButtonEditStaff" xml:space="preserve">
+    <value>Редактировать работника</value>
+  </data>
+  <data name="ButtonRefreshBackup" xml:space="preserve">
+    <value>Обновить информацию</value>
+  </data>
+  <data name="ButtonRunBackup" xml:space="preserve">
+    <value>Создать резервную копию</value>
+  </data>
+  <data name="ButtonSelectAppointmentDoctor" xml:space="preserve">
+    <value>Выберите доктора</value>
+  </data>
+  <data name="CapsLockOn" xml:space="preserve">
+    <value>Кнопка Caps Lock нажата</value>
+  </data>
+  <data name="EducationDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="EducationDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="EducationDialogMainInfo" xml:space="preserve">
+    <value>Учебное заведение</value>
+  </data>
+  <data name="EducationDialogMainLabel" xml:space="preserve">
+    <value>Учебное заведение</value>
+  </data>
+  <data name="EducationDialogName" xml:space="preserve">
+    <value>Полное название</value>
+  </data>
+  <data name="EducationDialogShortName" xml:space="preserve">
+    <value>Название</value>
+  </data>
+  <data name="FilterReminder" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="LoginDialogButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="LoginDialogButtonLogin" xml:space="preserve">
+    <value>Вход</value>
+  </data>
+  <data name="LoginDialogIsCanLogin" xml:space="preserve">
+    <value>Право входа</value>
+  </data>
+  <data name="LoginDialogLogin" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="LoginDialogLoginName" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="LoginDialogLogonFailed" xml:space="preserve">
+    <value>Пользователь или пароль не принят</value>
+  </data>
+  <data name="LoginDialogLogonSucceeded" xml:space="preserve">
+    <value>Пожалуйста подождите...</value>
+  </data>
+  <data name="LoginDialogMainInfo" xml:space="preserve">
+    <value>Информация о пользователе</value>
+  </data>
+  <data name="LoginDialogMainLabel" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="LoginDialogPassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="LoginDialogPasswordProtection" xml:space="preserve">
+    <value>&lt;Пароль защищен&gt;</value>
+  </data>
+  <data name="LoginDialogPasswordRepeat" xml:space="preserve">
+    <value>Подтверждение пароля</value>
+  </data>
+  <data name="LoginDialogRoleInSystem" xml:space="preserve">
+    <value>Роль</value>
+  </data>
+  <data name="LoginDialogRoleName" xml:space="preserve">
+    <value>Роль в системе</value>
+  </data>
+  <data name="LoginDialogStaff" xml:space="preserve">
+    <value>Работник</value>
+  </data>
+  <data name="LoginDialogTitle" xml:space="preserve">
+    <value>Вход в программу</value>
+  </data>
+  <data name="LoginDialogWelcome" xml:space="preserve">
+    <value>Добро пожаловать в Dental Soft</value>
+  </data>
+  <data name="MainFormHeader" xml:space="preserve">
+    <value>Dental Soft</value>
+  </data>
+  <data name="MessageBoxDeleteConfirmation" xml:space="preserve">
+    <value>Вы действительно хотите удалить выбранную запись?</value>
+  </data>
+  <data name="MessageBoxDeleteHeader" xml:space="preserve">
+    <value>Удаление записи</value>
+  </data>
+  <data name="MessageBoxSettingsCannotBeSaved" xml:space="preserve">
+    <value>Местоположение файла копии данных некорректно. Настройки не будут сохранены.</value>
+  </data>
+  <data name="MessageBoxSettingsCannotBeSavedHeader" xml:space="preserve">
+    <value>Настройка</value>
+  </data>
+  <data name="MessageBoxTheEntryCannotBeDeleted" xml:space="preserve">
+    <value>Выбранную Вами запись не удалось удалить. Возможно запись используется в других таблицах.</value>
+  </data>
+  <data name="NotificationClose" xml:space="preserve">
+    <value> Закрыть </value>
+  </data>
+  <data name="NotificationDoctor" xml:space="preserve">
+    <value>Доктор: </value>
+  </data>
+  <data name="NotificationGroupDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="NotificationGroupDialogButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="NotificationGroupDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="NotificationGroupDialogDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="NotificationGroupDialogMainInfo" xml:space="preserve">
+    <value>Информация про рассылку</value>
+  </data>
+  <data name="NotificationGroupDialogMainLabel" xml:space="preserve">
+    <value>Рассылка</value>
+  </data>
+  <data name="NotificationGroupDialogStartDate" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="NotificationGroupDialogTemplate" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="NotificationGroupStartDate" xml:space="preserve">
+    <value>Дата начала</value>
+  </data>
+  <data name="NotificationGroupStartTime" xml:space="preserve">
+    <value>Время начала</value>
+  </data>
+  <data name="NotificationGroupTemplate" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="NotificationNext" xml:space="preserve">
+    <value>Следующее</value>
+  </data>
+  <data name="NotificationPatient" xml:space="preserve">
+    <value>Пациент: </value>
+  </data>
+  <data name="NotificationPrevious" xml:space="preserve">
+    <value> Предыдущее</value>
+  </data>
+  <data name="NotificationTemplateDialogBody" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="NotificationTemplateDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="NotificationTemplateDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="NotificationTemplateDialogDescription" xml:space="preserve">
+    <value>Описание</value>
+  </data>
+  <data name="NotificationTemplateDialogMainInfo" xml:space="preserve">
+    <value>Информация о шаблоне</value>
+  </data>
+  <data name="NotificationTemplateDialogTitle" xml:space="preserve">
+    <value>Заголовок</value>
+  </data>
+  <data name="NotificationTemplateMainLabel" xml:space="preserve">
+    <value>Шаблон</value>
+  </data>
+  <data name="PatientDialogAdditionalInfo" xml:space="preserve">
+    <value>Дополнительная информация о пациенте</value>
+  </data>
+  <data name="PatientDialogAddress" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="PatientDialogBirthday" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="PatientDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="PatientDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="PatientDialogComments" xml:space="preserve">
+    <value>Заметки</value>
+  </data>
+  <data name="PatientDialogEmail" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="PatientDialogFirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="PatientDialogJob" xml:space="preserve">
+    <value>Работа</value>
+  </data>
+  <data name="PatientDialogMainInfo" xml:space="preserve">
+    <value>Основная информация о пациенте</value>
+  </data>
+  <data name="PatientDialogMainLabel" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="PatientDialogMainLabelEdit" xml:space="preserve">
+    <value>Редактировать пациента</value>
+  </data>
+  <data name="PatientDialogMainLabelView" xml:space="preserve">
+    <value>Просмотр информации о пациенте</value>
+  </data>
+  <data name="PatientDialogMiddleName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="PatientDialogPhoneNumberCell" xml:space="preserve">
+    <value>Мобильный телефон</value>
+  </data>
+  <data name="PatientDialogPhoneNumberHome" xml:space="preserve">
+    <value>Домашний телефон</value>
+  </data>
+  <data name="PatientDialogPhoneNumberWork" xml:space="preserve">
+    <value>Рабочий телефон</value>
+  </data>
+  <data name="PatientDialogProfession" xml:space="preserve">
+    <value>Профессия</value>
+  </data>
+  <data name="PatientDialogSex" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="PatientDialogSurname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="PositionDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="PositionDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="PositionDialogIsAttending" xml:space="preserve">
+    <value>Прием пациентов</value>
+  </data>
+  <data name="PositionDialogMainInfo" xml:space="preserve">
+    <value>Информация о должности</value>
+  </data>
+  <data name="PositionDialogMainLabel" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="PositionDialogName" xml:space="preserve">
+    <value>Название должности</value>
+  </data>
+  <data name="ReminderDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="ReminderDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="ReminderDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="ReminderDialogDate" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="ReminderDialogDoctor" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
+  <data name="ReminderDialogMainInfo" xml:space="preserve">
+    <value>Информация о напоминании</value>
+  </data>
+  <data name="ReminderDialogMainLabel" xml:space="preserve">
+    <value>Напоминание</value>
+  </data>
+  <data name="ReminderDialogMessage" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="ReminderDialogPatient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="ReminderDoctor" xml:space="preserve">
+    <value>Доктор</value>
+  </data>
+  <data name="ReminderDoctorWasNotSelected" xml:space="preserve">
+    <value>не выбран</value>
+  </data>
+  <data name="ReminderIsCompleted" xml:space="preserve">
+    <value>Выполнено</value>
+  </data>
+  <data name="ReminderMessage" xml:space="preserve">
+    <value>Сообщение</value>
+  </data>
+  <data name="ReminderSelectDoctor" xml:space="preserve">
+    <value>Выберите доктора</value>
+  </data>
+  <data name="RemindertAlert" xml:space="preserve">
+    <value>Сообщить</value>
+  </data>
+  <data name="RemindertComment" xml:space="preserve">
+    <value>Заметки</value>
+  </data>
+  <data name="ReminderTime" xml:space="preserve">
+    <value>Время</value>
+  </data>
+  <data name="RemindertPatient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="NavigationSetting" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
+  <data name="NavigationAbout" xml:space="preserve">
+    <value>О программе</value>
+  </data>
+  <data name="SearchCancel" xml:space="preserve">
+    <value>Отменить поиск</value>
+  </data>
+  <data name="SearchExpression" xml:space="preserve">
+    <value>Поиск</value>
+  </data>
+  <data name="SearchPatientByFirstCharts" xml:space="preserve">
+    <value>По первым буквам</value>
+  </data>
+  <data name="SettingDialogBackupInfo" xml:space="preserve">
+    <value>Резервное копирование данных</value>
+  </data>
+  <data name="SettingDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="SettingDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="SettingDialogLanguage" xml:space="preserve">
+    <value>Язык</value>
+  </data>
+  <data name="SettingDialogLanguageInfo" xml:space="preserve">
+    <value>Язык интерфейса</value>
+  </data>
+  <data name="SettingDialogBackupLocation" xml:space="preserve">
+    <value>Местоположение файла копии данных (на сервере базы данных)</value>
+  </data>
+  <data name="SettingDialogMainLabel" xml:space="preserve">
+    <value>Настройка</value>
+  </data>
+  <data name="SettingDialogBackupDatabaseName" xml:space="preserve">
+    <value>Имя базы данных</value>
+  </data>
+  <data name="SettingDialogBackupFileName" xml:space="preserve">
+    <value>Имя файла копии данных</value>
+  </data>
+  <data name="SettingDialogNotification" xml:space="preserve">
+    <value>Напоминать каждые (минут)</value>
+  </data>
+  <data name="SettingDialogNotificationInfo" xml:space="preserve">
+    <value>Напоминания</value>
+  </data>
+  <data name="SettingDialogNotificationToRestart" xml:space="preserve">
+    <value>После изменения языка интерфейса Вам необходимо перезапустить программу</value>
+  </data>
+  <data name="StaffDialogAdditionalInfo" xml:space="preserve">
+    <value>Дополнительная информация о работнике</value>
+  </data>
+  <data name="StaffDialogAddress" xml:space="preserve">
+    <value>Адрес</value>
+  </data>
+  <data name="StaffDialogBirthday" xml:space="preserve">
+    <value>Дата рождения</value>
+  </data>
+  <data name="StaffDialogButtonCancel" xml:space="preserve">
+    <value>Отменить</value>
+  </data>
+  <data name="StaffDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="StaffDialogComments" xml:space="preserve">
+    <value>Заметки</value>
+  </data>
+  <data name="StaffDialogEducation" xml:space="preserve">
+    <value>Учебное заведение</value>
+  </data>
+  <data name="StaffDialogEmail" xml:space="preserve">
+    <value>Электронная почта</value>
+  </data>
+  <data name="StaffDialogFirstName" xml:space="preserve">
+    <value>Имя</value>
+  </data>
+  <data name="StaffDialogIsTaking" xml:space="preserve">
+    <value>Проводит приём пациентов</value>
+  </data>
+  <data name="StaffDialogMainInfo" xml:space="preserve">
+    <value>Основная информация о работнике</value>
+  </data>
+  <data name="StaffDialogMainLabel" xml:space="preserve">
+    <value>Работник</value>
+  </data>
+  <data name="StaffDialogMiddleName" xml:space="preserve">
+    <value>Отчество</value>
+  </data>
+  <data name="StaffDialogPhoneNumberCell" xml:space="preserve">
+    <value>Мобильный телефон</value>
+  </data>
+  <data name="StaffDialogPhoneNumberHome" xml:space="preserve">
+    <value>Домашний телефон</value>
+  </data>
+  <data name="StaffDialogPhoneNumberWork" xml:space="preserve">
+    <value>Рабочий телефон</value>
+  </data>
+  <data name="StaffDialogPosition" xml:space="preserve">
+    <value>Должность</value>
+  </data>
+  <data name="StaffDialogSex" xml:space="preserve">
+    <value>Пол</value>
+  </data>
+  <data name="StaffDialogSurname" xml:space="preserve">
+    <value>Фамилия</value>
+  </data>
+  <data name="StyledMessageBoxButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="StyledMessageBoxButtonNo" xml:space="preserve">
+    <value>Нет</value>
+  </data>
+  <data name="StyledMessageBoxButtonOk" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="StyledMessageBoxButtonYes" xml:space="preserve">
+    <value>Да</value>
+  </data>
+  <data name="NavigationAppointment" xml:space="preserve">
+    <value>Расписание</value>
+  </data>
+  <data name="NavigationBackup" xml:space="preserve">
+    <value>Резервирование</value>
+  </data>
+  <data name="NavigationEducation" xml:space="preserve">
+    <value>Учебные заведения</value>
+  </data>
+  <data name="NavigationLogin" xml:space="preserve">
+    <value>Пользователи</value>
+  </data>
+  <data name="NavigationNotificationGroup" xml:space="preserve">
+    <value>Рассылка</value>
+  </data>
+  <data name="NavigationNotificationTemplate" xml:space="preserve">
+    <value>Шаблоны</value>
+  </data>
+  <data name="NavigationPatient" xml:space="preserve">
+    <value>Пациенты</value>
+  </data>
+  <data name="NavigationPosition" xml:space="preserve">
+    <value>Должности</value>
+  </data>
+  <data name="NavigationReminder" xml:space="preserve">
+    <value>Напоминания</value>
+  </data>
+  <data name="NavigationStaff" xml:space="preserve">
+    <value>Работники</value>
+  </data>
+  <data name="NotificationListManageDialogButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="NotificationListManageDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="NotificationListManageDialogEmail" xml:space="preserve">
+    <value>Адрес электронной почты</value>
+  </data>
+  <data name="NotificationListManageDialogMainLabel" xml:space="preserve">
+    <value>Список рассылки</value>
+  </data>
+  <data name="NotificationListManageDialogReceiver" xml:space="preserve">
+    <value>Получатель</value>
+  </data>
+  <data name="NotificationGroupDialogButtonSelect" xml:space="preserve">
+    <value>Выбрать получателей...</value>
+  </data>
+  <data name="NotificationGroupDialogButtonStart" xml:space="preserve">
+    <value>Просмотр статусов...</value>
+  </data>
+  <data name="NotificationListDialogButtonCancel" xml:space="preserve">
+    <value>Закрыть</value>
+  </data>
+  <data name="NotificationListDialogButtonSave" xml:space="preserve">
+    <value>Сохранить</value>
+  </data>
+  <data name="NotificationListDialogMainLabel" xml:space="preserve">
+    <value>Список рассылки</value>
+  </data>
+  <data name="NotificationListDialogPatient" xml:space="preserve">
+    <value>Пациент</value>
+  </data>
+  <data name="NotificationListDialogError" xml:space="preserve">
+    <value>Ошибка</value>
+  </data>
+  <data name="NotificationListDialogSendDate" xml:space="preserve">
+    <value>Отправлено</value>
+  </data>
+  <data name="PatientDialogIsEmailNotificationAllowed" xml:space="preserve">
+    <value>Включить в список рассылки</value>
+  </data>
+  <data name="MessageBoxSaveGroupConfirmation" xml:space="preserve">
+    <value>Группа должна быть сохранена перед началом работы со списком рассылки. Вы действительно хотите сохранить данную группу?</value>
+  </data>
+  <data name="MessageBoxSaveGroupHeader" xml:space="preserve">
+    <value>Сохранение записи</value>
+  </data>
+  <data name="NotificationListDialogStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="NotificationGroupNotProcessed" xml:space="preserve">
+    <value>Группа не обработана.</value>
+  </data>
+  <data name="NotificationGroupProcessed" xml:space="preserve">
+    <value>Группа была обработана {0}.</value>
+  </data>
+  <data name="NotificationGroupCannotBeDeleted" xml:space="preserve">
+    <value>Выбранная группа не может быть удалена так, как происходит рассылка сообщений.</value>
+  </data>
+  <data name="NotificationGroupProcessing" xml:space="preserve">
+    <value>Группа в процессе обработки.</value>
+  </data>
+  <data name="NotificationListDialogButtonRefresh" xml:space="preserve">
+    <value>Обновить</value>
+  </data>
+  <data name="NotificationGroupCancelDeliveryConfirmation" xml:space="preserve">
+    <value>Вы уверены, что хотите отменить текущую рассылку сообщений?</value>
+  </data>
+  <data name="NotificationGroupCancelDeliveryHeader" xml:space="preserve">
+    <value>Отмена рассылки</value>
+  </data>
+  <data name="NotificationGroupDialogButtonCancelDelivery" xml:space="preserve">
+    <value>Отменить рассылку</value>
+  </data>
+  <data name="NotificationGroupDialogButtonRestartDelivery" xml:space="preserve">
+    <value>Возобновить рассылку</value>
+  </data>
+  <data name="NotificationGroupCancelled" xml:space="preserve">
+    <value>Обработка группы была отменена.</value>
+  </data>
+  <data name="NotificationGroupDialogStatus" xml:space="preserve">
+    <value>Статус</value>
+  </data>
+  <data name="NotificationTemplateCannotBeDeleted" xml:space="preserve">
+    <value>Выбранный шаблон не может быть удален так, как он используется в группе, для которой происходит рассылка сообщений.</value>
+  </data>
+  <data name="NotificationListDialogEmail" xml:space="preserve">
+    <value>Адрес электронной почты</value>
+  </data>
+  <data name="NotificationGroupDialogEndDate" xml:space="preserve">
+    <value>Дата завершения</value>
+  </data>
+  <data name="PatientDialogIsEmailChecked" xml:space="preserve">
+    <value>Электронная почта проверена</value>
+  </data>
+  <data name="ButtonDeleteInValidateEmails" xml:space="preserve">
+    <value>Импортировать невалидные адреса</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogAddresses" xml:space="preserve">
+    <value>Список адресов электронной почты, разделенных Enter</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogButtonCancel" xml:space="preserve">
+    <value>Отмена</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogButtonImport" xml:space="preserve">
+    <value>Импорт</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogMainInfo" xml:space="preserve">
+    <value>Адреса электронной почты</value>
+  </data>
+  <data name="NotificationInValidateEmailViewDialogMainLabel" xml:space="preserve">
+    <value>Импорт невалидных адресов</value>
+  </data>
+  <data name="Amount" xml:space="preserve">
+    <value>Записей: {0}</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidated" xml:space="preserve">
+    <value>Количество адресов электронной почты, которые были помечены как недействительные: {0}.</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidatedHeader" xml:space="preserve">
+    <value>Импорт невалидных адресов</value>
+  </data>
+  <data name="MessageBoxAmountOfEmailHaveBeenInvalidatedIsNull" xml:space="preserve">
+    <value>Ни один адрес электронной почты не был помечен как недействительный.</value>
+  </data>
+  <data name="NotificationListDialogCancelFilter" xml:space="preserve">
+    <value>Отменить фильтр</value>
+  </data>
+  <data name="NotificationListDialogFilter" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="FilterPatientWithInvalidEmails" xml:space="preserve">
+    <value>Непроверенные адреса</value>
+  </data>
+  <data name="NotificationListManageDialogCancelFilter" xml:space="preserve">
+    <value>Отменить фильтр</value>
+  </data>
+  <data name="NotificationListManageDialogFilter" xml:space="preserve">
+    <value>Фильтр</value>
+  </data>
+  <data name="SettingDialogBackupTime" xml:space="preserve">
+    <value>Время резервного копирования данных</value>
+  </data>
+  <data name="SettingDialoEmailDeliveryTab" xml:space="preserve">
+    <value>Электронная рассылка</value>
+  </data>
+  <data name="SettingDialogEmalsInfo" xml:space="preserve">
+    <value>Настройки SMTP сервера</value>
+  </data>
+  <data name="SettingDialoGeneralTab" xml:space="preserve">
+    <value>Основные настройки</value>
+  </data>
+  <data name="SettingDialogSmtpHost" xml:space="preserve">
+    <value>Хост</value>
+  </data>
+  <data name="SettingDialogSmtpPassword" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="SettingDialogSmtpPort" xml:space="preserve">
+    <value>Порт</value>
+  </data>
+  <data name="SettingDialogSmtpUserName" xml:space="preserve">
+    <value>Пользователь</value>
+  </data>
+  <data name="SettingSmtpEnableSsl" xml:space="preserve">
+    <value>Включить SSL</value>
+  </data>
+  <data name="SettingDialogSmtpFromAddress" xml:space="preserve">
+    <value>Адрес электронной почты</value>
+  </data>
+  <data name="AmountNotFormatted" xml:space="preserve">
+    <value>Записей:</value>
+  </data>
+  <data name="MessageBoxNotificationListCannotBeSaved" xml:space="preserve">
+    <value>Изменения не будут сохранены, так как группа обработана или в процессе обработки.</value>
+  </data>
+  <data name="MessageBoxNotificationListCannotBeSavedHeader" xml:space="preserve">
+    <value>Сохранение записи</value>
+  </data>
+  <data name="MessageBoxSavingFailed" xml:space="preserve">
+    <value>При сохранении изменений возникла ошибка.</value>
+  </data>
+  <data name="MessageBoxSavingFailedHeader" xml:space="preserve">
+    <value>Сохранение записи</value>
+  </data>
+  <data name="AboutDialogDataBaseVersion" xml:space="preserve">
+    <value>Версия базы данных</value>
+  </data>
+  <data name="PatientDialogPhoto" xml:space="preserve">
+    <value>Фотография</value>
+  </data>
+  <data name="PatientDialogSelectImage" xml:space="preserve">
+    <value>Выбрать фотографию...</value>
+  </data>
+  <data name="PatientDialogPhotoUploadErrorText" xml:space="preserve">
+    <value>Возникла ошибка при загрузки фотографии.</value>
+  </data>
+  <data name="PatientDialogPhotoUploadErrorTitle" xml:space="preserve">
+    <value>Загрузка фотографии</value>
+  </data>
+  <data name="PatientDialogDeletePhoto" xml:space="preserve">
+    <value>Удалить фотографию</value>
+  </data>
+  <data name="PatientDialogTakePicture" xml:space="preserve">
+    <value>Сделать фотографию...</value>
+  </data>
+  <data name="PreviewDialogTakePicture" xml:space="preserve">
+    <value>Сделать фотографию</value>
+  </data>
+  <data name="SettingDialogVideoDevicesInfo" xml:space="preserve">
+    <value>Настройки видео устройств</value>
+  </data>
+  <data name="SettingDialogVideoDevicesList" xml:space="preserve">
+    <value>Список видео устройств</value>
+  </data>
+  <data name="SettingDialogVideoDevicesTab" xml:space="preserve">
+    <value>Видео устройства</value>
+  </data>
+  <data name="NotificationGroupDialogButtonRestartDeliveryForFailed" xml:space="preserve">
+    <value>Возобновить для неудавшихся</value>
+  </data>
+  <data name="NotificationGroupClientMode" xml:space="preserve">
+    <value>Программа запущена в клиентском режиме. Рассылка уведомленийпо электронной почте не будет запускаться с этого компьютера</value>
+  </data>
+  <data name="BackupLogsClientMode" xml:space="preserve">
+    <value>Программа запущена в клиентском режиме. Резервное копирование
+базы данных по расписанию не будет запускаться с этого компьютера</value>
+  </data>
+</root>
