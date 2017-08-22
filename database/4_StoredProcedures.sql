@@ -1,4 +1,4 @@
--- =============================================
+﻿-- =============================================
 -- Author:		LinuxChata
 -- Create date:	02.12.2012
 -- Description:	Stored procedure to perform backup of the database

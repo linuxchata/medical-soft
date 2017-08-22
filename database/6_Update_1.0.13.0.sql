@@ -1,4 +1,4 @@
--- =========================================================
+п»ї-- =========================================================
 -- Author:			LinuxChata
 -- Created date:	01.09.2013
 -- Modified date:	25.10.2013
@@ -380,7 +380,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Не отправлено';
+				SET @name_of_status = N'РќРµ РѕС‚РїСЂР°РІР»РµРЅРѕ';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -394,7 +394,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Не надіслано';
+				SET @name_of_status = N'РќРµ РЅР°РґС–СЃР»Р°РЅРѕ';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -436,7 +436,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Успешно';
+				SET @name_of_status = N'РЈСЃРїРµС€РЅРѕ';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -450,7 +450,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Успішно';
+				SET @name_of_status = N'РЈСЃРїС–С€РЅРѕ';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -492,7 +492,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Неуспешно';
+				SET @name_of_status = N'РќРµСѓСЃРїРµС€РЅРѕ';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -506,7 +506,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Неуспішно';
+				SET @name_of_status = N'РќРµСѓСЃРїС–С€РЅРѕ';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -550,7 +550,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Не обработана';
+				SET @name_of_status = N'РќРµ РѕР±СЂР°Р±РѕС‚Р°РЅР°';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -564,7 +564,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Не оброблена';
+				SET @name_of_status = N'РќРµ РѕР±СЂРѕР±Р»РµРЅР°';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -606,7 +606,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Обрабатывается';
+				SET @name_of_status = N'РћР±СЂР°Р±Р°С‚С‹РІР°РµС‚СЃСЏ';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -620,7 +620,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Обробляється';
+				SET @name_of_status = N'РћР±СЂРѕР±Р»СЏС”С‚СЊСЃСЏ';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -662,7 +662,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Отменено';
+				SET @name_of_status = N'РћС‚РјРµРЅРµРЅРѕ';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -676,7 +676,7 @@ BEGIN TRY
 									@culture_id);
 					END
 				
-				SET @name_of_status = N'Відмінено';
+				SET @name_of_status = N'Р’С–РґРјС–РЅРµРЅРѕ';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -718,7 +718,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Обработана';
+				SET @name_of_status = N'РћР±СЂР°Р±РѕС‚Р°РЅР°';
 				SET @culture_id = 2;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)
@@ -732,7 +732,7 @@ BEGIN TRY
 									@culture_id);
 					END
 
-				SET @name_of_status = N'Оброблена';
+				SET @name_of_status = N'РћР±СЂРѕР±Р»РµРЅР°';
 				SET @culture_id = 3;
 
 				IF NOT EXISTS (SELECT NULL FROM [LanguageData] WHERE [KeyId] = @key_id AND [Value] = @name_of_status AND [CultureId] = @culture_id)

@@ -1,4 +1,4 @@
--- =============================================
+﻿-- =============================================
 -- Author:		LinuxChata
 -- Create date:	04.12.2012
 -- Description:	Perform database installation

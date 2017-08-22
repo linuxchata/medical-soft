@@ -1,4 +1,4 @@
--- =============================================
+п»ї-- =============================================
 -- Author:			LinuxChata
 -- Created date:	21.09.2012
 -- Modified date:	24.06.2013
@@ -120,7 +120,7 @@ IF NOT EXISTS (SELECT NULL FROM [Login] WHERE LoginName = @LoginName)
 			   ,0)
 	END
 
-SET @PositionName = N'Врач'
+SET @PositionName = N'Р’СЂР°С‡'
 	
 IF NOT EXISTS (SELECT NULL FROM [Position] WHERE Name = @PositionName)
 	BEGIN
@@ -132,7 +132,7 @@ IF NOT EXISTS (SELECT NULL FROM [Position] WHERE Name = @PositionName)
 			   ,0)
 	END
 	
-SET @PositionName = N'Медсестра'
+SET @PositionName = N'РњРµРґСЃРµСЃС‚СЂР°'
 	
 IF NOT EXISTS (SELECT NULL FROM [Position] WHERE Name = @PositionName)
 	BEGIN
@@ -144,8 +144,8 @@ IF NOT EXISTS (SELECT NULL FROM [Position] WHERE Name = @PositionName)
 			   ,0)
 	END
 	
-SET @EducationShortName = N'ВНМУ'
-SET @EducationName = N'ВНМУ'
+SET @EducationShortName = N'Р’РќРњРЈ'
+SET @EducationName = N'Р’РќРњРЈ'
 	
 IF NOT EXISTS (SELECT NULL FROM [Education] WHERE [ShortName] = @EducationShortName)
 	BEGIN
@@ -173,7 +173,7 @@ IF NOT EXISTS (SELECT NULL FROM [Culture] WHERE Name = @CultureName)
   	END
 	
 SET @CultureName = N'ru-RU'
-SET @CultureDescription  = N'Русский'
+SET @CultureDescription  = N'Р СѓСЃСЃРєРёР№'
 	
 IF NOT EXISTS (SELECT NULL FROM [Culture] WHERE Name = @CultureName)
 	BEGIN
@@ -186,7 +186,7 @@ IF NOT EXISTS (SELECT NULL FROM [Culture] WHERE Name = @CultureName)
   	END
 	
 SET @CultureName = N'uk-UA'
-SET @CultureDescription  = N'Українська'
+SET @CultureDescription  = N'РЈРєСЂР°С—РЅСЃСЊРєР°'
 	
 IF NOT EXISTS (SELECT NULL FROM [Culture] WHERE Name = @CultureName)
 	BEGIN
@@ -278,7 +278,7 @@ IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 				1)
 	END
 	
-SET @BackupType = N'Ручной'
+SET @BackupType = N'Р СѓС‡РЅРѕР№'
 
 IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 	BEGIN
@@ -292,7 +292,7 @@ IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 				2)
 	END
 
-SET @BackupType = N'По расписанию'
+SET @BackupType = N'РџРѕ СЂР°СЃРїРёСЃР°РЅРёСЋ'
 
 IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 	BEGIN
@@ -306,7 +306,7 @@ IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 				2)
 	END
 	
-SET @BackupType = N'Ручний'
+SET @BackupType = N'Р СѓС‡РЅРёР№'
 
 IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 	BEGIN
@@ -320,7 +320,7 @@ IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 				3)
 	END
 
-SET @BackupType = N'По розкладу'
+SET @BackupType = N'РџРѕ СЂРѕР·РєР»Р°РґСѓ'
 
 IF NOT EXISTS (SELECT NULL FROM [BackupTypes] WHERE [Name] = @BackupType)
 	BEGIN
@@ -362,7 +362,7 @@ IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 				1)
 	END
 
-SET @NameOfTheSex = N'Мужской'
+SET @NameOfTheSex = N'РњСѓР¶СЃРєРѕР№'
 
 IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 	BEGIN
@@ -376,7 +376,7 @@ IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 				2)
 	END
 
-SET @NameOfTheSex = N'Женский'
+SET @NameOfTheSex = N'Р–РµРЅСЃРєРёР№'
 
 IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 	BEGIN
@@ -390,7 +390,7 @@ IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 				2)
 	END
 
-SET @NameOfTheSex = N'Чоловіча'
+SET @NameOfTheSex = N'Р§РѕР»РѕРІС–С‡Р°'
 
 IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 	BEGIN
@@ -404,7 +404,7 @@ IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 				3)
 	END
 
-SET @NameOfTheSex = N'Жіноча'
+SET @NameOfTheSex = N'Р–С–РЅРѕС‡Р°'
 
 IF NOT EXISTS (SELECT NULL FROM [Sexs] WHERE [Name] = @NameOfTheSex)
 	BEGIN
