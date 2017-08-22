@@ -52,7 +52,7 @@ namespace Utilities
             // Create a StringComparer an compare the hashes
             var comparer = StringComparer.OrdinalIgnoreCase;
 
-            if (0 == comparer.Compare(hashOfInput, EncodeString(hash).ToString()))
+            if (comparer.Compare(hashOfInput, EncodeString(hash).ToString()) == 0)
             {
                 return true;
             }
