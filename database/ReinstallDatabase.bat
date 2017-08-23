@@ -1,7 +1,5 @@
 set sqlserver="LINUXSERVER\SQLEXPRESS"
 
-sqlcmd -S %sqlserver% -i 0_DeleteDatabase.sql
-
 sqlcmd -S %sqlserver% -i 1_InstallDatabase.sql
 sqlcmd -S %sqlserver% -i 2_CreateDatabaseTables.sql
 sqlcmd -S %sqlserver% -i 3_DatabaseInitialization.sql

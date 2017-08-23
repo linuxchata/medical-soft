@@ -26,7 +26,7 @@ BEGIN TRY
 		SET @update_old_version = '1.1.20.0';
 		SET @update_old_version_int = 11200;
 		SET @update_version = '1.2.25.0';
-		SET @update_version_int = 1225;
+		SET @update_version_int = 12250;
 		SET @update_date = GETDATE();
 
 		IF EXISTS (SELECT NULL FROM [SystemUpdates] WHERE [UpdateVersion] = @update_version)
