@@ -7,7 +7,6 @@ A simple system for clients / patients registration built on .NET
 - Visual Studio 2015
 
 ### Steps to run
-- Create a database in SQL Server
-- Update the connection string in app.config in Client
-- Set Client project as StartUp project
-- Build and run the solution.
+- Create a database in SQL Server (installation scripts are location in database folder)
+- Update the connection string in app.config in src/Client folder
+- Build and run the solution
