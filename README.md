@@ -17,3 +17,4 @@ A simple system for clients / patients registration built on .NET
 - Unity
 - EntityFramework
 - log4net
+- Microsoft Expression Encoder
