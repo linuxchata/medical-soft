@@ -3,12 +3,12 @@ A simple system for clients / patients registration built on .NET
 
 ## Features
 - Clients / patients registration
-- Person registration
-- Reminder for appointments
+- Staff / personal registration
+- Reminder for staff / personal on clients / patients appointments
 - Email notifications
 - Scheduler for appointments
-- Automatic database backup
 - Supports of English, Ukrainian and Russian languages of user interface
+- Automatic database backup
 
 ## Visual Studio 2015 and SQL Server
 ### Prerequisites
