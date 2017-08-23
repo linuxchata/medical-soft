@@ -8,6 +8,7 @@ A simple system for clients / patients registration built on .NET
 - Email notifications
 - Scheduler for appointments
 - Automatic database backup
+- Supports of English, Ukrainian and Russian languages of user interface
 
 ## Visual Studio 2015 and SQL Server
 ### Prerequisites
