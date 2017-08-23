@@ -37,7 +37,7 @@ BEGIN TRY
 
 		IF EXISTS (SELECT NULL FROM [SystemUpdates] WHERE [UpdateVersion] = @update_version)
 			BEGIN
-				PRINT N'ERROR: Script version ' + @update_version + ' already exist in the database.'
+				PRINT N'ERROR: Script version ' + @update_version + ' already exist in the database.';
 				RaisError('ERROR: Script version %s already exist in the database. Update was aborted.', 15, 1, @update_version);
 			END
 
@@ -61,11 +61,11 @@ BEGIN TRY
 									@update_version_int,
 									@update_date);
 
-				PRINT 'SystemUpdates table was updated.'
+				PRINT 'SystemUpdates table was updated.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: SystemUpdates table was not updated.'
+				PRINT 'WARNING: SystemUpdates table was not updated.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sysobjects where name = 'NotificationTemplate' AND xtype = 'U')
@@ -84,11 +84,11 @@ BEGIN TRY
 							CONSTRAINT PK_NotificationTemplateId PRIMARY KEY ([Id])
 						);
 
-				PRINT 'NotificationTemplate table has been created.'
+				PRINT 'NotificationTemplate table has been created.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: NotificationTemplate table has not been created, since it already exists.'
+				PRINT 'WARNING: NotificationTemplate table has not been created, since it already exists.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sysobjects where name = 'NotificationGroupStatus' AND xtype = 'U')
@@ -104,7 +104,7 @@ BEGIN TRY
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: NotificationGroupStatus table has not been created, since it already exists.'
+				PRINT 'WARNING: NotificationGroupStatus table has not been created, since it already exists.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sysobjects where name = 'NotificationGroup' AND xtype = 'U')
@@ -128,11 +128,11 @@ BEGIN TRY
 							CONSTRAINT FK_Group_Status FOREIGN KEY ([Status]) REFERENCES [NotificationGroupStatus]([ID])
 						);
 
-				PRINT 'NotificationGroup table has been created.'
+				PRINT 'NotificationGroup table has been created.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: NotificationGroup table has not been created, since it already exists.'
+				PRINT 'WARNING: NotificationGroup table has not been created, since it already exists.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sysobjects where name = 'NotificationListStatus' AND xtype = 'U')
@@ -148,7 +148,7 @@ BEGIN TRY
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: NotificationListStatus table has not been created, since it already exists.'
+				PRINT 'WARNING: NotificationListStatus table has not been created, since it already exists.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sysobjects where name = 'NotificationList' AND xtype = 'U')
@@ -169,51 +169,51 @@ BEGIN TRY
 							CONSTRAINT UC_PatientIdGroupId UNIQUE ([PatientId], [GroupId])
 						);
 
-				PRINT 'NotificationList table has been created.'
+				PRINT 'NotificationList table has been created.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: NotificationList table has not been created, since it already exists.'
+				PRINT 'WARNING: NotificationList table has not been created, since it already exists.';
 			END
 
 		IF NOT EXISTS(SELECT * FROM sysobjects WHERE xtype = 'UQ' AND name = 'uc_nvKey')
 			BEGIN
-				ALTER TABLE [Setting] ADD CONSTRAINT uc_nvKey UNIQUE ([nvKey])
-				PRINT 'Unique constrant was added for nvKey column of the Setting table.'
+				ALTER TABLE [Setting] ADD CONSTRAINT uc_nvKey UNIQUE ([nvKey]);
+				PRINT 'Unique constrant was added for nvKey column of the Setting table.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: Unique constrant was not added for nvKey column of the Setting table, since it already exists.'
+				PRINT 'WARNING: Unique constrant was not added for nvKey column of the Setting table, since it already exists.';
 			END
 
 		IF NOT EXISTS(SELECT * FROM sysobjects WHERE xtype = 'UQ' AND name = 'uc_UpdateVersion')
 			BEGIN
-				ALTER TABLE [SystemUpdates] ADD CONSTRAINT uc_UpdateVersion UNIQUE ([UpdateVersion])
-				PRINT 'Unique constrant was added for UpdateVersion column of the SystemUpdates table.'
+				ALTER TABLE [SystemUpdates] ADD CONSTRAINT uc_UpdateVersion UNIQUE ([UpdateVersion]);
+				PRINT 'Unique constrant was added for UpdateVersion column of the SystemUpdates table.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: Unique constrant was not added for UpdateVersion column of the SystemUpdates table, since it already exists.'
+				PRINT 'WARNING: Unique constrant was not added for UpdateVersion column of the SystemUpdates table, since it already exists.';
 			END
 
 		IF NOT EXISTS(SELECT * FROM sysobjects WHERE xtype = 'UQ' AND name = 'uc_UpdateVersionInt')
 			BEGIN
-				ALTER TABLE [SystemUpdates] ADD CONSTRAINT uc_UpdateVersionInt UNIQUE ([UpdateVersionInt])
-				PRINT 'Unique constrant was added for UpdateVersionInt column of the SystemUpdates table.'
+				ALTER TABLE [SystemUpdates] ADD CONSTRAINT uc_UpdateVersionInt UNIQUE ([UpdateVersionInt]);
+				PRINT 'Unique constrant was added for UpdateVersionInt column of the SystemUpdates table.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: Unique constrant was not added for UpdateVersionInt column of the SystemUpdates table, since it already exists.'
+				PRINT 'WARNING: Unique constrant was not added for UpdateVersionInt column of the SystemUpdates table, since it already exists.';
 			END
 
 		IF NOT EXISTS(SELECT * FROM sysobjects WHERE xtype = 'UQ' AND name = 'uc_Key')
 			BEGIN
-				ALTER TABLE [LanguageKeys] ADD CONSTRAINT uc_Key UNIQUE ([Key])
-				PRINT 'Unique constrant was added for Key column of the LanguageKeys table.'
+				ALTER TABLE [LanguageKeys] ADD CONSTRAINT uc_Key UNIQUE ([Key]);
+				PRINT 'Unique constrant was added for Key column of the LanguageKeys table.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: Unique constrant was not added for Key column of the LanguageKeys table, since it already exists.'
+				PRINT 'WARNING: Unique constrant was not added for Key column of the LanguageKeys table, since it already exists.';
 			END
 
 		IF NOT EXISTS (SELECT * FROM sys.columns  where name = N'IsEmailNotificationAllowed' AND Object_ID = Object_ID(N'Patient'))
@@ -223,7 +223,7 @@ BEGIN TRY
 
 		PRINT 'Patient table has been altered.';
 
-		SET @setting_key = N'EmailNotificationOn'
+		SET @setting_key = N'EmailNotificationOn';
 		SET @bit_param = 1;
 
 		IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @setting_key)
@@ -236,7 +236,7 @@ BEGIN TRY
 						,@bit_param)
 			END
 
-		SET @setting_key = N'SmtpEnableSsl'
+		SET @setting_key = N'SmtpEnableSsl';
 		SET @bit_param = 1;
 
 		IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @setting_key)
@@ -249,8 +249,8 @@ BEGIN TRY
 						,@bit_param)
 			END
 
-		SET @setting_key = N'SmtpHost'
-		SET @param = 'smtp.yandex.ru';
+		SET @setting_key = N'SmtpHost';
+		SET @param = '';
 
 		IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @setting_key)
 			BEGIN
@@ -275,8 +275,8 @@ BEGIN TRY
 						,@int_param)
 			END
 
-		SET @setting_key = N'SmtpFromAddress'
-		SET @param = 'vindentlife@yandex.ru';
+		SET @setting_key = N'SmtpFromAddress';
+		SET @param = '';
 
 		IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @setting_key)
 			BEGIN
@@ -288,8 +288,8 @@ BEGIN TRY
 						,@param)
 			END
 
-		SET @setting_key = N'SmtpPassword'
-		SET @param = 'V!nDentl1fe#'; --Control question 'Dent Life'
+		SET @setting_key = N'SmtpPassword';
+		SET @param = '';
 
 		IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @setting_key)
 			BEGIN
