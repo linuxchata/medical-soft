@@ -6,6 +6,8 @@ A simple system for clients / patients registration built on .NET
 |-------------|----------------|-------------|
 | AppVeyor    | Windows        |[![Build status](https://ci.appveyor.com/api/projects/status/wfcu51b8g9s40avo?svg=true)](https://ci.appveyor.com/project/linuxchata/medical-soft/branch/master) |
 
+[![Build status](https://ci.appveyor.com/api/projects/status/wfcu51b8g9s40avo/branch/master?svg=true)](https://ci.appveyor.com/project/linuxchata/medical-soft/branch/master)
+
 
 ## Features
 - Clients / patients registration
