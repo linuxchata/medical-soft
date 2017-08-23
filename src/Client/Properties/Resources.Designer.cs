@@ -88,7 +88,7 @@ namespace Client.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Licensed to Dent Life.
+        ///   Looks up a localized string similar to Licensed to Company Name.
         /// </summary>
         public static string AboutDialogLicense {
             get {
