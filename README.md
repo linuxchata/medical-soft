@@ -20,7 +20,7 @@ A simple system for clients / patients registration built on .NET
 - Update the connection string in app.config in src/Client folder
 - Build and run the solution (login and password - a)
 
-## Technologies and frameworks used:
+## Technologies and frameworks used
 - WPF
 - CommonServiceLocator
 - Unity
