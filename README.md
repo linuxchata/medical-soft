@@ -6,7 +6,7 @@ A simple system for clients / patients registration built on .NET
 - Staff / personal registration
 - Reminder for staff / personal on clients / patients appointments
 - Email notifications
-- Scheduler for appointments
+- Scheduler for clients / patients appointments
 - Supports of English, Ukrainian and Russian languages of user interface
 - Automatic database backup
 
@@ -18,7 +18,7 @@ A simple system for clients / patients registration built on .NET
 ### Steps to run
 - Create a database in SQL Server (installation scripts are location in database folder)
 - Update the connection string in app.config in src/Client folder
-- Build and run the solution
+- Build and run the solution (login and password - a)
 
 ## Technologies and frameworks used:
 - WPF
