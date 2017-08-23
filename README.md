@@ -2,7 +2,10 @@
 A simple system for clients / patients registration built on .NET
 
 ## Build Status
-https://ci.appveyor.com/api/github/webhook?id=imaku9u9uvb3fl6d
+| Build server| Platform       | Status      |
+|-------------|----------------|-------------|
+| AppVeyor    | Windows        |[![Build status](https://ci.appveyor.com/api/github/webhook?id=imaku9u9uvb3fl6d/branch/master?svg=true)](https://ci.appveyor.com/project/linuxchata/medical-soft/branch/master) |
+
 
 ## Features
 - Clients / patients registration
