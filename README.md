@@ -1,6 +1,14 @@
 # Medical Soft
 A simple system for clients / patients registration built on .NET
 
+## Features
+- Clients / patients registration
+- Person registration
+- Reminder for appointments
+- Email notifications
+- Scheduler for appointments
+- Automatic database backup
+
 ## Visual Studio 2015 and SQL Server
 ### Prerequisites
 - SQL Server
