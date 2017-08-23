@@ -1,6 +1,9 @@
 # Medical Soft
 A simple system for clients / patients registration built on .NET
 
+## Build Status
+https://ci.appveyor.com/api/github/webhook?id=imaku9u9uvb3fl6d
+
 ## Features
 - Clients / patients registration
 - Staff / personal registration
