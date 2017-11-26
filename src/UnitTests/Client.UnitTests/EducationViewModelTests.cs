@@ -21,6 +21,7 @@ namespace Client.UnitTests
 
         private Mock<IEducationCache> educationCacheMock;
 
+        [SetUp]
         public void Init()
         {
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
@@ -44,11 +45,11 @@ namespace Client.UnitTests
         private EducationViewModel CreateEducationViewModel()
         {
             var viewModel = new EducationViewModel(
-                unitOfWorkMock.Object,
-                viewModelBuilderMock.Object,
-                viewBuilderMock.Object,
-                messageBoxProviderMock.Object,
-                educationCacheMock.Object);
+                this.unitOfWorkMock.Object,
+                this.viewModelBuilderMock.Object,
+                this.viewBuilderMock.Object,
+                this.messageBoxProviderMock.Object,
+                this.educationCacheMock.Object);
 
             return viewModel;
         }
