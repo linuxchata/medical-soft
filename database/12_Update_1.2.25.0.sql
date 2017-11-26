@@ -26,12 +26,12 @@ BEGIN TRY
 		SET @update_old_version = '1.1.20.0';
 		SET @update_old_version_int = 11200;
 		SET @update_version = '1.2.25.0';
-		SET @update_version_int = 1225;
+		SET @update_version_int = 12250;
 		SET @update_date = GETDATE();
 
 		IF EXISTS (SELECT NULL FROM [SystemUpdates] WHERE [UpdateVersion] = @update_version)
 			BEGIN
-				PRINT N'ERROR: Script version ' + @update_version + ' already exist in the database.'
+				PRINT N'ERROR: Script version ' + @update_version + ' already exist in the database.';
 				RaisError('ERROR: Script version %s already exist in the database. Update was aborted.', 15, 1, @update_version);
 			END
 
@@ -55,11 +55,11 @@ BEGIN TRY
 							@update_version_int,
 							@update_date);
 
-				PRINT 'SystemUpdates table was updated.'
+				PRINT 'SystemUpdates table was updated.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: SystemUpdates table was not updated.'
+				PRINT 'WARNING: SystemUpdates table was not updated.';
 			END
 
 		IF EXISTS (SELECT * FROM sysobjects where name = 'Patient' AND xtype = 'U')
@@ -69,11 +69,11 @@ BEGIN TRY
 						ALTER TABLE [Patient] ADD [Photo] VARBINARY(MAX) NULL;
 					END
 
-				PRINT 'Patient table has been updated.'
+				PRINT 'Patient table has been updated.';
 			END
 		ELSE
 			BEGIN
-				PRINT 'WARNING: Photo in Patient table has not been added, since it already exists.'
+				PRINT 'WARNING: Photo in Patient table has not been added, since it already exists.';
 			END
 
 	COMMIT TRANSACTION [Update1225Transaction]

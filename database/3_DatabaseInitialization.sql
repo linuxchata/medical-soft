@@ -198,7 +198,7 @@ IF NOT EXISTS (SELECT NULL FROM [Culture] WHERE Name = @CultureName)
 				,@CultureDescription)
   	END	
 
-SET @CultureName = N'ru-RU'
+SET @CultureName = N'en-US'
 SET @SettingKey = N'Language'
 
 IF NOT EXISTS (SELECT NULL FROM [Setting] WHERE nvKey = @SettingKey)
