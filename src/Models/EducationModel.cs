@@ -5,10 +5,13 @@ using Models.Attribute;
 
 namespace Models
 {
+    using System.Diagnostics;
+
     /// <summary>
     /// Represents model class for education.
     /// </summary>
     [Table("Education")]
+    [DebuggerDisplay("{Name}")]
     public sealed class EducationModel : ModelBase2<EducationModel>
     {
         #region Private Fields

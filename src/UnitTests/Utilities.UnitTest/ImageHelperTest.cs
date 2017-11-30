@@ -10,10 +10,10 @@ namespace Utilities.UnitTest
         {
             // Arrange
             // Act
-            var isImage = ImageHelper.IsImage(null);
+            var image = ImageHelper.IsImage(null);
 
             // Asset
-            Assert.That(isImage, Is.False, "Unexpected result.");
+            Assert.That(image, Is.False, "Unexpected result.");
         }
 
         [Test]
@@ -21,10 +21,10 @@ namespace Utilities.UnitTest
         {
             // Arrange
             // Act
-            var isImage = ImageHelper.IsImage("WrongFilePath");
+            var image = ImageHelper.IsImage("WrongFilePath");
 
             // Asset
-            Assert.That(isImage, Is.False, "Unexpected result.");
+            Assert.That(image, Is.False, "Unexpected result.");
         }
     }
 }

@@ -76,7 +76,7 @@ namespace DataAccess
         /// <summary>
         /// Gets education repository.
         /// </summary>
-        public IEducationRepository<EducationModel, int> EducationRepository { get; private set; }
+        public IEducationRepository<EducationModel, int> EducationRepository { get; set; }
 
         /// <summary>
         /// Gets login repository.
