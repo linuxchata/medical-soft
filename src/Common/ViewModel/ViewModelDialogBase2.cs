@@ -115,7 +115,12 @@ namespace Common.ViewModel
         /// </summary>
         protected virtual void CloseDialog()
         {
-            Application.Current.Dispatcher.BeginInvoke(DispatcherPriority.ApplicationIdle, new Action(this.OnRequestClose));
+            if (Application.Current != null)
+            {
+                Application.Current.Dispatcher.BeginInvoke(
+                    DispatcherPriority.ApplicationIdle,
+                    new Action(this.OnRequestClose));
+            }
         }
     }
 }

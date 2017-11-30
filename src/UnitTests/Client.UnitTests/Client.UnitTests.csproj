@@ -74,6 +74,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EducationDialogViewModelTests.cs" />
     <Compile Include="EducationViewModelTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SynchronousTaskScheduler.cs" />

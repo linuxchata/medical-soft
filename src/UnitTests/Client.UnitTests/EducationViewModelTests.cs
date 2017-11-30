@@ -12,11 +12,10 @@ using Models;
 using Moq;
 using NUnit.Framework;
 using Ploeh.AutoFixture;
+using Ploeh.AutoFixture.AutoMoq;
 
 namespace Client.UnitTests
 {
-    using Ploeh.AutoFixture.AutoMoq;
-
     [TestFixture]
     public class EducationViewModelTests
     {
