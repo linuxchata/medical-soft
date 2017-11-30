@@ -1,8 +1,8 @@
-﻿namespace Client.UnitTests
-{
-    using System.Collections.Generic;
-    using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 
+namespace Client.UnitTests
+{
     public class SynchronousTaskScheduler : TaskScheduler
     {
         protected override void QueueTask(Task task)
