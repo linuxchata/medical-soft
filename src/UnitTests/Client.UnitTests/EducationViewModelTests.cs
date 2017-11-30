@@ -15,6 +15,8 @@ using Ploeh.AutoFixture;
 
 namespace Client.UnitTests
 {
+    using Ploeh.AutoFixture.AutoMoq;
+
     [TestFixture]
     public class EducationViewModelTests
     {
@@ -33,7 +35,7 @@ namespace Client.UnitTests
         [SetUp]
         public void Init()
         {
-            this.fixture = new Fixture();
+            this.fixture = new Fixture().Customize(new AutoMoqCustomization());
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.viewModelBuilderMock = new Mock<IViewModelBuilder>();
             this.viewBuilderMock = new Mock<IViewBuilder>();
@@ -46,7 +48,7 @@ namespace Client.UnitTests
         {
             // Arrange
             // Act
-            var viewModel = this.CreateEducationViewModel();
+            var viewModel = this.CreateEducationViewModel(true);
 
             // Assert
             Assert.That(viewModel, Is.Not.Null);
@@ -70,12 +72,18 @@ namespace Client.UnitTests
             CollectionAssert.AreEqual(educationModels.ToList(), viewModel.Model.ToList());
         }
 
-        private EducationViewModel CreateEducationViewModel()
+        private EducationViewModel CreateEducationViewModel(bool useAutoMock = false)
         {
             EducationViewModel viewModel = null;
             var scheduler = new SynchronousTaskScheduler();
             Task.Factory.StartNew(
                 () =>
+                {
+                    if (useAutoMock)
+                    {
+                        viewModel = this.fixture.Create<EducationViewModel>();
+                    }
+                    else
                     {
                         viewModel = new EducationViewModel(
                             this.unitOfWorkMock.Object,
@@ -83,7 +91,8 @@ namespace Client.UnitTests
                             this.viewBuilderMock.Object,
                             this.messageBoxProviderMock.Object,
                             this.educationCacheMock.Object);
-                    },
+                    }
+                },
                 CancellationToken.None,
                 TaskCreationOptions.None,
                 scheduler);
