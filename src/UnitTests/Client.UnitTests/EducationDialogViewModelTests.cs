@@ -5,7 +5,6 @@ using System.Windows.Input;
 using Client.ViewModel.Dialogs;
 using Common.Communication;
 using Common.Enumeration;
-using Common.ViewModel;
 using Contracts;
 using DataAccess;
 using Models;
@@ -37,7 +36,7 @@ namespace Client.UnitTests
             var sut = this.fixture.Create<EducationDialogViewModel>();
 
             // Act
-            ConcurrentExecute<EducationDialogViewModel, EducationModel>(sut.HandleCommand);
+            this.ConcurrentExecute(sut.HandleCommand);
 
             // Assert
             Assert.That(sut.Status, Is.EqualTo(LoadingStatus.Added));
@@ -58,7 +57,7 @@ namespace Client.UnitTests
             var sut = this.fixture.Create<EducationDialogViewModel>();
 
             // Act
-            ConcurrentExecute<EducationDialogViewModel, EducationModel>(sut.HandleCommand);
+            this.ConcurrentExecute(sut.HandleCommand);
 
             // Assert
             Assert.That(sut.Status, Is.EqualTo(LoadingStatus.Failed));
@@ -99,9 +98,7 @@ namespace Client.UnitTests
             return response;
         }
 
-        private void ConcurrentExecute<T, TModel>(ICommand command)
-            where T : ViewModelDialogBase2<TModel>
-            where TModel : ModelBase<TModel>
+        private void ConcurrentExecute(ICommand command)
         {
             var scheduler = new SynchronousTaskScheduler();
             Task.Factory.StartNew(
