@@ -6,7 +6,7 @@ using WpfEditor.View;
 namespace WpfEditor.Core
 {
     /// <summary>
-    /// Represents html handler.
+    /// Represents HTML handler.
     /// </summary>
     public class HtmlHandler
     {
@@ -35,18 +35,18 @@ namespace WpfEditor.Core
         }
 
         /// <summary>
-        /// Get inner html.
+        /// Get inner HTML.
         /// </summary>
-        /// <returns>Returns inner html.</returns>
+        /// <returns>Returns inner HTML.</returns>
         public string GetInnerHtml()
         {
             return this.documentFormatter.GetInnerHtml();
         }
 
         /// <summary>
-        /// Get outer html.
+        /// Get outer HTML.
         /// </summary>
-        /// <returns>Returns outer html.</returns>
+        /// <returns>Returns outer HTML.</returns>
         public string GetOuterHtml()
         {
             return this.documentFormatter.GetOuterHtml();
@@ -216,7 +216,7 @@ namespace WpfEditor.Core
         {
             var builder = new ViewBuilder();
             var viewModel = new ViewModel.AddLinkViewModel(this.documentFormatter);
-            builder.Build<View.AddLink, ViewModel.AddLinkViewModel>(viewModel);
+            builder.Build<AddLink, ViewModel.AddLinkViewModel>(viewModel).ShowDialog();
         }
 
         /// <summary>
@@ -226,7 +226,7 @@ namespace WpfEditor.Core
         {
             var builder = new ViewBuilder();
             var viewModel = new ViewModel.AddImageViewModel(this.documentFormatter);
-            builder.Build<View.AddImage, ViewModel.AddImageViewModel>(viewModel);
+            builder.Build<AddImage, ViewModel.AddImageViewModel>(viewModel).ShowDialog();
         }
     }
 }
