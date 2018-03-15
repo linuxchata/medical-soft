@@ -28,6 +28,6 @@ A simple system for clients / patients registration built on .NET
 - WPF
 - CommonServiceLocator
 - Unity
-- EntityFramework
+- SQL Server / EntityFramework
 - log4net
 - Microsoft Expression Encoder
